@@ -1,0 +1,40 @@
+{
+  "name": "vue-mermaid-string",
+  "version": "1.0.0",
+  "description": "A Vue.js component that turns a Mermaid string into a diagram.",
+  "repository": "dword-design/vue-mermaid-string",
+  "funding": "https://www.buymeacoffee.com/dword",
+  "license": "MIT",
+  "author": "Sebastian Landwehr <info@dword-design.de>",
+  "main": "dist/index.ssr.js",
+  "unpkg": "dist/index.min.js",
+  "module": "dist/index.esm.js",
+  "browser": "dist/index.esm.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "check-unknown-files": "base check-unknown-files",
+    "commit": "base commit",
+    "lint": "base lint",
+    "prepare": "base prepare",
+    "prepublishOnly": "base prepublishOnly",
+    "test": "base test"
+  },
+  "dependencies": {
+    "mermaid": "^8.8.3"
+  },
+  "devDependencies": {
+    "@dword-design/base": "^7.8.2",
+    "@dword-design/base-config-component": "^1.1.7",
+    "@dword-design/functions": "^1.2.2",
+    "@dword-design/puppeteer": "^3.0.1",
+    "@dword-design/tester": "^1.2.1",
+    "@dword-design/tester-plugin-component": "^1.0.0",
+    "@dword-design/tester-plugin-puppeteer": "^1.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "baseConfig": "@dword-design/component"
+}

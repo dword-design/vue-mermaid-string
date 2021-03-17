@@ -1,0 +1,29 @@
+{
+  "extends": [
+    ":semanticCommits"
+  ],
+  "labels": [
+    "maintenance"
+  ],
+  "semanticCommitScope": null,
+  "packageRules": [
+    {
+      "packagePatterns": [
+        "*"
+      ],
+      "semanticCommitType": "chore"
+    },
+    {
+      "depTypeList": [
+        "dependencies",
+        "devDependencies",
+        "peerDependencies",
+        "optionalDependencies"
+      ],
+      "semanticCommitType": "fix"
+    }
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  }
+}
