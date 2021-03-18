@@ -19,7 +19,8 @@
     "lint": "base lint",
     "prepare": "base prepare",
     "prepublishOnly": "base prepublishOnly",
-    "test": "base test"
+    "test": "base test",
+    "test:raw": "base test:raw"
   },
   "dependencies": {
     "mermaid": "^8.8.3"
@@ -36,5 +37,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "baseConfig": "@dword-design/component"
+  "baseConfig": {
+    "name": "@dword-design/component",
+    "testInContainer": true
+  }
 }
