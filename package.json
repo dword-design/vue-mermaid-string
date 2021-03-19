@@ -14,7 +14,7 @@
     "dist"
   ],
   "scripts": {
-    "check-unknown-files": "base check-unknown-files",
+    "checkUnknownFiles": "base checkUnknownFiles",
     "commit": "base commit",
     "lint": "base lint",
     "prepare": "base prepare",
