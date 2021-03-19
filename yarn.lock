@@ -1139,9 +1139,9 @@
     micromatch "^4.0.2"
 
 "@dword-design/base@^7.8.2":
-  version "7.9.4"
-  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-7.9.4.tgz#19990d3ff0934d0491859e7cf6bdc0d60a9ceaec"
-  integrity sha512-TStUREtQ4bUSe76q18ROwST1bz1Klms8PG3+BxG6v5eT5c9GZapmxlvyCWcXQzLprA+sBID9PAsTY8VtFoQieQ==
+  version "7.9.5"
+  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-7.9.5.tgz#b5b0b75fb597845d16fece0e5c5683da78278bdc"
+  integrity sha512-xLmJ8YmqZERTlba0pl9frmMoIGAdt18XxKmf5W/rAraWlNotW1TBYOuyInTskKnuAzw/MwweMH6zGYEviI0pRw==
   dependencies:
     "@babel/core" "^7.6.4"
     "@babel/register" "^7.6.2"
@@ -1303,9 +1303,9 @@
     rollup-plugin-vue dword-design/rollup-plugin-vue#fork
 
 "@dword-design/tester-plugin-component@^1.0.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-1.1.0.tgz#32918e7041a57d3c57c978873db4a9d0c7a6e738"
-  integrity sha512-oV0myA3ZjssFHuGwkSWSSEwNNNglkjHuEyqxHXSmDGxUqtS7uMQ1p+uak6Z210uwMYOE+Sv3Pl+vLSlV7TctkA==
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-1.1.1.tgz#3979defa5837e205a98a5d43eed0a76e61518ac6"
+  integrity sha512-Eourl+Ipq6bUwDNFUECgjReDf264cR0+WXptPSaZUdb9tx4HYtJFZ3LoEhF/IB0fYAKuA7cEJV61we7b7z0UBQ==
   dependencies:
     "@dword-design/functions" "^1.2.1"
     depcheck-package-name "^1.0.2"
@@ -1793,9 +1793,9 @@
   integrity sha512-NxF1yfYOUO92rCx3dwvA2onF30Vdlg7YUkMVXkeptqpzA3tRLplThhFleV/UKWFgh7rpKu1yYRbvNDUtzSopKA==
 
 "@octokit/plugin-paginate-rest@^2.6.2":
-  version "2.13.2"
-  resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.13.2.tgz#7b8244a0dd7a31135ba2adc58a533213837bfe87"
-  integrity sha512-mjfBcla00UNS4EI/NN7toEbUM45ow3kk4go+LxsXAFLQodsrXcIZbftUhXTqi6ZKd+r6bcqMI+Lv4dshLtFjww==
+  version "2.13.3"
+  resolved "https://registry.yarnpkg.com/@octokit/plugin-paginate-rest/-/plugin-paginate-rest-2.13.3.tgz#f0f1792230805108762d87906fb02d573b9e070a"
+  integrity sha512-46lptzM9lTeSmIBt/sVP/FLSTPGx6DCzAdSX3PfeJ3mTf4h9sGC26WpaQzMEq/Z44cOcmx8VsOhO+uEgE3cjYg==
   dependencies:
     "@octokit/types" "^6.11.0"
 
@@ -3567,9 +3567,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001181, caniuse-lite@^1.0.30001198:
-  version "1.0.30001202"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001202.tgz#4cb3bd5e8a808e8cd89e4e66c549989bc8137201"
-  integrity sha512-ZcijQNqrcF8JNLjzvEiXqX4JUYxoZa7Pvcsd9UD8Kz4TvhTonOSNRsK+qtvpVL4l6+T1Rh4LFtLfnNWg6BGWCQ==
+  version "1.0.30001203"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001203.tgz#a7a34df21a387d9deffcd56c000b8cf5ab540580"
+  integrity sha512-/I9tvnzU/PHMH7wBPrfDMSuecDeUKerjCPX7D0xBbaJZPxoT9m+yYxt0zCTkcijCkjTdim3H56Zm0i5Adxch4w==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -9377,9 +9377,9 @@ mem@^1.1.0:
     mimic-fn "^1.0.0"
 
 mem@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/mem/-/mem-8.0.0.tgz#b5e4b6d2d241c6296da05436173b4d0c7ae1f9ac"
-  integrity sha512-qrcJOe6uD+EW8Wrci1Vdiua/15Xw3n/QnaNXE7varnB6InxSk7nu3/i5jfy3S6kWxr8WYJ6R1o0afMUtvorTsA==
+  version "8.1.0"
+  resolved "https://registry.yarnpkg.com/mem/-/mem-8.1.0.tgz#445e47827fb757a4e5f35b0a6a62743cbfdc0a0d"
+  integrity sha512-FIkgXo0kTi3XpvaznV5Muk6Y6w8SkdmRXcY7ZLonQesuYezp59UooLxAVBcGuN6PH2tXN84mR3vyzSc6oSMUfA==
   dependencies:
     map-age-cleaner "^0.1.3"
     mimic-fn "^3.1.0"
@@ -12243,7 +12243,7 @@ punycode@^2.1.0, punycode@^2.1.1:
 
 puppeteer-to-istanbul@dword-design/puppeteer-to-istanbul#fork:
   version "1.4.0"
-  resolved "https://codeload.github.com/dword-design/puppeteer-to-istanbul/tar.gz/98ae19a61b59841c68e6b02d295f45b4d55bd568"
+  resolved "https://codeload.github.com/dword-design/puppeteer-to-istanbul/tar.gz/686ffce21bf8c175eb26bf40005c193818de8256"
   dependencies:
     clone "^2.1.2"
     mkdirp "^1.0.4"
@@ -12279,9 +12279,11 @@ qrcode-terminal@^0.12.0:
   integrity sha512-EXtzRZmC+YGmGlDFbXKxQiMZNwCLEO6BANKXG4iCtSIM0yqc/pappSx3RIKr4r0uh5JsBckOXeKrB3Iz7mdQpQ==
 
 qs@^6.9.4:
-  version "6.9.6"
-  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.6.tgz#26ed3c8243a431b2924aca84cc90471f35d5a0ee"
-  integrity sha512-TIRk4aqYLNoJUbd+g2lEdz5kLWIuTMRagAXxl78Q0RiVjAOugHmeKNGdd3cwo/ktpf9aL9epCfFqWDEKysUlLQ==
+  version "6.10.0"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.10.0.tgz#8b6519121ab291c316a3e4d49cecf6d13d8c7fe5"
+  integrity sha512-yjACOWijC6L/kmPZZAsVBNY2zfHSIbpdpL977quseu56/8BZ2LoF5axK2bGhbzhVKt7V9xgWTtpyLbxwIoER0Q==
+  dependencies:
+    side-channel "^1.0.4"
 
 qs@~6.5.2:
   version "6.5.2"
