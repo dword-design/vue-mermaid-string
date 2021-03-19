@@ -32,7 +32,8 @@
     "@dword-design/puppeteer": "^3.0.1",
     "@dword-design/tester": "^1.2.1",
     "@dword-design/tester-plugin-component": "^1.0.0",
-    "@dword-design/tester-plugin-puppeteer": "^1.0.3"
+    "@dword-design/tester-plugin-puppeteer": "^1.0.3",
+    "puppeteer-to-istanbul": "dword-design/puppeteer-to-istanbul#fork"
   },
   "publishConfig": {
     "access": "public"
