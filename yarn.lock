@@ -1287,10 +1287,13 @@
     vue "^2.6.12"
     with-local-tmp-dir "^2.2.15"
 
-"@dword-design/tester-plugin-puppeteer@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-puppeteer/-/tester-plugin-puppeteer-1.0.3.tgz#a0a90e3b895061c9bce9141cd5e9c6eb425d20b4"
-  integrity sha512-1j6RnCNi+ve7Q0dgYddZc5OAOPD/YydG6BxxIdAqtknRmxpouB5TsMPdp8M/5cp/QRQCdRE36mcNHEkNMHSI0A==
+"@dword-design/tester-plugin-puppeteer@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-puppeteer/-/tester-plugin-puppeteer-2.0.0.tgz#8c189feade634dd465b1e0b4294de5f5c1b0d866"
+  integrity sha512-qTM1MgDrCezh3k7sQXVJmxCY+xHpfwgSm6r9R7pYt2vT7Px/UpKsY6CO/LObDVxqvjcwbz9Z5OKqKb80L0GFmg==
+  dependencies:
+    "@dword-design/functions" "^1.2.2"
+    puppeteer-to-istanbul "github:dword-design/puppeteer-to-istanbul#fork"
 
 "@dword-design/tester@^1.2.1":
   version "1.2.1"
@@ -12225,7 +12228,7 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-puppeteer-to-istanbul@dword-design/puppeteer-to-istanbul#fork:
+puppeteer-to-istanbul@dword-design/puppeteer-to-istanbul#fork, "puppeteer-to-istanbul@github:dword-design/puppeteer-to-istanbul#fork":
   version "1.4.0"
   uid cdce72d9b1ff439ee82b9d17c46197c9445f1560
   resolved "https://codeload.github.com/dword-design/puppeteer-to-istanbul/tar.gz/cdce72d9b1ff439ee82b9d17c46197c9445f1560"
