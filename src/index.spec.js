@@ -6,7 +6,6 @@ import testerPluginPuppeteer from '@dword-design/tester-plugin-puppeteer'
 export default tester(
   {
     works: {
-      componentPath: require.resolve('./index.vue'),
       page: endent`
       <template>
         <client-only>
@@ -37,5 +36,11 @@ export default tester(
       },
     },
   },
-  [testerPluginComponent({ pluginMode: 'client' }), testerPluginPuppeteer()]
+  [
+    testerPluginComponent({
+      componentPath: require.resolve('./index.vue'),
+      pluginMode: 'client',
+    }),
+    testerPluginPuppeteer(),
+  ]
 )
