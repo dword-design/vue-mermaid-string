@@ -1,6 +1,6 @@
 {
   "name": "vue-mermaid-string",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A Vue.js component that turns a Mermaid string into a diagram.",
   "repository": "dword-design/vue-mermaid-string",
   "funding": "https://www.buymeacoffee.com/dword",
