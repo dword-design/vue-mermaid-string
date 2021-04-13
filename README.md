@@ -22,7 +22,11 @@
     </a><a href="https://david-dm.org/dword-design/vue-mermaid-string">
       <img src="https://img.shields.io/david/dword-design/vue-mermaid-string" alt="Dependency status">
     </a><img src="https://img.shields.io/badge/renovate-enabled-brightgreen" alt="Renovate enabled"><br/><a href="https://gitpod.io/#https://github.com/dword-design/vue-mermaid-string">
-      <img src="https://gitpod.io/button/open-in-gitpod.svg" alt="Open in Gitpod">
+      <img
+        src="https://gitpod.io/button/open-in-gitpod.svg"
+        alt="Open in Gitpod"
+        height="32"
+      >
     </a><a href="https://www.buymeacoffee.com/dword">
       <img
         src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg"
@@ -67,9 +71,7 @@ Usage is simple, you pass a Mermaid string to the component and you get a visual
 
 ```html
 <template>
-  <client-only>
-    <vue-mermaid-string :value="diagram" />
-  </client-only>
+  <vue-mermaid-string :value="diagram" />
 </template>
 ```
 
@@ -91,7 +93,7 @@ export default {
 <!-- LICENSE/ -->
 ## Contribute
 
-Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/vue-mermaid-string/issues) or [pull request](https://github.com/dword-design/vue-mermaid-string/pulls)! ⚙️
+Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/vue-mermaid-string/issues) or a [pull request](https://github.com/dword-design/vue-mermaid-string/pulls)! ⚙️
 
 ## Support
 
