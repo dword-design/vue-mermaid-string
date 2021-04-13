@@ -1,25 +1,33 @@
 jobs:
-  cancel-existing:
+  build:
     if: "!contains(github.event.head_commit.message, '[skip ci]')"
     runs-on: ubuntu-latest
     steps:
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: rokroskar/workflow-run-cleanup-action@v0.3.2
-  release:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
       - uses: actions/checkout@v2
         with:
+          fetch-depth: 0
           lfs: true
+          ref: ${{ github.event.pull_request.head.repo.full_name == github.repository &&
+            github.event.pull_request.head.ref || '' }}
       - uses: actions/setup-node@v2
         with:
           node-version: 12
       - run: git config --global user.email "actions@github.com"
       - run: git config --global user.name "GitHub Actions"
       - run: yarn --frozen-lockfile
-      - run: yarn lint
+      - run: yarn test
+      - if: failure()
+        uses: actions/upload-artifact@v2
+        with:
+          path: "**/__image_snapshots__/__diff_output__"
+      - uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
+          token: ${{ secrets.CODECOV_TOKEN }}
+      - run: yarn checkUnknownFiles
       - env:
           GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -31,38 +39,9 @@ jobs:
         if: github.ref == 'refs/heads/master'
         name: Release
         run: yarn semantic-release
-  test:
-    needs: cancel-existing
-    runs-on: ${{ matrix.os }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-          lfs: true
-      - uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node }}
-      - run: yarn --frozen-lockfile
-      - run: yarn test
-      - if: failure()
-        uses: actions/upload-artifact@v2
-        with:
-          path: "**/__image_snapshots__/__diff_output__"
-      - run: yarn checkUnknownFiles
-      - if: matrix.os == 'ubuntu-latest' && matrix.node == 12
-        uses: codecov/codecov-action@v1
-        with:
-          fail_ci_if_error: true
-          token: ${{ secrets.CODECOV_TOKEN }}
-    strategy:
-      matrix:
-        node:
-          - 10
-          - 12
-        os:
-          - ubuntu-latest
 name: build
 on:
+  pull_request: {}
   push:
     branches:
-      - "**"
+      - master
