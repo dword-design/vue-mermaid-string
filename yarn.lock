@@ -1100,10 +1100,10 @@
     find-up "^5.0.0"
     param-case "^3.0.3"
 
-"@dword-design/base-config-component@^1.1.7":
-  version "1.1.11"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-1.1.11.tgz#ef1e2ca794fcb8f9ebce801596999852e202ba76"
-  integrity sha512-Iyg6hWYp6DesFz/HVRuzilyuOG5yUTAk96Q90tbJRqFf70VmZ0OzmyVqN46DEJi7mX/372yRyR6aKL0a9ZDGRA==
+"@dword-design/base-config-component@^1.1.11":
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-1.1.12.tgz#a85d7a10869e5fe00dba79eac64f8ae9b52a98d4"
+  integrity sha512-EoJqkzL1AmUQu2okCScGsm6kivF5zmllJyyjZwT0sT3F1Xf0MD+GR/b1YGS9O70FpqpSkzi9h4JqKWfUgaO8YA==
   dependencies:
     "@dword-design/base-config-node" "^1.8.8"
     "@dword-design/depcheck-parser-sass" "^1.1.1"
@@ -1114,7 +1114,7 @@
     execa "^5.0.0"
     fs-extra "^9.0.1"
     load-pkg "^4.0.0"
-    parse-pkg-name "^2.0.0"
+    parse-packagejson-name "^1.0.1"
     pascal-case "^3.1.1"
     rollup "^2.22.1"
 
@@ -10500,6 +10500,11 @@ parse-package-name@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/parse-package-name/-/parse-package-name-0.1.0.tgz#3f44dd838feb4c2be4bf318bae4477d7706bade4"
   integrity sha1-P0Tdg4/rTCvkvzGLrkR313BrreQ=
+
+parse-packagejson-name@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/parse-packagejson-name/-/parse-packagejson-name-1.0.1.tgz#ab5b322cd38c87b4a01620683cca56ad74c006a0"
+  integrity sha1-q1syLNOMh7SgFiBoPMpWrXTABqA=
 
 parse-passwd@^1.0.0:
   version "1.0.0"
