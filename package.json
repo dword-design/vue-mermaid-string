@@ -26,7 +26,7 @@
     "mermaid": "^8.8.3"
   },
   "devDependencies": {
-    "@dword-design/base": "^7.8.2",
+    "@dword-design/base": "^7.13.2",
     "@dword-design/base-config-component": "^1.1.7",
     "@dword-design/functions": "^3.0.0",
     "@dword-design/puppeteer": "^3.0.1",
