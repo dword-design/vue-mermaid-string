@@ -40,5 +40,7 @@
   "baseConfig": {
     "name": "@dword-design/component",
     "testInContainer": true
-  }
+  },
+  "homepage": "",
+  "keywords": []
 }
