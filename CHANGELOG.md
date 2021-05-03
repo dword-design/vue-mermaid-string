@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v1.0.5...v2.0.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v8 ([#14](https://github.com/dword-design/vue-mermaid-string/issues/14)) ([e5e50dd](https://github.com/dword-design/vue-mermaid-string/commit/e5e50dd706d0fb5cd747d461a51048a1a2b195d8))
+
+
+### BREAKING CHANGES
+
+* require Node.js >= 12
+
+Co-authored-by: Renovate Bot <bot@renovateapp.com>
+Co-authored-by: Sebastian Landwehr <info@dword-design.de>
+Co-authored-by: GitHub Actions <actions@github.com>
+
 ## [1.0.5](https://github.com/dword-design/vue-mermaid-string/compare/v1.0.4...v1.0.5) (2021-04-26)
 
 
