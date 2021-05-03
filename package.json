@@ -28,7 +28,7 @@
   "devDependencies": {
     "@dword-design/base": "^8.0.0",
     "@dword-design/base-config-component": "^1.1.7",
-    "@dword-design/functions": "^3.0.0",
+    "@dword-design/functions": "^4.0.0",
     "@dword-design/puppeteer": "^4.0.0",
     "@dword-design/tester": "^1.2.1",
     "@dword-design/tester-plugin-component": "^1.0.0",
