@@ -34,6 +34,9 @@
     "@dword-design/tester-plugin-component": "^1.0.0",
     "@dword-design/tester-plugin-puppeteer": "^2.0.0"
   },
+  "engines": {
+    "node": ">=12"
+  },
   "publishConfig": {
     "access": "public"
   },
