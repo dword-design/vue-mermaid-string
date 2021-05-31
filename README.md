@@ -53,7 +53,58 @@
 A Vue.js component that turns a Mermaid string into a diagram.
 <!-- /DESCRIPTION -->
 
+<!-- INSTALL/ -->
 ## Install Via a Package Manager
+```bash
+# npm
+$ npm install vue-mermaid-string
+
+# Yarn
+$ yarn add vue-mermaid-string
+```
+
+Add to local components:
+
+```js
+<script>
+import VueMermaidString from 'vue-mermaid-string'
+
+export default {
+  components: {
+    VueMermaidString,
+  },
+}
+</script>
+```
+
+Or register as global component:
+
+```js
+import Vue from 'vue'
+import VueMermaidString from 'vue-mermaid-string'
+
+Vue.component('VueMermaidString', VueMermaidString)
+```
+
+Or register as plugin:
+
+```js
+import Vue from 'vue'
+import VueMermaidString from 'vue-mermaid-string'
+
+Vue.use(VueMermaidString)
+```
+
+## Install Via CDN
+
+```html
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/vue-mermaid-string"></script>
+```
+<!-- /INSTALL -->
+
+<!--## Install Via a Package Manager
 ```bash
 # npm
 $ npm install vue-mermaid-string
@@ -98,7 +149,7 @@ Vue.use(VueMermaidString)
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="https://unpkg.com/vue-mermaid-string"></script>
-```
+```-->
 
 ## Usage
 
