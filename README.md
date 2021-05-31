@@ -65,9 +65,9 @@ $ yarn add vue-mermaid-string
 Add to Local Components:
 
 ```js
+import VueMermaidString from 'vue-mermaid-string'
+
 export default {
-  import VueMermaidString from 'vue-mermaid-string'
-  
   components: {
     VueMermaidString,
   },
