@@ -165,7 +165,7 @@ Usage is simple, you pass a Mermaid string to the component and you get a visual
 <script>
 export default {
   computed: {
-    diagram: () => 'graph TD\n    A --> B',
+    diagram: () => 'graph TD\n  A --> B',
   },
 }
 </script>
