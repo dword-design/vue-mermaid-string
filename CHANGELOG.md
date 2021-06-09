@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/dword-design/vue-mermaid-string/compare/v2.0.6...v2.0.7) (2021-06-09)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#22](https://github.com/dword-design/vue-mermaid-string/issues/22)) ([fa5e983](https://github.com/dword-design/vue-mermaid-string/commit/fa5e98323d7168dc1ac8ddd53424f928d36e07d6))
+
 ## [2.0.6](https://github.com/dword-design/vue-mermaid-string/compare/v2.0.5...v2.0.6) (2021-05-31)
 
 
