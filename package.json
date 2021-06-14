@@ -5,7 +5,7 @@
   "repository": "dword-design/vue-mermaid-string",
   "funding": "https://www.buymeacoffee.com/dword",
   "license": "MIT",
-  "author": "Sebastian Landwehr <info@dword-design.de>",
+  "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
   "main": "dist/index.ssr.js",
   "unpkg": "dist/index.min.js",
   "module": "dist/index.esm.js",
