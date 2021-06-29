@@ -39,12 +39,5 @@
   },
   "publishConfig": {
     "access": "public"
-  },
-  "baseConfig": {
-    "name": "@dword-design/component",
-    "testInContainer": true,
-    "cdnExtraScripts": [
-      "<script src=\"https://unpkg.com/mermaid/dist/mermaid.min.js\"></script>"
-    ]
   }
 }

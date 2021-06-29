@@ -1,0 +1,10 @@
+{
+  "name": "@dword-design/component",
+  "testInContainer": true,
+  "cdnExtraScripts": [
+    "<script src=\"https://unpkg.com/mermaid/dist/mermaid.min.js\"></script>"
+  ],
+  "seeAlso": [
+    { "repository": "nuxt-mermaid-string", "description": "Embed a Mermaid diagram in a Nuxt.js app by providing its diagram string." }
+  ]
+}

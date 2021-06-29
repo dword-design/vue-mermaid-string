@@ -99,7 +99,6 @@ Vue.use(VueMermaidString)
 
 ```html
 <script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="https://unpkg.com/vue-mermaid-string"></script>
 ```
 <!-- /INSTALL -->
@@ -205,6 +204,10 @@ Hey, I am Sebastian Landwehr, a freelance web developer, and I love developing w
 </p>
 
 Thanks a lot for your support! ❤️
+
+## See Also
+
+* [nuxt-mermaid-string](https://github.com/dword-design/nuxt-mermaid-string): Embed a Mermaid diagram in a Nuxt.js app by providing its diagram string.
 
 ## License
 
