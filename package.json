@@ -3,7 +3,7 @@
   "version": "2.0.9",
   "description": "A Vue.js component that turns a Mermaid string into a diagram.",
   "repository": "dword-design/vue-mermaid-string",
-  "funding": "https://www.buymeacoffee.com/dword",
+  "funding": "https://github.com/sponsors/dword-design",
   "license": "MIT",
   "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
   "main": "dist/index.ssr.js",
