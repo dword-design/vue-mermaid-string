@@ -96,7 +96,7 @@ import VueMermaidString from 'vue-mermaid-string'
 Vue.use(VueMermaidString)
 ```
 
-## Install Via CDN
+## Install via CDN
 
 ```html
 <script src="https://unpkg.com/vue"></script>
