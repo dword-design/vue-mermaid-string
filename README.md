@@ -53,6 +53,8 @@
 A Vue.js component that turns a Mermaid string into a diagram.
 <!-- /DESCRIPTION -->
 
+ℹ️ <sup>There is also [vue-mermaid](https://github.com/robin1liu/vue-mermaid), which works a bit differently. Structured data are passed to the component and the diagram string is generated behind the scenes. This component uses the diagram string directly, which is why it is called `vue-mermaid-string`. The advantage is that it always supports the latest language standard and is easier to use if you have an existing diagram. Depends on your use case which fits better.</sup>
+
 <!-- INSTALL/ -->
 ## Install via a package manager
 
