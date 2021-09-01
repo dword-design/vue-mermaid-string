@@ -5,6 +5,7 @@ mermaid.parseError = error => console.error(error)
 
 export default {
   mounted() {
+    window.mermaidClick = id => this.$emit('node-click', id)
     mermaid.initialize({
       securityLevel: 'loose',
       startOnLoad: false,
@@ -12,12 +13,12 @@ export default {
     })
     mermaid.init(this.value, this.$el)
   },
-  name: 'VueMermaidComponent',
+  name: 'VueMermaidString',
   props: {
     value: { type: String },
   },
   render() {
-    return <div class="foo">{this.value}</div>
+    return <div>{this.value}</div>
   },
 }
 </script>

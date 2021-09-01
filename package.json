@@ -32,7 +32,8 @@
     "@dword-design/puppeteer": "^5.0.0",
     "@dword-design/tester": "^2.0.0",
     "@dword-design/tester-plugin-component": "^2.0.0",
-    "@dword-design/tester-plugin-puppeteer": "^2.0.0"
+    "@dword-design/tester-plugin-puppeteer": "^2.0.0",
+    "chalk": "^4.1.2"
   },
   "engines": {
     "node": ">=12"
