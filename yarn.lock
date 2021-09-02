@@ -1166,12 +1166,12 @@
     "@babel/preset-env" "^7.6.3"
     "@babel/preset-typescript" "^7.13.0"
     "@dword-design/functions" "^4.0.0"
-    "@vue/babel-preset-jsx" "github:dword-design/jsx#fork-babel-preset-jsx"
+    "@vue/babel-preset-jsx" dword-design/jsx#fork-babel-preset-jsx
     babel-plugin-add-module-exports "^1.0.2"
     babel-plugin-macros "^3.0.1"
     babel-plugin-module-resolver "^4.0.0"
     babel-plugin-transform-imports "^2.0.0"
-    babel-plugin-wildcard "github:dword-design/babel-plugin-wildcard#fork"
+    babel-plugin-wildcard dword-design/babel-plugin-wildcard#fork
     depcheck-package-name "^2.0.0"
     find-up "^5.0.0"
     param-case "^3.0.3"
@@ -1337,7 +1337,7 @@
   integrity sha512-eq/X5VbfzM//zkKQZyHNUqoxuVZWIPa1EfMlbM6FZYjzWq2IzJbQNSfu6dp2Y6fDwWMPiYcH1gW1KqRIyhh2mw==
   dependencies:
     delay "^5.0.0"
-    endent "github:dword-design/endent#fork"
+    endent dword-design/endent#fork
     lodash "^4.17.15"
     tinycolor2 "^1.4.1"
 
@@ -1362,7 +1362,7 @@
     minimist "^1.2.5"
     parse-packagejson-name "^1.0.1"
     rollup-plugin-terser "^7.0.0"
-    rollup-plugin-vue "github:dword-design/rollup-plugin-vue#fork"
+    rollup-plugin-vue dword-design/rollup-plugin-vue#fork
 
 "@dword-design/tester-plugin-component@^2.0.0":
   version "2.0.8"
@@ -1384,7 +1384,7 @@
   integrity sha512-08oQbPkyplqT9e6jKm8KmVuweUShTKN57WXo0C96i/n2BtfVVapo5tYJJNe1hpJCINvw9Z/y4WUibSfVxfi4iQ==
   dependencies:
     is-docker "^2.2.1"
-    puppeteer-to-istanbul "github:dword-design/puppeteer-to-istanbul#fork"
+    puppeteer-to-istanbul dword-design/puppeteer-to-istanbul#fork
     xvfb "^0.4.0"
 
 "@dword-design/tester@^2.0.0":
@@ -2550,7 +2550,6 @@
 
 "@vue/babel-preset-jsx@github:dword-design/jsx#fork-babel-preset-jsx":
   version "1.1.2"
-  uid a73cb9961541a60a66b1b99a69a32e00bc66d336
   resolved "https://codeload.github.com/dword-design/jsx/tar.gz/a73cb9961541a60a66b1b99a69a32e00bc66d336"
   dependencies:
     "@vue/babel-helper-vue-jsx-merge-props" "^1.0.0"
@@ -2590,7 +2589,6 @@
 
 "@vue/babel-sugar-inject-h@dword-design/jsx#fork-babel-sugar-inject-h":
   version "1.1.2"
-  uid cc36a2200c059120f37944615fb2ec0e22f8f3cc
   resolved "https://codeload.github.com/dword-design/jsx/tar.gz/cc36a2200c059120f37944615fb2ec0e22f8f3cc"
   dependencies:
     "@babel/plugin-syntax-jsx" "^7.2.0"
@@ -2685,7 +2683,6 @@
 
 "@vue/component-compiler@dword-design/vue-component-compiler#fork":
   version "4.2.3"
-  uid f428eec2731f86664bcd40723ba61a333fd9e8d2
   resolved "https://codeload.github.com/dword-design/vue-component-compiler/tar.gz/f428eec2731f86664bcd40723ba61a333fd9e8d2"
   dependencies:
     "@vue/component-compiler-utils" "^3.0.0"
@@ -3430,7 +3427,6 @@ babel-plugin-transform-imports@^2.0.0:
 
 "babel-plugin-wildcard@github:dword-design/babel-plugin-wildcard#fork":
   version "6.0.0"
-  uid "691d11923ee2dcf63e86f205b0a2c998883e3a3c"
   resolved "https://codeload.github.com/dword-design/babel-plugin-wildcard/tar.gz/691d11923ee2dcf63e86f205b0a2c998883e3a3c"
   dependencies:
     rimraf "^2.6.2"
@@ -5633,7 +5629,6 @@ dedent@0.7.0:
 
 dedent@dword-design/dedent#fork:
   version "0.7.0"
-  uid c8d46e5017d60504657c2d01b59082c0329a12a7
   resolved "https://codeload.github.com/dword-design/dedent/tar.gz/c8d46e5017d60504657c2d01b59082c0329a12a7"
   dependencies:
     babel-plugin-add-module-exports "^1.0.2"
@@ -6151,7 +6146,6 @@ end-of-stream@^1.0.0, end-of-stream@^1.1.0, end-of-stream@^1.4.1:
 
 "endent@github:dword-design/endent#fork":
   version "1.4.0"
-  uid be5433db67eaec07c6c9d00ba3bed2ed946dc664
   resolved "https://codeload.github.com/dword-design/endent/tar.gz/be5433db67eaec07c6c9d00ba3bed2ed946dc664"
   dependencies:
     dedent dword-design/dedent#fork
@@ -10844,74 +10838,74 @@ npm@^7.0.0:
   resolved "https://registry.yarnpkg.com/npm/-/npm-7.21.1.tgz#2ab886fc8b5eb044ca5b4e2f7570340fad9934eb"
   integrity sha512-k7XQNHGHAp0VowMMUMRMtntxWatNad9hhYrelUKDPvZ++DBxvofA8QTNPiuMKtx8CBOFA8iJ4aizhbx6ZYVfzQ==
   dependencies:
-    "@npmcli/arborist" "*"
-    "@npmcli/ci-detect" "*"
-    "@npmcli/config" "*"
-    "@npmcli/map-workspaces" "*"
-    "@npmcli/package-json" "*"
-    "@npmcli/run-script" "*"
-    abbrev "*"
-    ansicolors "*"
-    ansistyles "*"
-    archy "*"
-    cacache "*"
-    chalk "*"
-    chownr "*"
-    cli-columns "*"
-    cli-table3 "*"
-    columnify "*"
-    fastest-levenshtein "*"
-    glob "*"
-    graceful-fs "*"
-    hosted-git-info "*"
-    ini "*"
-    init-package-json "*"
-    is-cidr "*"
-    json-parse-even-better-errors "*"
-    libnpmaccess "*"
-    libnpmdiff "*"
-    libnpmexec "*"
-    libnpmfund "*"
-    libnpmhook "*"
-    libnpmorg "*"
-    libnpmpack "*"
-    libnpmpublish "*"
-    libnpmsearch "*"
-    libnpmteam "*"
-    libnpmversion "*"
-    make-fetch-happen "*"
-    minipass "*"
-    minipass-pipeline "*"
-    mkdirp "*"
-    mkdirp-infer-owner "*"
-    ms "*"
-    node-gyp "*"
-    nopt "*"
-    npm-audit-report "*"
-    npm-package-arg "*"
-    npm-pick-manifest "*"
-    npm-profile "*"
-    npm-registry-fetch "*"
-    npm-user-validate "*"
-    npmlog "*"
-    opener "*"
-    pacote "*"
-    parse-conflict-json "*"
-    qrcode-terminal "*"
-    read "*"
-    read-package-json "*"
-    read-package-json-fast "*"
-    readdir-scoped-modules "*"
-    rimraf "*"
-    semver "*"
-    ssri "*"
-    tar "*"
-    text-table "*"
-    tiny-relative-date "*"
-    treeverse "*"
-    validate-npm-package-name "*"
-    which "*"
-    write-file-atomic "*"
+    "@npmcli/arborist" "^2.8.2"
+    "@npmcli/ci-detect" "^1.2.0"
+    "@npmcli/config" "^2.2.0"
+    "@npmcli/map-workspaces" "^1.0.4"
+    "@npmcli/package-json" "^1.0.1"
+    "@npmcli/run-script" "^1.8.6"
+    abbrev "~1.1.1"
+    ansicolors "~0.3.2"
+    ansistyles "~0.1.3"
+    archy "~1.0.0"
+    cacache "^15.3.0"
+    chalk "^4.1.2"
+    chownr "^2.0.0"
+    cli-columns "^3.1.2"
+    cli-table3 "^0.6.0"
+    columnify "~1.5.4"
+    fastest-levenshtein "^1.0.12"
+    glob "^7.1.7"
+    graceful-fs "^4.2.8"
+    hosted-git-info "^4.0.2"
+    ini "^2.0.0"
+    init-package-json "^2.0.4"
+    is-cidr "^4.0.2"
+    json-parse-even-better-errors "^2.3.1"
+    libnpmaccess "^4.0.2"
+    libnpmdiff "^2.0.4"
+    libnpmexec "^2.0.1"
+    libnpmfund "^1.1.0"
+    libnpmhook "^6.0.2"
+    libnpmorg "^2.0.2"
+    libnpmpack "^2.0.1"
+    libnpmpublish "^4.0.1"
+    libnpmsearch "^3.1.1"
+    libnpmteam "^2.0.3"
+    libnpmversion "^1.2.1"
+    make-fetch-happen "^9.1.0"
+    minipass "^3.1.3"
+    minipass-pipeline "^1.2.4"
+    mkdirp "^1.0.4"
+    mkdirp-infer-owner "^2.0.0"
+    ms "^2.1.2"
+    node-gyp "^7.1.2"
+    nopt "^5.0.0"
+    npm-audit-report "^2.1.5"
+    npm-package-arg "^8.1.5"
+    npm-pick-manifest "^6.1.1"
+    npm-profile "^5.0.3"
+    npm-registry-fetch "^11.0.0"
+    npm-user-validate "^1.0.1"
+    npmlog "^5.0.0"
+    opener "^1.5.2"
+    pacote "^11.3.5"
+    parse-conflict-json "^1.1.1"
+    qrcode-terminal "^0.12.0"
+    read "~1.0.7"
+    read-package-json "^4.0.1"
+    read-package-json-fast "^2.0.3"
+    readdir-scoped-modules "^1.1.0"
+    rimraf "^3.0.2"
+    semver "^7.3.5"
+    ssri "^8.0.1"
+    tar "^6.1.11"
+    text-table "~0.2.0"
+    tiny-relative-date "^1.3.0"
+    treeverse "^1.0.4"
+    validate-npm-package-name "~3.0.0"
+    which "^2.0.2"
+    write-file-atomic "^3.0.3"
 
 npmlog@*:
   version "5.0.0"
@@ -12098,7 +12092,6 @@ postcss-modules-scope@^3.0.0:
 
 postcss-modules-sync@dword-design/postcss-modules-sync#fork:
   version "1.0.0"
-  uid fe138e704dbbe9b37c395854cc74b364760f1a51
   resolved "https://codeload.github.com/dword-design/postcss-modules-sync/tar.gz/fe138e704dbbe9b37c395854cc74b364760f1a51"
   dependencies:
     generic-names "^1.0.2"
@@ -12810,7 +12803,6 @@ punycode@^2.1.0, punycode@^2.1.1:
 
 "puppeteer-to-istanbul@github:dword-design/puppeteer-to-istanbul#fork":
   version "1.4.0"
-  uid bf9e82538230872bffe68b28c40ec70731afd89a
   resolved "https://codeload.github.com/dword-design/puppeteer-to-istanbul/tar.gz/bf9e82538230872bffe68b28c40ec70731afd89a"
   dependencies:
     clone "^2.1.2"
@@ -13439,7 +13431,6 @@ rollup-plugin-terser@^7.0.0:
 
 "rollup-plugin-vue@github:dword-design/rollup-plugin-vue#fork":
   version "5.1.9"
-  uid cd6e2f19d2be7e4363532e00119c904696c0af7c
   resolved "https://codeload.github.com/dword-design/rollup-plugin-vue/tar.gz/cd6e2f19d2be7e4363532e00119c904696c0af7c"
   dependencies:
     "@vue/component-compiler" dword-design/vue-component-compiler#fork

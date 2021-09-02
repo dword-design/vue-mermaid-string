@@ -2,7 +2,6 @@ import { endent } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginComponent from '@dword-design/tester-plugin-component'
 import testerPluginPuppeteer from '@dword-design/tester-plugin-puppeteer'
-import chalk from 'chalk'
 
 export default tester(
   {
@@ -10,7 +9,10 @@ export default tester(
       page: endent`
       <template>
         <client-only>
-          <self :class="clazz" :value="diagram" @node-click="nodeClick" />
+          <div>
+            <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
+            <self :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
+          </div>
         </client-only>
       </template>
 
@@ -19,18 +21,27 @@ export default tester(
 
       export default {
         data: () => ({
-          clazz: 'foo',
+          clicked1: 'not-clicked',
+          clicked2: 'not-clicked',
         }),
         computed: {
           diagram: () => endent\`
             graph TD
               A --> B
-              click B mermaidClick
+              click A href "https://google.com"
+              click B
           \`,
         },
         methods: {
-          nodeClick() {
-            this.clazz = 'bar'
+          nodeClick1(id) {
+            if (id === 'B') {
+              this.clicked1 = 'clicked'
+            }
+          },
+          nodeClick2(id) {
+            if (id === 'B') {
+              this.clicked2 = 'clicked'
+            }
           },
         },
       }
@@ -38,57 +49,17 @@ export default tester(
 
     `,
       async test() {
-        /* this.page
-          .on('console', message =>
-            console.log(
-              `${message.type().substr(0, 3).toUpperCase()} ${message.text()}`
-            )
-          )
-          .on('pageerror', context => console.log(context.message))
-          .on('response', response =>
-            console.log(`${response.status()} ${response.url()}`)
-          )
-          .on('requestfailed', request =>
-            console.log(`${request.failure().errorText} ${request.url()}`)
-          ) */
-
-        // make args accessible
-        const describe = jsHandle =>
-          jsHandle.executionContext().evaluate(
-            obj =>
-              // serialize |obj| however you want
-              `OBJ: ${typeof obj}, ${obj}`,
-            jsHandle
-          )
-
-        const colors = {
-          // (text: any) => text,
-          ERR: chalk.red,
-          INF: chalk.cyan,
-          LOG: chalk.grey,
-          WAR: chalk.yellow,
-        }
-        // listen to browser console there
-        this.page.on('console', async message => {
-          const args = await Promise.all(
-            message.args().map(arg => describe(arg))
-          )
-
-          // make ability to paint different console[types]
-          const type = message.type().substr(0, 3).toUpperCase()
-
-          const color = colors[type] || chalk.blue
-          let text = ''
-          for (let i = 0; i < args.length; i += 1) {
-            text += `[${i}] ${args[i]} `
-          }
-          console.log(color(`CONSOLE.${type}: ${message.text()}\n${text} `))
-        })
         await this.page.goto('http://localhost:3000')
+        await this.page.waitForSelector(
+          '.diagram:first-child .node[id^=flowchart-A-] a[href="https://google.com"]'
+        )
 
-        const node = await this.page.waitForSelector('.nodes .node:last-child')
+        const node = await this.page.waitForSelector(
+          '.diagram:first-child .node:last-child'
+        )
         await node.click()
-        await this.page.waitForSelector('.bar')
+        await this.page.waitForSelector('.diagram:first-child.clicked')
+        await this.page.waitForSelector('.diagram:last-child.not-clicked')
       },
     },
     works: {

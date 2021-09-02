@@ -173,6 +173,13 @@ export default {
 </script>
 ```
 
+## Click events
+
+You can register click events by declaring them in the diagram string. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details. When registering a callback, you do not need to specify the callback name, the component will add it to the diagram by itself.
+
+```js
+```
+
 <!-- LICENSE/ -->
 ## Contribute
 

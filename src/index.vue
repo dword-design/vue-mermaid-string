@@ -4,6 +4,11 @@ import mermaid from 'mermaid'
 mermaid.parseError = error => console.error(error)
 
 export default {
+  computed: {
+    finalValue() {
+      return this.value.replace(/^(\s*click\s+[^\s]\s*)$/gm, '$1 mermaidClick')
+    },
+  },
   mounted() {
     window.mermaidClick = id => this.$emit('node-click', id)
     mermaid.initialize({
@@ -11,14 +16,14 @@ export default {
       startOnLoad: false,
       theme: 'default',
     })
-    mermaid.init(this.value, this.$el)
+    mermaid.init(this.finalValue, this.$el)
   },
   name: 'VueMermaidString',
   props: {
     value: { type: String },
   },
   render() {
-    return <div>{this.value}</div>
+    return <div>{this.finalValue}</div>
   },
 }
 </script>
