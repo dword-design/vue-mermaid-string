@@ -14,7 +14,7 @@ export default {
   },
   name: 'VueMermaidComponent',
   props: {
-    value: { type: String },
+    value: { required: true, type: String },
   },
   render() {
     return <div>{this.value}</div>
