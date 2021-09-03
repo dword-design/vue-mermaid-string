@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/dword-design/vue-mermaid-string/compare/v2.0.15...v2.1.0) (2021-09-03)
+
+
+### Features
+
+* custom error handling ([#30](https://github.com/dword-design/vue-mermaid-string/issues/30)) ([ca1d13a](https://github.com/dword-design/vue-mermaid-string/commit/ca1d13aa5fd9a384f07d5d2cad9277b71f1c9bbc))
+
 ## [2.0.15](https://github.com/dword-design/vue-mermaid-string/compare/v2.0.14...v2.0.15) (2021-08-28)
 
 
