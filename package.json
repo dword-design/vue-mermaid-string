@@ -23,7 +23,8 @@
     "test:raw": "base test:raw"
   },
   "dependencies": {
-    "mermaid": "^8.8.3"
+    "mermaid": "^8.8.3",
+    "nanoid": "^3.1.25"
   },
   "devDependencies": {
     "@dword-design/base": "^8.0.0",

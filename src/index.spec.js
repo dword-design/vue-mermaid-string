@@ -54,12 +54,18 @@ export default tester(
           '.diagram:first-child .node[id^=flowchart-A-] a[href="https://google.com"]'
         )
 
-        const node = await this.page.waitForSelector(
+        const node1 = await this.page.waitForSelector(
           '.diagram:first-child .node:last-child'
         )
-        await node.click()
+
+        const node2 = await this.page.waitForSelector(
+          '.diagram:last-child .node:last-child'
+        )
+        await node1.click()
         await this.page.waitForSelector('.diagram:first-child.clicked')
         await this.page.waitForSelector('.diagram:last-child.not-clicked')
+        await node2.click()
+        await this.page.waitForSelector('.diagram:last-child.clicked')
       },
     },
     works: {
