@@ -68,11 +68,6 @@ export default tester(
         const node2 = await this.page.waitForSelector(
           '.diagram:last-child .node:last-child'
         )
-        console.log(
-          this.page.evaluate(() => Object.keys(window))
-            |> await
-            |> filter(key => key.startsWith(callbackPrefix))
-        )
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
