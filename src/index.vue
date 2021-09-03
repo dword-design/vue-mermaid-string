@@ -1,10 +1,12 @@
 <script>
 import mermaid from 'mermaid'
 
-mermaid.parseError = error => console.error(error)
-
 export default {
   mounted() {
+    mermaid.parseError = error => {
+      console.log('this is a parse error')
+      this.$emit('parse-error', error)
+    }
     mermaid.initialize({
       securityLevel: 'loose',
       startOnLoad: false,
@@ -17,7 +19,7 @@ export default {
     value: { type: String },
   },
   render() {
-    return <div class="foo">{this.value}</div>
+    return <div>{this.value}</div>
   },
 }
 </script>
