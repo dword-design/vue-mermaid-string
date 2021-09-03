@@ -12,7 +12,7 @@ export default {
       mermaid.init(this.value, this.$el)
     }
   },
-  name: 'VueMermaidComponent',
+  name: 'VueMermaidString',
   props: {
     value: { required: true, type: String },
   },
