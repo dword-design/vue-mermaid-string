@@ -16,7 +16,7 @@ export default {
   },
   mounted() {
     if (typeof window !== 'undefined') {
-      const mermaid = require('mermaid')
+      const mermaid = window.mermaid || require('mermaid')
       window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
       mermaid.parseError = error => {
         console.log('this is a parse error')
