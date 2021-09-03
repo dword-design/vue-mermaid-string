@@ -175,9 +175,43 @@ export default {
 
 ## Click events
 
-You can register click events by declaring them in the diagram string. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details. When registering a callback, you do not need to specify the callback name, the component will add it to the diagram by itself.
+You can register click events by declaring them in the diagram string. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details. When registering a callback, you do not need to specify the callback name, the component will magically inject it into the diagram by itself. Implement the `node-click` event handler to react to click events:
+
+```html
+<template>
+  <vue-mermaid-string :value="diagram" @node-click="nodeClick" />
+</template>
+```
 
 ```js
+<script>
+export default {
+  computed: {
+    diagram: () => 'graph TD\n  A --> B\n  click A',
+  },
+  methods: {
+    nodeClick: nodeId => console.log(nodeId),
+  }
+}
+</script>
+```
+
+You can also still implement node links. In this case, the handler won't be called but instead the node will be an `<a>` tag that opens the link on click:
+
+```html
+<template>
+  <vue-mermaid-string :value="diagram" />
+</template>
+```
+
+```js
+<script>
+export default {
+  computed: {
+    diagram: () => 'graph TD\n  A --> B\n  click B href "http://www.github.com"',
+  },
+}
+</script>
 ```
 
 <!-- LICENSE/ -->
