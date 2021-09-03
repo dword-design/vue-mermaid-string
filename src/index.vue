@@ -1,18 +1,16 @@
 <script>
-import mermaid from 'mermaid'
-
 export default {
   mounted() {
-    mermaid.parseError = error => {
-      console.log('this is a parse error')
-      this.$emit('parse-error', error)
+    if (typeof window !== 'undefined') {
+      const mermaid = require('mermaid')
+      mermaid.parseError = error => this.$emit('parse-error', error)
+      mermaid.initialize({
+        securityLevel: 'loose',
+        startOnLoad: false,
+        theme: 'default',
+      })
+      mermaid.init(this.value, this.$el)
     }
-    mermaid.initialize({
-      securityLevel: 'loose',
-      startOnLoad: false,
-      theme: 'default',
-    })
-    mermaid.init(this.value, this.$el)
   },
   name: 'VueMermaidComponent',
   props: {

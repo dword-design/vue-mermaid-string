@@ -59,10 +59,7 @@ export default tester(
     },
   },
   [
-    testerPluginComponent({
-      componentPath: require.resolve('./index.vue'),
-      pluginMode: 'client',
-    }),
+    testerPluginComponent({ componentPath: require.resolve('./index.vue') }),
     testerPluginPuppeteer(),
   ]
 )
