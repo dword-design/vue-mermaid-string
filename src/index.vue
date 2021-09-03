@@ -1,5 +1,4 @@
 <script>
-import mermaid from 'mermaid'
 import { nanoid } from 'nanoid'
 
 export default {
@@ -16,17 +15,20 @@ export default {
     id: () => nanoid(),
   },
   mounted() {
-    window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
-    mermaid.parseError = error => {
-      console.log('this is a parse error')
-      this.$emit('parse-error', error)
+    if (typeof window !== 'undefined') {
+      const mermaid = require('mermaid')
+      window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
+      mermaid.parseError = error => {
+        console.log('this is a parse error')
+        this.$emit('parse-error', error)
+      }
+      mermaid.initialize({
+        securityLevel: 'loose',
+        startOnLoad: false,
+        theme: 'default',
+      })
+      mermaid.init(this.finalValue, this.$el)
     }
-    mermaid.initialize({
-      securityLevel: 'loose',
-      startOnLoad: false,
-      theme: 'default',
-    })
-    mermaid.init(this.finalValue, this.$el)
   },
   name: 'VueMermaidString',
   props: {

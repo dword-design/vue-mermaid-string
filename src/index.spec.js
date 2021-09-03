@@ -8,15 +8,13 @@ export default tester(
     click: {
       page: endent`
       <template>
-        <client-only>
+        <div>
+          <button class="hide-button" @click="hide" />
           <div>
-            <button class="hide-button" @click="hide" />
-            <div>
-              <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
-              <self v-if="visible" :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
-            </div>
+            <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
+            <self v-if="visible" :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
           </div>
-        </client-only>
+        </div>
       </template>
 
       <script>
@@ -146,10 +144,7 @@ export default tester(
     },
   },
   [
-    testerPluginComponent({
-      componentPath: require.resolve('./index.vue'),
-      pluginMode: 'client',
-    }),
+    testerPluginComponent({ componentPath: require.resolve('./index.vue') }),
     testerPluginPuppeteer(),
   ]
 )
