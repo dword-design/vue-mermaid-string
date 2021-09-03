@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/dword-design/vue-mermaid-string/compare/v2.1.1...v2.1.2) (2021-09-03)
+
+
+### Bug Fixes
+
+* browser ([b9ddcc1](https://github.com/dword-design/vue-mermaid-string/commit/b9ddcc131cbbd9ec306375ab753cc901721e1f66))
+
 ## [2.1.1](https://github.com/dword-design/vue-mermaid-string/compare/v2.1.0...v2.1.1) (2021-09-03)
 
 
