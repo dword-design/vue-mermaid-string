@@ -233,6 +233,27 @@ export default {
 </script>
 ```
 
+## Error handling
+
+Mermaid has its own default error handling behavior, outputting a little graphical error message if a parsing error occurs. If you want to have custom error handling, you can react to the `@parse-error` event. Here is a simple example that outputs the error message as a plain string:
+
+```html
+<template>
+  <div v-if="error">{{ error }}</div>
+  <self v-else value="foo" @parse-error="error = $event" />
+</template>
+```
+
+```js
+<script>
+export default {
+  data: () => ({
+    error: undefined,
+  }),
+}
+</script>
+```
+
 <!-- LICENSE/ -->
 ## Contribute
 

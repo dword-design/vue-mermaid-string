@@ -2,8 +2,6 @@
 import mermaid from 'mermaid'
 import { nanoid } from 'nanoid'
 
-mermaid.parseError = error => console.error(error)
-
 export default {
   beforeDestroy() {
     delete window[`mermaidClick_${this.id}`]
@@ -19,6 +17,10 @@ export default {
   },
   mounted() {
     window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
+    mermaid.parseError = error => {
+      console.log('this is a parse error')
+      this.$emit('parse-error', error)
+    }
     mermaid.initialize({
       securityLevel: 'loose',
       startOnLoad: false,

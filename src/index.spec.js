@@ -53,7 +53,6 @@ export default tester(
         },
       }
       </script>
-
     `,
       async test() {
         const callbackPrefix = 'mermaidClick_'
@@ -68,6 +67,11 @@ export default tester(
 
         const node2 = await this.page.waitForSelector(
           '.diagram:last-child .node:last-child'
+        )
+        console.log(
+          this.page.evaluate(() => Object.keys(window))
+            |> await
+            |> filter(key => key.startsWith(callbackPrefix))
         )
         expect(
           (
@@ -93,12 +97,34 @@ export default tester(
         ).toEqual(1)
       },
     },
+    'error handling': {
+      page: endent`
+      <template>
+        <div v-if="error" class="foo">{{ error }}</div>
+        <self v-else class="foo" value="foo" @parse-error="error = $event" />
+      </template>
+
+      <script>
+      export default {
+        data: () => ({
+          error: undefined,
+        }),
+      }
+      </script>
+
+    `,
+      async test() {
+        await this.page.goto('http://localhost:3000')
+        await this.page.waitForSelector('.foo')
+        expect(
+          await this.page.screenshot({ fullPage: true })
+        ).toMatchImageSnapshot(this)
+      },
+    },
     works: {
       page: endent`
       <template>
-        <client-only>
-          <self class="foo" :value="diagram" />
-        </client-only>
+        <self class="foo" :value="diagram" />
       </template>
 
       <script>
