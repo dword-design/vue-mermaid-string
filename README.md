@@ -102,6 +102,7 @@ Vue.use(VueMermaidString)
 
 ```html
 <script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
 <script src="https://unpkg.com/vue-mermaid-string"></script>
 ```
 <!-- /INSTALL -->
