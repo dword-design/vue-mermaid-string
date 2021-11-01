@@ -2,7 +2,7 @@
 export default {
   mounted() {
     if (typeof window !== 'undefined') {
-      const mermaid = window.mermaid || require('mermaid')
+      const mermaid = window.mermaid || require('mermaid').default
       mermaid.parseError = error => this.$emit('parse-error', error)
       mermaid.initialize({
         securityLevel: 'loose',
