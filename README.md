@@ -156,7 +156,7 @@ Vue.use(VueMermaidString)
 
 ## Usage
 
-Usage is simple, you pass a Mermaid string to the component and you get a visual diagram:
+Usage is simple, you pass a Mermaid string to the component and you get a visual diagram. For ease of use, we will use the [endent](https://github.com/indentjs/endent) package to declare multiline strings. Of course you can also write them using `\n`.
 
 ```html
 <template>
@@ -166,9 +166,69 @@ Usage is simple, you pass a Mermaid string to the component and you get a visual
 
 ```js
 <script>
+import endent from 'endent'
+
 export default {
   computed: {
-    diagram: () => 'graph TD\n  A --> B',
+    // equals graph TD\n  A --> B
+    diagram: () => endent`
+      graph TD
+        A --> B
+    `,
+  },
+}
+</script>
+```
+
+## Click events
+
+You can register click events by declaring them in the diagram string. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details. When registering a callback, you do not need to specify the callback name, the component will magically inject it into the diagram by itself. Implement the `node-click` event handler to react to click events:
+
+```html
+<template>
+  <vue-mermaid-string :value="diagram" @node-click="nodeClick" />
+</template>
+```
+
+```js
+<script>
+import endent from 'endent'
+
+export default {
+  computed: {
+    diagram: () => endent`
+      graph TD
+        A --> B
+        click A
+        click B
+    `,
+  },
+  methods: {
+    nodeClick: nodeId => console.log(nodeId),
+  },
+}
+</script>
+```
+
+You can also still implement node links. In this case, the handler won't be called but instead the node will be an `<a>` tag that opens the link on click:
+
+```html
+<template>
+  <vue-mermaid-string :value="diagram" />
+</template>
+```
+
+```js
+<script>
+import endent from 'endent'
+
+export default {
+  computed: {
+    diagram: () => endent`
+      graph TD
+        A --> B
+        click B href "https://github.com"
+    `,
   },
 }
 </script>
