@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/dword-design/vue-mermaid-string/compare/v2.1.5...v2.2.0) (2021-11-25)
+
+
+### Features
+
+* click event using Mermaid click directive ([#36](https://github.com/dword-design/vue-mermaid-string/issues/36)) ([fde545a](https://github.com/dword-design/vue-mermaid-string/commit/fde545afec0b8388736e6953d9514734b7c4dc6c))
+
 ## [2.1.5](https://github.com/dword-design/vue-mermaid-string/compare/v2.1.4...v2.1.5) (2021-11-01)
 
 
