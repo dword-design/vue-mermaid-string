@@ -174,7 +174,7 @@ export default {
     diagram: () => endent`
       graph TD
         A --> B
-    `
+    `,
   },
 }
 </script>
@@ -205,7 +205,7 @@ export default {
   },
   methods: {
     nodeClick: nodeId => console.log(nodeId),
-  }
+  },
 }
 </script>
 ```
