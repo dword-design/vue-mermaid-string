@@ -13,18 +13,33 @@ export default {
     },
     id: () => nanoid(),
   },
+  methods: {
+    update() {
+      if (typeof window !== 'undefined') {
+        const mermaid = window.mermaid || require('mermaid').default
+        mermaid.parseError = error => this.$emit('parse-error', error)
+        this.$el.removeAttribute('data-processed')
+        this.$el.replaceChild(
+          document.createTextNode(this.finalValue),
+          this.$el.firstChild
+        )
+        mermaid.init(this.finalValue, this.$el)
+      }
+    },
+  },
   mounted() {
     if (typeof window !== 'undefined') {
-      const mermaid = window.mermaid || require('mermaid').default
       window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
-      mermaid.parseError = error => this.$emit('parse-error', error)
+
+      const mermaid = window.mermaid || require('mermaid').default
       mermaid.initialize({
         securityLevel: 'loose',
         startOnLoad: false,
         theme: 'default',
       })
-      mermaid.init(this.finalValue, this.$el)
     }
+
+    return this.update()
   },
   name: 'VueMermaidString',
   props: {
@@ -32,6 +47,11 @@ export default {
   },
   render() {
     return <div>{this.finalValue}</div>
+  },
+  watch: {
+    finalValue() {
+      return this.update()
+    },
   },
 }
 </script>
