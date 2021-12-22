@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.1...v2.2.2) (2021-12-22)
+
+
+### Bug Fixes
+
+* allow to change diagram ([#61](https://github.com/dword-design/vue-mermaid-string/issues/61)) ([98f8a64](https://github.com/dword-design/vue-mermaid-string/commit/98f8a648ee23646d6e09b27c84ae3ce7a4ca53f7))
+
 ## [2.2.1](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.0...v2.2.1) (2021-12-22)
 
 
