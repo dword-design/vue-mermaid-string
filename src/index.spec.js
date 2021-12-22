@@ -5,6 +5,46 @@ import testerPluginPuppeteer from '@dword-design/tester-plugin-puppeteer'
 
 export default tester(
   {
+    'change value': {
+      page: endent`
+        <template>
+          <div>
+            <self class="foo" :value="diagram" />
+            <button @click="change" />
+          </div>
+        </template>
+
+        <script>
+        import { endent } from '@dword-design/functions'
+
+        export default {
+          data: () => ({
+            diagram: endent\`
+              graph TD
+                A --> B
+            \`,
+          }),
+          methods: {
+            change() {
+              this.diagram = endent\`
+                graph TD
+                  B --> C
+              \`
+            },
+          },
+        }
+        </script>
+
+      `,
+      async test() {
+        await this.page.goto('http://localhost:3000')
+        await this.page.waitForSelector('.foo')
+        await this.page.click('button')
+        expect(
+          await this.page.screenshot({ fullPage: true })
+        ).toMatchImageSnapshot(this)
+      },
+    },
     click: {
       page: endent`
       <template>
