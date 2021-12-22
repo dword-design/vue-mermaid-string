@@ -1,16 +1,15 @@
 <script>
 import { nanoid } from 'nanoid'
 
+import addClickEvent from './add-click-event'
+
 export default {
   beforeDestroy() {
     delete window[`mermaidClick_${this.id}`]
   },
   computed: {
     finalValue() {
-      return this.value.replace(
-        /^(\s*click\s+[^\s]\s*)$/gm,
-        `$1 mermaidClick_${this.id}`
-      )
+      return addClickEvent(this.value, { id: this.id })
     },
     id: () => nanoid(),
   },
