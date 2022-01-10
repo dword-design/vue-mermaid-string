@@ -3,7 +3,7 @@
 <!-- /TITLE -->
 
 <!-- BADGES/ -->
-<p>
+  <p>
     <a href="https://npmjs.org/package/vue-mermaid-string">
       <img
         src="https://img.shields.io/npm/v/vue-mermaid-string.svg"
