@@ -1,3 +1,10 @@
+## [2.2.4](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.3...v2.2.4) (2022-01-12)
+
+
+### Bug Fixes
+
+* update config files ([c9d22a6](https://github.com/dword-design/vue-mermaid-string/commit/c9d22a65f9d65ef465b835f9ef741ae87a49e0ec))
+
 ## [2.2.3](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.2...v2.2.3) (2022-01-04)
 
 
