@@ -68,7 +68,7 @@ $ yarn add vue-mermaid-string
 
 Add to local components:
 
-```js
+```html
 <script>
 import VueMermaidString from 'vue-mermaid-string'
 
