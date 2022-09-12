@@ -6,13 +6,13 @@ jobs:
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: rokroskar/workflow-run-cleanup-action@v0.3.3
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
           lfs: true
           ref: ${{ github.event.pull_request.head.repo.full_name == github.repository &&
             github.event.pull_request.head.ref || '' }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v2
         with:
           node-version: 14
       - run: git config --global user.email "actions@github.com"
@@ -22,7 +22,7 @@ jobs:
           TEST_GITHUB_API_TOKEN: ${{ secrets.TEST_GITHUB_API_TOKEN }}
         run: yarn test
       - if: failure()
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: Image Snapshot Diffs
           path: "**/__image_snapshots__/__diff_output__"
