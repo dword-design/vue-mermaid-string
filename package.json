@@ -27,7 +27,7 @@
     "nanoid": "^3.1.25"
   },
   "devDependencies": {
-    "@dword-design/base": "^8.0.0",
+    "@dword-design/base": "^9.0.0",
     "@dword-design/base-config-component": "^1.1.7",
     "@dword-design/functions": "^4.0.0",
     "@dword-design/puppeteer": "^5.0.0",
