@@ -1,7 +1,7 @@
 import { endent } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 
-import self from './add-click-event'
+import self from './add-click-event.js'
 
 export default tester(
   {

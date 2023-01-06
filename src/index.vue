@@ -1,7 +1,7 @@
 <script>
 import { nanoid } from 'nanoid'
 
-import addClickEvent from './add-click-event'
+import addClickEvent from './add-click-event.js'
 
 export default {
   beforeDestroy() {
