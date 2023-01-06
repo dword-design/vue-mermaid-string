@@ -2,6 +2,9 @@ import { endent, filter } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginComponent from '@dword-design/tester-plugin-component'
 import testerPluginPuppeteer from '@dword-design/tester-plugin-puppeteer'
+import { createRequire } from 'module'
+
+const _require = createRequire(import.meta.url)
 
 export default tester(
   {
@@ -184,7 +187,7 @@ export default tester(
     },
   },
   [
-    testerPluginComponent({ componentPath: require.resolve('./index.vue') }),
+    testerPluginComponent({ componentPath: _require.resolve('./index.vue') }),
     testerPluginPuppeteer(),
   ]
 )
