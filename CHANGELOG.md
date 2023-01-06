@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.6...v3.0.0) (2023-01-06)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#79](https://github.com/dword-design/vue-mermaid-string/issues/79)) ([6a15786](https://github.com/dword-design/vue-mermaid-string/commit/6a157861bda88eaa14ab56a55ff44de6bef2211e))
+
+
+### BREAKING CHANGES
+
+* drop node 12 support, switch to ESM
+
 ## [2.2.6](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.5...v2.2.6) (2022-02-17)
 
 
