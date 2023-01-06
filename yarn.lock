@@ -6259,7 +6259,7 @@ depcheck-detector-package-name@^2.0.0:
   resolved "https://registry.yarnpkg.com/depcheck-detector-package-name/-/depcheck-detector-package-name-2.0.8.tgz#5007550deb4363fcc7712ba90a61c4f4f0a65926"
   integrity sha512-LZQxahJ+9aMyG++KNSMgufWWLZlDj2ywM/EXNKjR1zD08iQ+epXN9BqHp96AaHJM69/J4aIpyf3zkX3hocKpTw==
 
-depcheck-package-name@^2.0.0, depcheck-package-name@^2.0.6:
+depcheck-package-name@^2.0.0:
   version "2.0.6"
   resolved "https://registry.yarnpkg.com/depcheck-package-name/-/depcheck-package-name-2.0.6.tgz#998015be43593711641fa23569aca131f133dc31"
   integrity sha512-9C8RbkOrafLWXTMt6DIimYiLeKk2qSaQyFoiTTPx1GdnmNo1VpO7zoAmRUy/teEEtSa+5DuyGXi91lhs2G0S8g==
