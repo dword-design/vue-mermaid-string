@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/dword-design/vue-mermaid-string/compare/v3.0.0...v3.0.1) (2023-01-07)
+
+
+### Bug Fixes
+
+* use template instead of render function ([#82](https://github.com/dword-design/vue-mermaid-string/issues/82)) ([58365b6](https://github.com/dword-design/vue-mermaid-string/commit/58365b6ca62a29215b95f02db18d577609e796e7))
+
 # [3.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v2.2.6...v3.0.0) (2023-01-06)
 
 
