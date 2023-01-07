@@ -1,3 +1,7 @@
+<template>
+  <div>{{ finalValue }}</div>
+</template>
+
 <script>
 import { nanoid } from 'nanoid'
 
@@ -44,9 +48,6 @@ export default {
   name: 'VueMermaidString',
   props: {
     value: { required: true, type: String },
-  },
-  render() {
-    return <div>{this.finalValue}</div>
   },
   watch: {
     finalValue() {
