@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import packageName from 'depcheck-package-name'
 import { nanoid } from 'nanoid'
 
 import addClickEvent from './add-click-event.js'
@@ -18,9 +19,10 @@ export default {
     id: () => nanoid(),
   },
   methods: {
-    update() {
+    async update() {
       if (typeof window !== 'undefined') {
-        const mermaid = window.mermaid || require('mermaid').default
+        const mermaid =
+          window.mermaid || (await import(packageName`mermaid`)).default
         mermaid.parseError = error => this.$emit('parse-error', error)
         this.$el.removeAttribute('data-processed')
         this.$el.replaceChild(
@@ -31,11 +33,12 @@ export default {
       }
     },
   },
-  mounted() {
+  async mounted() {
     if (typeof window !== 'undefined') {
       window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
 
-      const mermaid = window.mermaid || require('mermaid').default
+      const mermaid =
+        window.mermaid || (await import(packageName`mermaid`)).default
       mermaid.initialize({
         securityLevel: 'loose',
         startOnLoad: false,

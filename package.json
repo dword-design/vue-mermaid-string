@@ -24,6 +24,7 @@
     "test:raw": "base test:raw"
   },
   "dependencies": {
+    "depcheck-package-name": "^3.0.0",
     "mermaid": "^8.8.3",
     "nanoid": "^3"
   },
