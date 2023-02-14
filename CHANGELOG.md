@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/dword-design/vue-mermaid-string/compare/v3.0.2...v3.1.0) (2023-02-14)
+
+
+### Features
+
+* options ([#90](https://github.com/dword-design/vue-mermaid-string/issues/90)) ([855b05b](https://github.com/dword-design/vue-mermaid-string/commit/855b05b125e500e2a0f78155a7e2e364dc1829dc))
+
 ## [3.0.2](https://github.com/dword-design/vue-mermaid-string/compare/v3.0.1...v3.0.2) (2023-01-10)
 
 
