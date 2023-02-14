@@ -157,6 +157,34 @@ export default tester(
         ).toMatchImageSnapshot(this)
       },
     },
+    options: {
+      page: endent`
+      <template>
+        <self class="foo" :value="diagram" :options="{ maxTextSize: 3 }" />
+      </template>
+
+      <script>
+      import { endent } from '@dword-design/functions'
+
+      export default {
+        computed: {
+          diagram: () => endent\`
+            graph TD
+              A --> B
+          \`,
+        },
+      }
+      </script>
+
+    `,
+      async test() {
+        await this.page.goto('http://localhost:3000')
+        await this.page.waitForSelector('.foo')
+        expect(
+          await this.page.screenshot({ fullPage: true })
+        ).toMatchImageSnapshot(this)
+      },
+    },
     works: {
       page: endent`
       <template>
