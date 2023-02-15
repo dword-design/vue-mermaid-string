@@ -1,3 +1,10 @@
+## [4.0.1](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.0...v4.0.1) (2023-02-15)
+
+
+### Bug Fixes
+
+* doc ([79b0a0d](https://github.com/dword-design/vue-mermaid-string/commit/79b0a0de29cb97dd8b58f2b2b5aaadaefceff81b))
+
 # [4.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v3.1.0...v4.0.0) (2023-02-15)
 
 
