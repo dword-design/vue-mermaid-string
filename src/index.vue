@@ -3,12 +3,13 @@
 </template>
 
 <script>
+import mermaid from 'mermaid'
 import { nanoid } from 'nanoid'
 
 import addClickEvent from './add-click-event.js'
 
 export default {
-  beforeDestroy() {
+  beforeUnmount() {
     delete window[`mermaidClick_${this.id}`]
   },
   computed: {
@@ -20,13 +21,8 @@ export default {
   methods: {
     update() {
       if (typeof window !== 'undefined') {
-        const mermaid = window.mermaid || require('mermaid').default
-        mermaid.parseError = error => this.$emit('parse-error', error)
         this.$el.removeAttribute('data-processed')
-        this.$el.replaceChild(
-          document.createTextNode(this.finalValue),
-          this.$el.firstChild
-        )
+        mermaid.parseError = error => this.$emit('parse-error', error)
         mermaid.init(this.finalValue, this.$el)
       }
     },
@@ -34,8 +30,6 @@ export default {
   mounted() {
     if (typeof window !== 'undefined') {
       window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
-
-      const mermaid = window.mermaid || require('mermaid').default
       mermaid.initialize({
         securityLevel: 'loose',
         startOnLoad: false,
@@ -52,8 +46,11 @@ export default {
     value: { required: true, type: String },
   },
   watch: {
-    finalValue() {
-      return this.update()
+    finalValue: {
+      flush: 'post',
+      async handler() {
+        await this.update()
+      },
     },
   },
 }

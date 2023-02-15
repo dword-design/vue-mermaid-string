@@ -101,8 +101,7 @@ Vue.use(VueMermaidString)
 ## Install via CDN
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 <script src="https://unpkg.com/vue-mermaid-string"></script>
 ```
 <!-- /INSTALL -->
