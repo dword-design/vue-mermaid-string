@@ -179,6 +179,16 @@ export default {
 </script>
 ```
 
+## Mermaid options
+
+It is possible to customize the diagram by passing options to the component. The options are internally passed to `mermaid.initialize`. See the [default config](https://github.com/mermaid-js/mermaid/blob/5b269348024c031e6d76c5582242ea89a86ebf47/src/defaultConfig.js) for a list of available options.
+
+```html
+<template>
+  <vue-mermaid-string :value="diagram" :options="{ maxTextSize: 10000 }" />
+</template>
+```
+
 ## Click events
 
 You can register click events by declaring them in the diagram string. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details. When registering a callback, you do not need to specify the callback name, the component will magically inject it into the diagram by itself. Implement the `node-click` event handler to react to click events:

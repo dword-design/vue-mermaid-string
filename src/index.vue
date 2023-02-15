@@ -34,6 +34,7 @@ export default {
         securityLevel: 'loose',
         startOnLoad: false,
         theme: 'default',
+        ...this.options,
       })
     }
 
@@ -41,6 +42,7 @@ export default {
   },
   name: 'VueMermaidString',
   props: {
+    options: { default: () => ({}), type: Object },
     value: { required: true, type: String },
   },
   watch: {
