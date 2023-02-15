@@ -83,19 +83,17 @@ export default {
 Or register as a global component:
 
 ```js
-import Vue from 'vue'
 import VueMermaidString from 'vue-mermaid-string'
 
-Vue.component('VueMermaidString', VueMermaidString)
+app.component('VueMermaidString', VueMermaidString)
 ```
 
 Or register as a plugin:
 
 ```js
-import Vue from 'vue'
 import VueMermaidString from 'vue-mermaid-string'
 
-Vue.use(VueMermaidString)
+app.use(VueMermaidString)
 ```
 
 ## Install via CDN
