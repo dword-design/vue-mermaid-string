@@ -1,3 +1,16 @@
+# [4.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v3.1.0...v4.0.0) (2023-02-15)
+
+
+### Bug Fixes
+
+* vue 3, component is client-only now, CDN doesn't require mermaid anymore ([a494f1a](https://github.com/dword-design/vue-mermaid-string/commit/a494f1ac2e228c8af3d16efac5003a5d665858a2))
+
+
+### BREAKING CHANGES
+
+* Migrated to Vue 3
+* The component is client-only now. This means that if you use SSR, you need to make sure that the component is only instantiated on the client (e.g. use <client-only> with Nuxt). Having this flexible led to some issues.
+
 # [3.1.0](https://github.com/dword-design/vue-mermaid-string/compare/v3.0.2...v3.1.0) (2023-02-14)
 
 
