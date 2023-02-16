@@ -104,52 +104,12 @@ app.use(VueMermaidString)
 ```
 <!-- /INSTALL -->
 
-<!--## Install Via a Package Manager
-```bash
-# npm
-$ npm install vue-mermaid-string
+## Version compatibility
 
-# Yarn
-$ yarn add vue-mermaid-string
-```
-
-Add to Local Components:
-
-```js
-import VueMermaidString from 'vue-mermaid-string'
-
-export default {
-  components: {
-    VueMermaidString,
-  },
-}
-```
-
-Or register as global component:
-
-```js
-import Vue from 'vue'
-import VueMermaidString from 'vue-mermaid-string'
-
-Vue.component('VueMermaidString', VueMermaidString)
-```
-
-Or register as plugin:
-
-```js
-import Vue from 'vue'
-import VueMermaidString from 'vue-mermaid-string'
-
-Vue.use(VueMermaidString)
-```
-
-## Install Via CDN
-
-```html
-<script src="https://unpkg.com/vue"></script>
-<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-<script src="https://unpkg.com/vue-mermaid-string"></script>
-```-->
+| vue-mermaid-string | Vue.js |
+|--------------------|--------|
+| v4                 | v3      |
+| v3                 | v2      |
 
 ## Usage
 
