@@ -46,6 +46,7 @@ export default {
   },
   watch: {
     finalValue: {
+      flush: 'post',
       handler() {
         this.update()
       },
