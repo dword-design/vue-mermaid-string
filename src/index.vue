@@ -9,7 +9,7 @@ import { nanoid } from 'nanoid'
 import addClickEvent from './add-click-event.js'
 
 export default {
-  beforeUnmount() {
+  beforeDestroy() {
     delete window[`mermaidClick_${this.id}`]
   },
   computed: {
@@ -41,12 +41,12 @@ export default {
   },
   name: 'VueMermaidString',
   props: {
-    options: { default: {}, type: Object },
+    options: { default: () => ({}), type: Object },
     value: { required: true, type: String },
   },
   watch: {
     finalValue: {
-      async handler() {
+      handler() {
         this.update()
       },
     },

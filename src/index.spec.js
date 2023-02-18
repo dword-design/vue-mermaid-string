@@ -217,7 +217,10 @@ export default tester(
     },
   },
   [
-    testerPluginComponent({ componentPath: _require.resolve('./index.vue') }),
+    testerPluginComponent({
+      componentPath: _require.resolve('./index.vue'),
+      pluginMode: 'client',
+    }),
     testerPluginPuppeteer(),
   ]
 )
