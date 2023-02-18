@@ -83,33 +83,28 @@ export default {
 Or register as a global component:
 
 ```js
+import Vue from 'vue'
 import VueMermaidString from 'vue-mermaid-string'
 
-app.component('VueMermaidString', VueMermaidString)
+Vue.component('VueMermaidString', VueMermaidString)
 ```
 
 Or register as a plugin:
 
 ```js
+import Vue from 'vue'
 import VueMermaidString from 'vue-mermaid-string'
 
-app.use(VueMermaidString)
+Vue.use(VueMermaidString)
 ```
 
 ## Install via CDN
 
 ```html
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-mermaid-string"></script>
 ```
 <!-- /INSTALL -->
-
-## Version compatibility
-
-| vue-mermaid-string | Vue.js |
-|--------------------|--------|
-| v4                 | v3      |
-| v3                 | v2      |
 
 ## Usage
 

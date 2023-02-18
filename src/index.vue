@@ -37,19 +37,17 @@ export default {
         ...this.options,
       })
     }
-
-    return this.update()
+    this.update()
   },
   name: 'VueMermaidString',
   props: {
-    options: { default: () => ({}), type: Object },
+    options: { default: {}, type: Object },
     value: { required: true, type: String },
   },
   watch: {
     finalValue: {
-      flush: 'post',
       async handler() {
-        await this.update()
+        this.update()
       },
     },
   },
