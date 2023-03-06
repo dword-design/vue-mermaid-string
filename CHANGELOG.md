@@ -1,3 +1,10 @@
+## [4.0.3](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.2...v4.0.3) (2023-03-06)
+
+
+### Bug Fixes
+
+* update dependency nanoid to v4 ([#77](https://github.com/dword-design/vue-mermaid-string/issues/77)) ([65e0786](https://github.com/dword-design/vue-mermaid-string/commit/65e0786121a86ea6c5bb02eac6a3b063ea3a268b))
+
 ## [4.0.2](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.1...v4.0.2) (2023-02-16)
 
 
