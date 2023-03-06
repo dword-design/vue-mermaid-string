@@ -7,23 +7,23 @@ export default tester(
   {
     'multiple chars': {
       result: endent`
-      graph TD
-        click AA mermaidClick_<id>
-    `,
+        graph TD
+          click AA mermaidClick_<id>
+      `,
       subject: endent`
-      graph TD
-        click AA
-    `,
+        graph TD
+          click AA
+      `,
     },
     works: {
       result: endent`
-      graph TD
-        click A mermaidClick_<id>
-    `,
+        graph TD
+          click A mermaidClick_<id>
+      `,
       subject: endent`
-      graph TD
-        click A
-    `,
+        graph TD
+          click A
+      `,
     },
   },
   [
@@ -31,5 +31,5 @@ export default tester(
       transform: test => () =>
         expect(self(test.subject, { id: '<id>' })).toEqual(test.result),
     },
-  ]
+  ],
 )
