@@ -46,77 +46,77 @@ export default tester(
         await new Promise(resolve => setTimeout(resolve, 30000))
         await this.page.click('button')
         expect(
-          await this.page.screenshot({ fullPage: true })
+          await this.page.screenshot({ fullPage: true }),
         ).toMatchImageSnapshot(this)
       },
     },
     click: {
       page: endent`
-      <template>
-        <div>
-          <button class="hide-button" @click="hide" />
+        <template>
           <div>
-            <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
-            <self v-if="visible" :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
+            <button class="hide-button" @click="hide" />
+            <div>
+              <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
+              <self v-if="visible" :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
+            </div>
           </div>
-        </div>
-      </template>
+        </template>
 
-      <script>
-      import { endent } from '@dword-design/functions'
+        <script>
+        import { endent } from '@dword-design/functions'
 
-      export default {
-        data: () => ({
-          clicked1: 'not-clicked',
-          clicked2: 'not-clicked',
-          visible: true,
-        }),
-        computed: {
-          diagram: () => endent\`
-            graph TD
-              A --> B
-              click A href "https://google.com"
-              click B
-          \`,
-        },
-        methods: {
-          hide() {
-            this.visible = false
+        export default {
+          data: () => ({
+            clicked1: 'not-clicked',
+            clicked2: 'not-clicked',
+            visible: true,
+          }),
+          computed: {
+            diagram: () => endent\`
+              graph TD
+                A --> B
+                click A href "https://google.com"
+                click B
+            \`,
           },
-          nodeClick1(id) {
-            if (id === 'B') {
-              this.clicked1 = 'clicked'
-            }
+          methods: {
+            hide() {
+              this.visible = false
+            },
+            nodeClick1(id) {
+              if (id === 'B') {
+                this.clicked1 = 'clicked'
+              }
+            },
+            nodeClick2(id) {
+              if (id === 'B') {
+                this.clicked2 = 'clicked'
+              }
+            },
           },
-          nodeClick2(id) {
-            if (id === 'B') {
-              this.clicked2 = 'clicked'
-            }
-          },
-        },
-      }
-      </script>
-    `,
+        }
+        </script>
+      `,
       async test() {
         const callbackPrefix = 'mermaidClick_'
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector(
-          '.diagram:first-child .node[id^=flowchart-A-] a[href="https://google.com"]'
+          '.diagram:first-child .node[id^=flowchart-A-] a[href="https://google.com"]',
         )
 
         const node1 = await this.page.waitForSelector(
-          '.diagram:first-child .node:last-child'
+          '.diagram:first-child .node:last-child',
         )
 
         const node2 = await this.page.waitForSelector(
-          '.diagram:last-child .node:last-child'
+          '.diagram:last-child .node:last-child',
         )
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
             |> await
             |> filter(key => key.startsWith(callbackPrefix))
-          ).length
+          ).length,
         ).toEqual(2)
         await node1.click()
         await this.page.waitForSelector('.diagram:first-child.clicked')
@@ -131,87 +131,87 @@ export default tester(
             this.page.evaluate(() => Object.keys(window))
             |> await
             |> filter(key => key.startsWith(callbackPrefix))
-          ).length
+          ).length,
         ).toEqual(1)
       },
     },
     'error handling': {
       page: endent`
-      <template>
-        <div v-if="error" class="foo">{{ error }}</div>
-        <self v-else class="foo" value="foo" @parse-error="error = $event" />
-      </template>
+        <template>
+          <div v-if="error" class="foo">{{ error }}</div>
+          <self v-else class="foo" value="foo" @parse-error="error = $event" />
+        </template>
 
-      <script>
-      export default {
-        data: () => ({
-          error: undefined,
-        }),
-      }
-      </script>
+        <script>
+        export default {
+          data: () => ({
+            error: undefined,
+          }),
+        }
+        </script>
 
-    `,
+      `,
       async test() {
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo')
         expect(
-          await this.page.screenshot({ fullPage: true })
+          await this.page.screenshot({ fullPage: true }),
         ).toMatchImageSnapshot(this)
       },
     },
     options: {
       page: endent`
-      <template>
-        <self class="foo" :value="diagram" :options="{ maxTextSize: 3 }" />
-      </template>
+        <template>
+          <self class="foo" :value="diagram" :options="{ maxTextSize: 3 }" />
+        </template>
 
-      <script>
-      import { endent } from '@dword-design/functions'
+        <script>
+        import { endent } from '@dword-design/functions'
 
-      export default {
-        computed: {
-          diagram: () => endent\`
-            graph TD
-              A --> B
-          \`,
-        },
-      }
-      </script>
+        export default {
+          computed: {
+            diagram: () => endent\`
+              graph TD
+                A --> B
+            \`,
+          },
+        }
+        </script>
 
-    `,
+      `,
       async test() {
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo')
         expect(
-          await this.page.screenshot({ fullPage: true })
+          await this.page.screenshot({ fullPage: true }),
         ).toMatchImageSnapshot(this)
       },
     },
     works: {
       page: endent`
-      <template>
-        <self class="foo" :value="diagram" />
-      </template>
+        <template>
+          <self class="foo" :value="diagram" />
+        </template>
 
-      <script>
-      import { endent } from '@dword-design/functions'
+        <script>
+        import { endent } from '@dword-design/functions'
 
-      export default {
-        computed: {
-          diagram: () => endent\`
-            graph TD
-              A --> B
-          \`,
-        },
-      }
-      </script>
+        export default {
+          computed: {
+            diagram: () => endent\`
+              graph TD
+                A --> B
+            \`,
+          },
+        }
+        </script>
 
-    `,
+      `,
       async test() {
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo')
         expect(
-          await this.page.screenshot({ fullPage: true })
+          await this.page.screenshot({ fullPage: true }),
         ).toMatchImageSnapshot(this)
       },
     },
@@ -219,5 +219,5 @@ export default tester(
   [
     testerPluginComponent({ componentPath: _require.resolve('./index.vue') }),
     testerPluginPuppeteer(),
-  ]
+  ],
 )
