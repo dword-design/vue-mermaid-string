@@ -1793,9 +1793,9 @@
   integrity sha512-hqREdzS0UiNaGxm50Kl/PdZCjr+jhID581Y/csnAc8BFU6+fulL6uAEOUCQUm59ejtnf9ifDCfSKrMEK+MvvbA==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.3.tgz#f82b986302ae7455f3b7a7fd624c97e90ae960f3"
-  integrity sha512-4Qcoz5PpQcI+iudF1gD+NxgPW3VVlzD7Fx0uNVcT9jwOMfUOMKTmM8zSavFxkyYfWnUN8YJo/+JkySCYhV0ksw==
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.5.tgz#7411a4dd491e28c4bc7a308540388825461e0a38"
+  integrity sha512-052qvVUw6nKyI+/p6mLBU89Y4+UqhL9s3FFwWiEr0y/Hv+jbJ+DPa1UVX9O6dsomKZ6PZ9psNRh/g9lOLjy9kQ==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
@@ -6182,9 +6182,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.330"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.330.tgz#4740378db7160d7210afb29800c74048cdf10a99"
-  integrity sha512-PqyefhybrVdjAJ45HaPLtuVaehiSw7C3ya0aad+rvmV53IVyXmYRk3pwIOb2TxTDTnmgQdn46NjMMaysx79/6Q==
+  version "1.4.331"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.331.tgz#c8ea823968563ef2cbb3495233e9e16c48c54a4a"
+  integrity sha512-tdtr9y9oJl8VDiS+HeB6e/JDJqdDGjIk3yRfEMHm5rDnWQ/D5SbafybAayInxolbfbH6pouV5g7ZUAwE/WVtHw==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -14419,9 +14419,9 @@ traverse@~0.6.6:
   integrity sha512-/y956gpUo9ZNCb99YjxG7OaslxZWHfCHAUUfshwqOXmxUIvqLjVO581BT+gM59+QV9tFe6/CGG53tsA1Y7RSdg==
 
 tree-kill-promise@^3.0.1:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.3.tgz#1fc2329aa1456174b83c9d1b897e7906ba34df3e"
-  integrity sha512-AaTV0K2Yx9pYeQAiZ204ak8SM0xq7D7AujFczu/Y0FSLlmUtMBLRf/33yh3Ag6Mtk/Agl4HTu4ah1Lm6mFTQsQ==
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.4.tgz#48cfee17cb04a1f1e8f32449b1b105406e07178c"
+  integrity sha512-ZszdXpLpuilKq0Xt7i/xu++Z8KuJu50BZVgafQMyW25Sz4S20829iHrCBxslwlXDT54PYqyDOe/2kUb+Xo2dLg==
   dependencies:
     tree-kill "^1.2.2"
 
