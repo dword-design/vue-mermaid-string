@@ -1,3 +1,10 @@
+## [4.0.11](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.10...v4.0.11) (2023-03-17)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base-config-component to v2.0.12 ([8593b99](https://github.com/dword-design/vue-mermaid-string/commit/8593b995d3c3431c9b23e1f937d5799c788e0eb2))
+
 ## [4.0.10](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.9...v4.0.10) (2023-03-16)
 
 
