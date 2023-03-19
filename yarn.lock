@@ -1514,9 +1514,9 @@
   integrity sha512-hqREdzS0UiNaGxm50Kl/PdZCjr+jhID581Y/csnAc8BFU6+fulL6uAEOUCQUm59ejtnf9ifDCfSKrMEK+MvvbA==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.11.tgz#16aae2069e837498e3209d6a40c26859d9061243"
-  integrity sha512-ptObJ9qBcK7OuZOI60IKeCFY+Flt5PcO7WZSQHbRXWpHsabjA0WtEEnxAZ5TiTizmKbrQFSdydFcnoRP4Ng2nw==
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.12.tgz#5c7a6c16bb414e7f51c045621875c9b5d6838308"
+  integrity sha512-zwz86XKfVLZ9s9ZgFvjczfCqxomKQLCPrTGc2uOpt1tgAbMa0wdBqFUXajPrFfuRBKx2IKML0fuzaVVDdB0pFw==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
