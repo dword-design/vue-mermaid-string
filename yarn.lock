@@ -1297,9 +1297,9 @@
     param-case "^3.0.3"
 
 "@dword-design/base-config-component@^2.0.0":
-  version "2.0.17"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.17.tgz#76fcf32407fe2eb350f2d5a39b10b3b16510189b"
-  integrity sha512-uuA52gDdbeMuc68tNKCy1GgrwYOhB7H4/JuVk8Fmvnv6bL+OpvTisaljfDyWkpfDPwF+BEKepSawLfllgVXt2Q==
+  version "2.0.18"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.18.tgz#8456424894d989c4605df398f30aeb07dc3b1045"
+  integrity sha512-Y8oLsstzdWuji6E5ycQdQ961TnkvX6NUdQazz6+dW2xSqf3k+/s9mv3M1/WbWHT0c79AYKAUhgJRTH+TkSHEUA==
   dependencies:
     "@dword-design/depcheck-parser-sass" "^3.0.1"
     "@dword-design/functions" "^4.0.0"
