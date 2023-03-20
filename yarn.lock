@@ -1297,9 +1297,9 @@
     param-case "^3.0.3"
 
 "@dword-design/base-config-component@^2.0.0":
-  version "2.0.20"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.20.tgz#aca15609466b60c02b1f6340f38bd7d98b75224b"
-  integrity sha512-6t6wnDAD0uIOK8Vr5NrSNKEiGnoh1ynnmwlJaJuXevnlVUcAfWBqedU/ro7f+MJK/0PahuSn80YCHJ04U+omcw==
+  version "2.0.21"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.21.tgz#dc8d3498619f811131c2f8f38701af0bf855a6af"
+  integrity sha512-Fi5QM/lRrCC7uQaXjIn96HiCRPbvwzfJblkiWKkeUOd13H1PsobOFHYjXtvf67iTDdqbAbvEUurEb7A7pIvHmg==
   dependencies:
     "@dword-design/depcheck-parser-sass" "^3.0.1"
     "@dword-design/functions" "^4.0.0"
@@ -7150,7 +7150,16 @@ fs-extra@^10.0.0, fs-extra@^10.1.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
-fs-extra@^11.0.0, fs-extra@^11.1.0:
+fs-extra@^11.0.0:
+  version "11.1.1"
+  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.1.1.tgz#da69f7c39f3b002378b0954bb6ae7efdc0876e2d"
+  integrity sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==
+  dependencies:
+    graceful-fs "^4.2.0"
+    jsonfile "^6.0.1"
+    universalify "^2.0.0"
+
+fs-extra@^11.1.0:
   version "11.1.0"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.1.0.tgz#5784b102104433bb0e090f48bfc4a30742c357ed"
   integrity sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==
@@ -14442,10 +14451,22 @@ vite-plugin-checker@^0.5.6:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
-"vite@^3.0.0 || ^4.0.0", vite@^4.0.4:
+"vite@^3.0.0 || ^4.0.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.0.tgz#d4e6eafbc034f3faf0ab376bd5b76ac15775eb99"
   integrity sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==
+  dependencies:
+    esbuild "^0.17.5"
+    postcss "^8.4.21"
+    resolve "^1.22.1"
+    rollup "^3.18.0"
+  optionalDependencies:
+    fsevents "~2.3.2"
+
+vite@^4.0.4:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.1.tgz#6c2eb337b0dfd80a9ded5922163b94949d7fc254"
+  integrity sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==
   dependencies:
     esbuild "^0.17.5"
     postcss "^8.4.21"
