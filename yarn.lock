@@ -1514,9 +1514,9 @@
   integrity sha512-hqREdzS0UiNaGxm50Kl/PdZCjr+jhID581Y/csnAc8BFU6+fulL6uAEOUCQUm59ejtnf9ifDCfSKrMEK+MvvbA==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.26"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.26.tgz#ab08ba5b70987f3e06a683335205179f530ecaec"
-  integrity sha512-rdb3o+Bi/qhrmI3FMwa/LaNv/xwo8Xi/XByzYwtDSf7vV8HZ0iSpw8fp2NCprBJ1p8dtqOjUXo9fQC/adscCCQ==
+  version "3.0.27"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.27.tgz#26d00b9b79268b7e4a4d4403fe6225639e8604c4"
+  integrity sha512-OQel9NQE8vBg9zwjOOH5YDopnxSO0Ps1D7tM/eP9o6k7n1kZ8Dy3uvDJMG8FuyCFM0iSWyLJlHNx2N7N/v0pcQ==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
@@ -2739,9 +2739,9 @@
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
 "@types/node@*":
-  version "18.15.3"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.3.tgz#f0b991c32cfc6a4e7f3399d6cb4b8cf9a0315014"
-  integrity sha512-p6ua9zBxz5otCmbpb5D3U4B5Nanw6Pk3PPyX05xnxbB/fRv71N7CPmORg7uAD5P70T0xmx1pzAx/FUfa5X+3cw==
+  version "18.15.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.5.tgz#3af577099a99c61479149b716183e70b5239324a"
+  integrity sha512-Ark2WDjjZO7GmvsyFFf81MXuGTA/d6oP38anyxWOL6EREyBKAxKoFHwBhaZxCfLRLpO8JgVXwqOwSwa7jRcjew==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -7150,19 +7150,10 @@ fs-extra@^10.0.0, fs-extra@^10.1.0:
     jsonfile "^6.0.1"
     universalify "^2.0.0"
 
-fs-extra@^11.0.0:
+fs-extra@^11.0.0, fs-extra@^11.1.0:
   version "11.1.1"
   resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.1.1.tgz#da69f7c39f3b002378b0954bb6ae7efdc0876e2d"
   integrity sha512-MGIE4HOvQCeUCzmlHs0vXpih4ysz4wg9qiSAu6cd42lVwPbTM1TjV7RusoyQqMmk/95gdQZX72u+YW+c3eEpFQ==
-  dependencies:
-    graceful-fs "^4.2.0"
-    jsonfile "^6.0.1"
-    universalify "^2.0.0"
-
-fs-extra@^11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-11.1.0.tgz#5784b102104433bb0e090f48bfc4a30742c357ed"
-  integrity sha512-0rcTq621PD5jM/e0a3EJoGC/1TC5ZBCERW82LQuwfGnCa1V8w7dpYH1yNu+SLb6E5dkeCBzKEyLGlFrnr+dUyw==
   dependencies:
     graceful-fs "^4.2.0"
     jsonfile "^6.0.1"
@@ -11362,9 +11353,9 @@ os-tmpdir@~1.0.2:
   integrity sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==
 
 output-files@^2.0.0:
-  version "2.0.18"
-  resolved "https://registry.yarnpkg.com/output-files/-/output-files-2.0.18.tgz#95c91b135427d73aa940de78e4f83ebd1991c96c"
-  integrity sha512-8pcuG+tfRjPt2FCG0G0JG5+zte5CmHaT6OapBx9oVQAFkicXR67zUJ3RhJ5PUe5+2R7aRZrIC2miFlUqnXXmSA==
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/output-files/-/output-files-2.0.19.tgz#a69e4ec44639711a4798be2827946a7a50b8d11d"
+  integrity sha512-vjEax9A48V+Z7mMOYpGadVq5VIzI5temXtJ2JRKsaLvIZTznFz8GHOVNarbxDs6zeUyqQi7FNbV3MsR1V6XrhA==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     fs-extra "^11.1.0"
@@ -14418,9 +14409,9 @@ validate-npm-package-name@*, validate-npm-package-name@^5.0.0:
     builtins "^5.0.0"
 
 vite-node@^0.29.2:
-  version "0.29.3"
-  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.29.3.tgz#6f02808cc699e83c5d77455be48c43c16a3a9302"
-  integrity sha512-QYzYSA4Yt2IiduEjYbccfZQfxKp+T1Do8/HEpSX/G5WIECTFKJADwLs9c94aQH4o0A+UtCKU61lj1m5KvbxxQA==
+  version "0.29.7"
+  resolved "https://registry.yarnpkg.com/vite-node/-/vite-node-0.29.7.tgz#b5cc4745e1fdb984538f8f5745163111a4ae6d5a"
+  integrity sha512-PakCZLvz37yFfUPWBnLa1OYHPCGm5v4pmRrTcFN4V/N/T3I6tyP3z07S//9w+DdeL7vVd0VSeyMZuAh+449ZWw==
   dependencies:
     cac "^6.7.14"
     debug "^4.3.4"
@@ -14451,19 +14442,7 @@ vite-plugin-checker@^0.5.6:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
-"vite@^3.0.0 || ^4.0.0":
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.0.tgz#d4e6eafbc034f3faf0ab376bd5b76ac15775eb99"
-  integrity sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==
-  dependencies:
-    esbuild "^0.17.5"
-    postcss "^8.4.21"
-    resolve "^1.22.1"
-    rollup "^3.18.0"
-  optionalDependencies:
-    fsevents "~2.3.2"
-
-vite@^4.0.4:
+"vite@^3.0.0 || ^4.0.0", vite@^4.0.4:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.1.tgz#6c2eb337b0dfd80a9ded5922163b94949d7fc254"
   integrity sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==
