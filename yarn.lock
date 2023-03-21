@@ -1514,9 +1514,9 @@
   integrity sha512-hqREdzS0UiNaGxm50Kl/PdZCjr+jhID581Y/csnAc8BFU6+fulL6uAEOUCQUm59ejtnf9ifDCfSKrMEK+MvvbA==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.27"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.27.tgz#26d00b9b79268b7e4a4d4403fe6225639e8604c4"
-  integrity sha512-OQel9NQE8vBg9zwjOOH5YDopnxSO0Ps1D7tM/eP9o6k7n1kZ8Dy3uvDJMG8FuyCFM0iSWyLJlHNx2N7N/v0pcQ==
+  version "3.0.30"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.30.tgz#c0e413ff81913f6c31e43803f5ef750849d0b19c"
+  integrity sha512-VnZ5QBEgzezPGTRSpElhBBEiwhZ+dDMrFtpMtMoK+w+Rm2z4uER88PjQ06BVsiD4Nn/13/pmxS6iCjtPgLVO3g==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
@@ -2798,9 +2798,9 @@
     "@types/yargs-parser" "*"
 
 "@types/yargs@^17.0.8":
-  version "17.0.22"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.22.tgz#7dd37697691b5f17d020f3c63e7a45971ff71e9a"
-  integrity sha512-pet5WJ9U8yPVRhkwuEIp5ktAeAqRZOq4UdAyWLWzxbtpyXnzbtLdKiXAjJzi/KLmPGS9wk86lUFWZFN6sISo4g==
+  version "17.0.23"
+  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-17.0.23.tgz#a7db3a2062c95ca1a5e0d5d5ddb6521cbc649e35"
+  integrity sha512-yuogunc04OnzGQCrfHx+Kk883Q4X0aSwmYZhKjI21m+SVYzjIbrWl8dOOwSv5hf2Um2pdCOXWo9isteZTNXUZQ==
   dependencies:
     "@types/yargs-parser" "*"
 
@@ -4081,12 +4081,7 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001464:
-  version "1.0.30001468"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001468.tgz#0101837c6a4e38e6331104c33dcfb3bdf367a4b7"
-  integrity sha512-zgAo8D5kbOyUcRAgSmgyuvBkjrGk5CGYG5TYgFdpQv+ywcyEpo1LOWoG8YmoflGnh+V+UsNuKYedsoYs0hzV5A==
-
-caniuse-lite@^1.0.30001449:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.30001464:
   version "1.0.30001469"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001469.tgz#3dd505430c8522fdc9f94b4a19518e330f5c945a"
   integrity sha512-Rcp7221ScNqQPP3W+lVOYDyjdR6dC+neEQCttoNr5bAyz54AboB4iwpnWgyi8P4YUsPybVzT4LgWiBbI3drL4g==
@@ -13955,9 +13950,9 @@ traverse@~0.6.6:
   integrity sha512-/y956gpUo9ZNCb99YjxG7OaslxZWHfCHAUUfshwqOXmxUIvqLjVO581BT+gM59+QV9tFe6/CGG53tsA1Y7RSdg==
 
 tree-kill-promise@^3.0.1:
-  version "3.0.8"
-  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.8.tgz#2d1a7db4a8166c1ea964aee262028f3357cfd041"
-  integrity sha512-+tXZl7n+d+iAVuEEHHa0nzO7k4FX6FCSlTrSSJ68m0B7+OtPRXjn5TOKB/uAPF9Kyod6u9PLDehCn5xOTjGjQA==
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.9.tgz#d80f33be501ccb8b172d36859d0ef5aeb735c800"
+  integrity sha512-pnKUfwobk/GNEff9UhWHPux4nuyGlhqyCViB4/7sGpjLBae1iD8Nrri+WsuMRrzxKccUpB39NhyCqMlijOHOlQ==
   dependencies:
     tree-kill "^1.2.2"
 
