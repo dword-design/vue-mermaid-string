@@ -1,3 +1,10 @@
+## [4.0.30](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.29...v4.0.30) (2023-03-24)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-puppeteer to v2.1.43 ([ca7f8b0](https://github.com/dword-design/vue-mermaid-string/commit/ca7f8b0db3e260ce474a031638877a468a742a42))
+
 ## [4.0.29](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.28...v4.0.29) (2023-03-21)
 
 
