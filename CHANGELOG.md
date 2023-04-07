@@ -1,3 +1,10 @@
+## [4.0.42](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.41...v4.0.42) (2023-04-07)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/tester-plugin-component to v3.0.36 ([292b860](https://github.com/dword-design/vue-mermaid-string/commit/292b860f0dccc439b4a3be7cc50242c9fa19cbfb))
+
 ## [4.0.41](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.40...v4.0.41) (2023-04-07)
 
 
