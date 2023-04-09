@@ -1,3 +1,10 @@
+## [4.0.47](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.46...v4.0.47) (2023-04-09)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4.1.7 ([a7a646a](https://github.com/dword-design/vue-mermaid-string/commit/a7a646a220e13f1c32753962b4ad44f2ae09c3bc))
+
 ## [4.0.46](https://github.com/dword-design/vue-mermaid-string/compare/v4.0.45...v4.0.46) (2023-04-09)
 
 
