@@ -1596,9 +1596,9 @@
     xvfb "^0.4.0"
 
 "@dword-design/tester@^2.0.0":
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester/-/tester-2.0.12.tgz#58f6d81aff29368367bbb86cae4b44e043092a6b"
-  integrity sha512-nf3lUQ5jUEQwzp5AhdfPPZMzFFUyWaEGjbuqwZ51pe4uLlrf2/hqaCIkXpaSLJ1ev/6FbV6/2Ax+FeyoVTCNMw==
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester/-/tester-2.0.13.tgz#f205bac0be904869bc0e97e5f20d33b3287bab13"
+  integrity sha512-N5EuKwaEt7U9UE+0HdhL6yiOPCAmMamsl2eNfBOkd7NVzA2p8bJq/VJbiAj/4/w6muwNGKAhuclIpxQfF3/ZlQ==
   dependencies:
     "@dword-design/functions" "^4.0.0"
 
