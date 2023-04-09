@@ -25,7 +25,7 @@
     "test:raw": "base test:raw"
   },
   "dependencies": {
-    "mermaid": "^8.8.3",
+    "mermaid": "^10.0.0",
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
