@@ -1447,9 +1447,9 @@
   integrity sha512-4VmNnOzObyXEAdfzLbNZ2RAy00ci7EB954kkB8wz+GEU8v4tMMtf+D36BRUFRUCVJRPpxG8nLkgZ1Lh59ndoFw==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.37"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.37.tgz#4830c7b03430d0dd7ad603e29032107dad7646db"
-  integrity sha512-OWF+4OnMm/bDKkFC8r81AX6TBwc/Q05MWfMDfY9kaf657Sb8Dd18kJcoiUHnRzwm7bWl0YwAsv2YIqPWZilsdQ==
+  version "3.0.38"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.38.tgz#d4728f6e7daf1461507eb9383f6cd5fdf52f83c4"
+  integrity sha512-F5ygtAfFiccNkA/81rek02vTN+3iRXr0+fkZ9UytZiQ/taVvBbADuwE1651udk5JM7vffncWVIBN1SVRmshaYg==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
@@ -11180,9 +11180,9 @@ os-tmpdir@~1.0.2:
   integrity sha512-D2FR03Vir7FIu45XBY20mTb+/ZSWB00sjU9jdQXt83gDrI4Ztz5Fs7/yy74g2N5SVQY4xY1qDr4rNddwYRVX0g==
 
 output-files@^2.0.0:
-  version "2.0.19"
-  resolved "https://registry.yarnpkg.com/output-files/-/output-files-2.0.19.tgz#a69e4ec44639711a4798be2827946a7a50b8d11d"
-  integrity sha512-vjEax9A48V+Z7mMOYpGadVq5VIzI5temXtJ2JRKsaLvIZTznFz8GHOVNarbxDs6zeUyqQi7FNbV3MsR1V6XrhA==
+  version "2.0.21"
+  resolved "https://registry.yarnpkg.com/output-files/-/output-files-2.0.21.tgz#d68767477182f96c76ec20c6ab58587f8043719f"
+  integrity sha512-AcheCUOOtUnSPFZ7Z7ICpVlFBiihXuA9IQXRFbKpz3loPGDJVdGyjDBQJepB+Akay7OU0k5ZrhIk9KjFcKZCOA==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     fs-extra "^11.1.0"
