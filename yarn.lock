@@ -1448,9 +1448,9 @@
   integrity sha512-tm1gvZ+t4mpvuBhngiCNMUcxNa2vSYWHdXrelw6LzPlCjzgs03EcVvdubyBFmmXUptVLf7uMz03LB6bmeSsi9A==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.41"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.41.tgz#dcf7270fd6c31a62e1925f83014b8e48afe59f68"
-  integrity sha512-5OaP+ZrlobHoHComr1ejR27W5SZh/KRZxR5qxce1WQmtzPlk1yHztllv0jYkQNVAQ86TR3x1wErWStjYNcmdrg==
+  version "3.0.43"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.43.tgz#238320a710f0f8d192f85728c85252760ad1532c"
+  integrity sha512-3v+wNni/x3XlNVdUNtMwp26TPQ4jrHdnkQ6Daef+2bNVPBjcfleemIxq4q1A6YQKsLGAC+aBcyLDOe+tWRR5Aw==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
@@ -13640,9 +13640,9 @@ tempy@^1.0.0:
     unique-string "^2.0.0"
 
 terser@^5.15.1:
-  version "5.16.8"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.16.8.tgz#ccde583dabe71df3f4ed02b65eb6532e0fae15d5"
-  integrity sha512-QI5g1E/ef7d+PsDifb+a6nnVgC4F22Bg6T0xrBrz6iloVB4PUkkunp6V8nzoOOZJIzjWVdAGqCdlKlhLq/TbIA==
+  version "5.16.9"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.16.9.tgz#7a28cb178e330c484369886f2afd623d9847495f"
+  integrity sha512-HPa/FdTB9XGI2H1/keLFZHxl6WNvAI4YalHGtDQTlMnJcoqSab1UwL4l1hGEhs6/GmLHBZIg/YgB++jcbzoOEg==
   dependencies:
     "@jridgewell/source-map" "^0.3.2"
     acorn "^8.5.0"
@@ -13795,9 +13795,9 @@ traverse@~0.6.6:
   integrity sha512-/y956gpUo9ZNCb99YjxG7OaslxZWHfCHAUUfshwqOXmxUIvqLjVO581BT+gM59+QV9tFe6/CGG53tsA1Y7RSdg==
 
 tree-kill-promise@^3.0.1:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.11.tgz#f382ddf4f76947c6a98eac0c0d85ff8ee451f056"
-  integrity sha512-uLP/wbZpKmymCW8zZDUVc5udrBD8q/l2IO23Y2CTMaRsshuLi6i4hrRLKNvqG2/7TbO5nillXAo4DO6TaU/uvA==
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/tree-kill-promise/-/tree-kill-promise-3.0.12.tgz#c1694b3da4ddc00f30efe90a473cc72ffa079cb8"
+  integrity sha512-Lvg9Ht10AvF1ovsCw2u45YlzQRcShtP5HReLD1ZvF759Ldptyo7aDx6hfNrEADt3U3X7gAkjgW7j1XTBmt6Ssg==
   dependencies:
     tree-kill "^1.2.2"
 
