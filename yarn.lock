@@ -1230,9 +1230,9 @@
     param-case "^3.0.3"
 
 "@dword-design/base-config-component@^2.0.0":
-  version "2.0.32"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.32.tgz#2b42bb1ce6ab8815147c17358c1bd0d90b44d873"
-  integrity sha512-1AckjxagVKK5djP2Yp7oowUflElcUVRmKDk/2B8g7v7aHWRCiuJXYyWRBwIzb2jToGDwD60Hpblu6tQ2A06d+g==
+  version "2.0.37"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.37.tgz#6c33c2f4b4fb49302b303b3379e46fec54725cb1"
+  integrity sha512-MTvFfKJSfSsbG24eo/oXDgS5Ytd3nSmotGuz3Fjbx5bw8lD/aKWEgcigvRHlOmvFkno0i06UvTHot6LQw6hdRg==
   dependencies:
     "@dword-design/depcheck-parser-sass" "^3.0.1"
     "@dword-design/functions" "^4.0.0"
@@ -1345,10 +1345,21 @@
   dependencies:
     babel-plugin-add-module-exports "^1.0.2"
 
-"@dword-design/depcheck-parser-sass@^3.0.0", "@dword-design/depcheck-parser-sass@^3.0.1":
+"@dword-design/depcheck-parser-sass@^3.0.0":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@dword-design/depcheck-parser-sass/-/depcheck-parser-sass-3.0.6.tgz#0dfadf02ef1145fd402dbf823d459a3e8408d402"
   integrity sha512-bc+k991/iU3rxSGE8d/IRXrwIkyB37s7DiTrX9b4S12imRYUNVG59Hwv3cKsgdurZXyivgnPQbeROHzrMBLM+A==
+  dependencies:
+    "@dword-design/functions" "^4.0.0"
+    get-package-name "^2.0.0"
+    node-sass "^8.0.0"
+    node-sass-package-importer "^5.3.2"
+    require-package-name "^2.0.1"
+
+"@dword-design/depcheck-parser-sass@^3.0.1":
+  version "3.0.8"
+  resolved "https://registry.yarnpkg.com/@dword-design/depcheck-parser-sass/-/depcheck-parser-sass-3.0.8.tgz#672787ee74de3c444ff91315568d605be07cb779"
+  integrity sha512-fk4AAUXo/ekiNqEkq4GJoJBn/x81efL05ucCoc8lToaCgnlhKp13Hnw3hjHtcH2ZBwbOTEjKweYkRDOY3zChYQ==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     get-package-name "^2.0.0"
@@ -8076,14 +8087,14 @@ is-cidr@*:
   dependencies:
     cidr-regex "4.0.3"
 
-is-core-module@^2.11.0:
+is-core-module@^2.11.0, is-core-module@^2.5.0:
   version "2.12.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.12.0.tgz#36ad62f6f73c8253fd6472517a12483cf03e7ec4"
   integrity sha512-RECHCBCd/viahWmwj6enj19sKbHfJrddi/6cBDsNTKbNq0f7VeaUkBo60BqzvPqo/W54ChS62Z5qyun7cfOMqQ==
   dependencies:
     has "^1.0.3"
 
-is-core-module@^2.4.0, is-core-module@^2.5.0, is-core-module@^2.8.1, is-core-module@^2.9.0:
+is-core-module@^2.4.0, is-core-module@^2.8.1, is-core-module@^2.9.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/is-core-module/-/is-core-module-2.11.0.tgz#ad4cb3e3863e814523c96f3f58d26cc570ff0144"
   integrity sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==
@@ -9350,14 +9361,7 @@ load-json-file@^4.0.0:
     pify "^3.0.0"
     strip-bom "^3.0.0"
 
-load-pkg@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/load-pkg/-/load-pkg-4.0.0.tgz#f80a29aec2f6d02aadde714099fda4eea1b611f1"
-  integrity sha512-xS6uYdbUzHbwO5bExhtM8RsU6Z/fVEfZE4uZpWQOwVygLSUfXz7J97nGzJfZ+FFCZc0Weabn/wA3y1k9Q7Y4mw==
-  dependencies:
-    find-pkg "^2.0.0"
-
-"load-pkg@npm:@dword-design/load-pkg":
+load-pkg@^4.0.0, "load-pkg@npm:@dword-design/load-pkg":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@dword-design/load-pkg/-/load-pkg-4.0.0.tgz#201f76adeb44c64ed22d789591ab740573fe0a5b"
   integrity sha512-lZxKRusgIqSg2y4jLzZzMPWyhrGPGke3YYmAxj4SoJeUGV4CmvYyhJkJnfA7Yaov7GMXZi64nlhx8D809VDazg==
