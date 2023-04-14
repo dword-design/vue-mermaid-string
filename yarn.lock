@@ -1474,9 +1474,9 @@
     with-local-tmp-dir "^5.0.0"
 
 "@dword-design/tester-plugin-puppeteer@^2.0.0":
-  version "2.1.61"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-puppeteer/-/tester-plugin-puppeteer-2.1.61.tgz#b73ccd40442fe4725033e38264fc59a953fbc223"
-  integrity sha512-w4aAICIebNuFGx5Z43RjQA8NXJ/kUWBY33HnKu3vjVHsfR95Ye1yfZkbNrUd7GO3wWjcXc/D/RUe0QUFGPo1Gw==
+  version "2.1.62"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-puppeteer/-/tester-plugin-puppeteer-2.1.62.tgz#5a872b85076294fc063e92dfa5f8135587d4aad4"
+  integrity sha512-3m02S/wi9AOs5sWpqxAcRD0zYo0/8e9rOvpzmC0xpKwKKi4N9KeR2Qw2YbZisj1IgTOAFuK0WCYpYN+wgUXfTA==
   dependencies:
     is-docker "^3.0.0"
     xvfb "^0.4.0"
