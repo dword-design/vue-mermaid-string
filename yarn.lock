@@ -1459,9 +1459,9 @@
   integrity sha512-tm1gvZ+t4mpvuBhngiCNMUcxNa2vSYWHdXrelw6LzPlCjzgs03EcVvdubyBFmmXUptVLf7uMz03LB6bmeSsi9A==
 
 "@dword-design/tester-plugin-component@^3.0.0":
-  version "3.0.53"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.53.tgz#678651d6eee0b6d6f2a81481a1609d0a76545f5a"
-  integrity sha512-ehBpHud2BJdSk9utPLpKJRTCeNlcZiHYTEJoWpLXND4XpA0AIsK6ZUOcEdH8el5Rm/Cjes75ENaI3QLqYH/SlQ==
+  version "3.0.54"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-component/-/tester-plugin-component-3.0.54.tgz#d5e99e88afea5ba41adab20e30aba2c028163aab"
+  integrity sha512-CrDCtFk0TlbT3sCJfIYO/Jvqc4ht8j9YWmWSGU4t6kMQRVPBvzyxNK6g8bUHfP0V5Ga5aYEbQfROSkdzAgKwNA==
   dependencies:
     "@dword-design/functions" "^4.0.0"
     "@nuxt/kit" "^3.2.0"
@@ -5716,9 +5716,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.362"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.362.tgz#1dfd7a076fc4785a16941f06410d0668e1a7a1aa"
-  integrity sha512-PYzAoScDfUcAwZfJQvr6hK2xXzLsMocj/Wuz6LpW6TZQNVv9TflBSB+UoEPuFujc478BgAxCoCFarcVPmjzsog==
+  version "1.4.363"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.363.tgz#a3d51d16169d8f212f00bafb78cf0667e24c3647"
+  integrity sha512-ReX5qgmSU7ybhzMuMdlJAdYnRhT90UB3k9M05O5nF5WH3wR5wgdJjXw0uDeFyKNhmglmQiOxkAbzrP0hMKM59g==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
