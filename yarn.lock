@@ -1230,9 +1230,9 @@
     param-case "^3.0.3"
 
 "@dword-design/base-config-component@^2.0.0":
-  version "2.0.44"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.44.tgz#2236ecd2cc6599459a22102fd55247c239e6383a"
-  integrity sha512-aUeE+p35+0OY2bl3vHM0kHXbZC+Uowv/FGl7STGJHaMUtskbz5+DrDr08X+lJYcZKXcRgtkE4rbxuwCn/KAayA==
+  version "2.0.46"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.46.tgz#1107f04f9f34038cc7465b76849b326c9ec502a0"
+  integrity sha512-XPt0lz6kbgQj+ebwtIefglBSKMfMhCVXQSklVusQVS//XykE+KAva6f5gIKtbEOIlSmaGVFeCoC3hqSPh7BkLQ==
   dependencies:
     "@dword-design/depcheck-parser-sass" "^3.0.1"
     "@dword-design/functions" "^4.0.0"
@@ -3946,10 +3946,15 @@ caniuse-api@^3.0.0:
     lodash.memoize "^4.1.2"
     lodash.uniq "^4.5.0"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.30001464:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001464:
   version "1.0.30001480"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001480.tgz#9bbd35ee44c2480a1e3a3b9f4496f5066817164a"
   integrity sha512-q7cpoPPvZYgtyC4VaBSN0Bt+PJ4c4EYRf0DrduInOz2SkFpHD5p3LnvEpqBp7UnJn+8x1Ogl1s38saUxe+ihQQ==
+
+caniuse-lite@^1.0.30001449:
+  version "1.0.30001481"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001481.tgz#f58a717afe92f9e69d0e35ff64df596bfad93912"
+  integrity sha512-KCqHwRnaa1InZBtqXzP98LPg0ajCVujMKjqKDhZEthIpAsJl/YEIa3YvXjGXPVqzZVguccuu7ga9KOE1J9rKPQ==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -12721,7 +12726,7 @@ rollup-plugin-visualizer@^5.9.0:
     source-map "^0.7.4"
     yargs "^17.5.1"
 
-rollup@^3.18.0, rollup@^3.20.2:
+rollup@^3.20.2:
   version "3.20.6"
   resolved "https://registry.yarnpkg.com/rollup/-/rollup-3.20.6.tgz#53c0fd73e397269d2ce5f0ec12851457dd53cacd"
   integrity sha512-2yEB3nQXp/tBQDN0hJScJQheXdvU2wFhh6ld7K/aiZ1vYcak6N/BKjY1QrU6BvO2JWYS8bEs14FRaxXosxy2zw==
@@ -14367,7 +14372,7 @@ vite-plugin-checker@^0.5.6:
     vscode-languageserver-textdocument "^1.0.1"
     vscode-uri "^3.0.2"
 
-"vite@^3.0.0 || ^4.0.0", vite@~4.3.0:
+"vite@^3.0.0 || ^4.0.0", vite@^4.0.4, vite@~4.3.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/vite/-/vite-4.3.1.tgz#9badb1377f995632cdcf05f32103414db6fbb95a"
   integrity sha512-EPmfPLAI79Z/RofuMvkIS0Yr091T2ReUoXQqc5ppBX/sjFRhHKiPPF/R46cTdoci/XgeQpB23diiJxq5w30vdg==
@@ -14375,18 +14380,6 @@ vite-plugin-checker@^0.5.6:
     esbuild "^0.17.5"
     postcss "^8.4.21"
     rollup "^3.20.2"
-  optionalDependencies:
-    fsevents "~2.3.2"
-
-vite@^4.0.4:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-4.2.1.tgz#6c2eb337b0dfd80a9ded5922163b94949d7fc254"
-  integrity sha512-7MKhqdy0ISo4wnvwtqZkjke6XN4taqQ2TBaTccLIpOKv7Vp2h4Y+NpmWCnGDeSvvn45KxvWgGyb0MkHvY1vgbg==
-  dependencies:
-    esbuild "^0.17.5"
-    postcss "^8.4.21"
-    resolve "^1.22.1"
-    rollup "^3.18.0"
   optionalDependencies:
     fsevents "~2.3.2"
 
