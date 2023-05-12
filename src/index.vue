@@ -19,15 +19,15 @@ export default {
     id: () => nanoid(),
   },
   methods: {
-    update() {
+    async update() {
       if (typeof window !== 'undefined') {
         this.$el.removeAttribute('data-processed')
         mermaid.parseError = error => this.$emit('parse-error', error)
-        mermaid.init(this.finalValue, this.$el)
+        await mermaid.run({ nodes: this.$el })
       }
     },
   },
-  mounted() {
+  async mounted() {
     if (typeof window !== 'undefined') {
       window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
       mermaid.initialize({
@@ -37,8 +37,7 @@ export default {
         ...this.options,
       })
     }
-
-    return this.update()
+    await this.update()
   },
   name: 'VueMermaidString',
   props: {
