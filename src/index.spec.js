@@ -12,7 +12,7 @@ export default tester(
       page: endent`
         <template>
           <div>
-            <self class="foo" :value="diagram" />
+            <self :class="{ foo: rendered }" :value="diagram" @rendered="rendered = true" />
             <button @click="change" />
           </div>
         </template>
@@ -26,6 +26,7 @@ export default tester(
               graph TD
                 A --> B
             \`,
+            rendered: false,
           }),
           methods: {
             change() {
@@ -98,15 +99,15 @@ export default tester(
         const callbackPrefix = 'mermaidClick_'
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector(
-          '.diagram:first-child .node[id^=flowchart-A-] a[href="https://google.com"]',
+          '.diagram:first-child a[xlink\\:href="https://google.com"] .node[id^=flowchart-A-]',
         )
 
         const node1 = await this.page.waitForSelector(
-          '.diagram:first-child .node:last-child',
+          '.diagram:first-child .node[id^=flowchart-B-]',
         )
 
         const node2 = await this.page.waitForSelector(
-          '.diagram:last-child .node:last-child',
+          '.diagram:last-child .node[id^=flowchart-B-]',
         )
         expect(
           (
@@ -158,13 +159,14 @@ export default tester(
     options: {
       page: endent`
         <template>
-          <self class="foo" :value="diagram" :options="{ maxTextSize: 3 }" />
+          <self :class="{ foo: rendered }" :value="diagram" :options="{ maxTextSize: 3 }" @rendered="rendered = true" />
         </template>
 
         <script>
         import { endent } from '@dword-design/functions'
 
         export default {
+          data: () => ({ rendered: false }),
           computed: {
             diagram: () => endent\`
               graph TD
@@ -185,13 +187,14 @@ export default tester(
     works: {
       page: endent`
         <template>
-          <self class="foo" :value="diagram" />
+          <self :class="{ foo: rendered }" :value="diagram" @rendered="rendered = true" />
         </template>
 
         <script>
         import { endent } from '@dword-design/functions'
 
         export default {
+          data: () => ({ rendered: false }),
           computed: {
             diagram: () => endent\`
               graph TD

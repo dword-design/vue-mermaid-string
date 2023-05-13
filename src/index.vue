@@ -23,7 +23,10 @@ export default {
       if (typeof window !== 'undefined') {
         this.$el.removeAttribute('data-processed')
         mermaid.parseError = error => this.$emit('parse-error', error)
-        await mermaid.run({ nodes: this.$el })
+        await mermaid.run({
+          nodes: [this.$el],
+          postRenderCallback: () => this.$emit('rendered'),
+        })
       }
     },
   },
