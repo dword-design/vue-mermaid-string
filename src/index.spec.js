@@ -99,7 +99,7 @@ export default tester(
         const callbackPrefix = 'mermaidClick_'
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector(
-          '.diagram:first-child a[xlink\\:href="https://google.com"] .node[id^=flowchart-A-]',
+          '.diagram:first-child a[*|href="https://google.com"] .node[id^=flowchart-A-]',
         )
 
         const node1 = await this.page.waitForSelector(
