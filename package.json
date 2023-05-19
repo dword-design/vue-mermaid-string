@@ -29,7 +29,7 @@
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
-    "@dword-design/base": "^9.1.10",
+    "@dword-design/base": "^10.0.0",
     "@dword-design/base-config-component": "^2.0.0",
     "@dword-design/functions": "^4.0.0",
     "@dword-design/puppeteer": "^6.0.0",
