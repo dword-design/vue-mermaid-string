@@ -1,8 +1,7 @@
 {
   "features": {
-    "ghcr.io/devcontainers/features/node:1": { "version": 18 },
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "image": "mcr.microsoft.com/devcontainers/universal:2",
-  "updateContentCommand": "yarn --frozen-lockfile"
+  "updateContentCommand": "nvm install 18 && nvm use 18 && yarn --frozen-lockfile"
 }
