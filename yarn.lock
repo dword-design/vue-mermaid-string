@@ -1478,7 +1478,7 @@
     lodash "^4.17.15"
     tinycolor2 "^1.4.1"
 
-"@dword-design/functions@^5.0.0", "@dword-design/functions@^5.0.12", "@dword-design/functions@^5.0.20", "@dword-design/functions@^5.0.22", "@dword-design/functions@^5.0.23":
+"@dword-design/functions@^5.0.0", "@dword-design/functions@^5.0.12", "@dword-design/functions@^5.0.20", "@dword-design/functions@^5.0.22", "@dword-design/functions@^5.0.23", "@dword-design/functions@^5.0.24":
   version "5.0.24"
   resolved "https://registry.yarnpkg.com/@dword-design/functions/-/functions-5.0.24.tgz#9395a3c065c6deadaeebf9519b3b4b245bfa2c7b"
   integrity sha512-gTNkRMMAnmQa29sExIdYxqYxHWZtPo7b5sk0vHVK5iKKQu41QBTD6QHZH9mmohdkXGndA+qkVP3+KYKU3iMo7Q==
