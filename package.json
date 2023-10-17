@@ -7,10 +7,10 @@
   "license": "MIT",
   "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
   "type": "module",
-  "main": "dist/index.ssr.js",
+  "exports": "./dist/index.esm.js",
+  "main": "dist/index.esm.js",
   "unpkg": "dist/index.min.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.esm.js",
+  "browser": "dist/index.min.js",
   "files": [
     "dist"
   ],
