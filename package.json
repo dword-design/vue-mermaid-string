@@ -19,6 +19,7 @@
     "commit": "base commit",
     "depcheck": "base depcheck",
     "lint": "base lint",
+    "prepare": "base prepare",
     "prepublishOnly": "base prepublishOnly",
     "test": "base test",
     "test:raw": "base test:raw"
