@@ -25,7 +25,7 @@
     "test:raw": "base test:raw"
   },
   "dependencies": {
-    "mermaid": "^8.8.3",
+    "mermaid": "^10.5.0",
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
@@ -35,7 +35,10 @@
     "@dword-design/puppeteer": "^6.0.0",
     "@dword-design/tester": "^2.0.0",
     "@dword-design/tester-plugin-component": "^4.0.0",
-    "@dword-design/tester-plugin-puppeteer": "^2.0.0"
+    "@dword-design/tester-plugin-puppeteer": "^2.0.0",
+    "endent": "^2.1.0",
+    "nuxt": "^3.7.4",
+    "tinycolor2": "^1.6.0"
   },
   "engines": {
     "node": ">=16"

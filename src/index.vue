@@ -8,6 +8,14 @@ import { nanoid } from 'nanoid'
 
 import addClickEvent from './add-click-event.js'
 
+if (typeof window !== 'undefined') {
+  mermaid.initialize({
+    securityLevel: 'loose',
+    startOnLoad: false,
+    theme: 'default',
+  })
+}
+
 export default {
   beforeUnmount() {
     delete window[`mermaidClick_${this.id}`]
@@ -19,23 +27,20 @@ export default {
     id: () => nanoid(),
   },
   methods: {
-    update() {
+    async update() {
       if (typeof window !== 'undefined') {
         this.$el.removeAttribute('data-processed')
-        mermaid.parseError = error => this.$emit('parse-error', error)
-        mermaid.init(this.finalValue, this.$el)
+        try {
+          await mermaid.run({ nodes: [this.$el], ...this.options })
+        } catch (error) {
+          this.$emit('parse-error', error.message)
+        }
       }
     },
   },
   mounted() {
     if (typeof window !== 'undefined') {
       window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
-      mermaid.initialize({
-        securityLevel: 'loose',
-        startOnLoad: false,
-        theme: 'default',
-        ...this.options,
-      })
     }
 
     return this.update()
