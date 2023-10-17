@@ -151,7 +151,9 @@ export default tester(
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector('.foo svg')
+        await this.page.waitForFunction(() =>
+          document.querySelector('.foo').innerText.startsWith('Error'),
+        )
         expect(
           await this.page.screenshot({ fullPage: true }),
         ).toMatchImageSnapshot(this)
