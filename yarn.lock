@@ -1278,20 +1278,21 @@
     load-pkg "npm:@dword-design/load-pkg"
     param-case "^3.0.3"
 
-"@dword-design/base-config-component@^2.0.0":
-  version "2.0.55"
-  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-2.0.55.tgz#b3aaee7a1d086ff7e1292c884d0f8e20d6ea3d85"
-  integrity sha512-gedDJVZzApjZEGQTew0Z9pXrvaAzju01gqWv9P4xxPrbRZzrkefRpjxrX9HWIqaVKRRNs6edaktXRQ76Wz6sVQ==
+"@dword-design/base-config-component@^3.0.0":
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@dword-design/base-config-component/-/base-config-component-3.0.4.tgz#c72ded1a01effaad226e6336a098508c4b25b9d9"
+  integrity sha512-b0hIvxeCtY1JPQMwXQhX83CQ3TmCc8ebwb2kzaIvT5Xcshel7EePFjjcEUOfOA6n0W+fD8nrQWofui0blQ/YUA==
   dependencies:
     "@dword-design/depcheck-parser-sass" "^3.0.1"
     "@dword-design/functions" "^4.0.0"
     "@vitejs/plugin-vue" "^4.0.0"
-    depcheck-parser-vue "^3.0.0"
+    depcheck-parser-vue "^4.0.6"
     fs-extra "^11.0.0"
     load-pkg "^4.0.0"
     parse-packagejson-name "^1.0.1"
     pascal-case "^3.1.1"
     vite "^4.0.4"
+    vue "^3.3.4"
 
 "@dword-design/base-config-node@^1.6.0":
   version "1.11.14"
@@ -5675,10 +5676,10 @@ depcheck-parser-babel@^3.0.1:
     "@babel/core" "^7.7.7"
     fs-extra "^10.0.0"
 
-depcheck-parser-vue@^3.0.0:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/depcheck-parser-vue/-/depcheck-parser-vue-3.0.4.tgz#475ca2376dcb7e992147869b90e4efec57b365c3"
-  integrity sha512-Bpf+o6K3xQDMlg0DdABC+ZhxQvMgYjyVMUadDCCZIRyUMAOFP1L8VZNHFBLp+5uSsqwJPasyUzOs/yM6gfPnoQ==
+depcheck-parser-vue@^4.0.6:
+  version "4.0.19"
+  resolved "https://registry.yarnpkg.com/depcheck-parser-vue/-/depcheck-parser-vue-4.0.19.tgz#f6ec7a2c15cb74f8d5139c9786244bd6abd92cc1"
+  integrity sha512-iOudKcitm2QEHqfO1NIXH4jZvbEnQAEKFIPBEVp04S0t2duVBcpQrIYCuJspWpdD8FQBUUeEWghMTwcG3X/AlQ==
   dependencies:
     "@babel/core" "^7.10.3"
     "@dword-design/functions" "^4.0.0"
