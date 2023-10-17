@@ -34,7 +34,7 @@
     "@dword-design/functions": "^4.0.0",
     "@dword-design/puppeteer": "^6.0.0",
     "@dword-design/tester": "^2.0.0",
-    "@dword-design/tester-plugin-component": "^3.0.0",
+    "@dword-design/tester-plugin-component": "^4.0.0",
     "@dword-design/tester-plugin-puppeteer": "^2.0.0"
   },
   "engines": {
