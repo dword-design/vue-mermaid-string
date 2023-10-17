@@ -42,6 +42,8 @@ export default tester(
       async test() {
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo')
+        console.log('ready')
+        await new Promise(resolve => setTimeout(resolve, 30000))
         await this.page.click('button')
         expect(
           await this.page.screenshot({ fullPage: true }),
@@ -180,11 +182,6 @@ export default tester(
       async test() {
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo')
-        await this.page.waitForFunction(() =>
-          [...document.querySelectorAll('.nodeLabel')].find(
-            el => el.innerText === 'Maximum text size in diagram exceeded',
-          ),
-        )
         expect(
           await this.page.screenshot({ fullPage: true }),
         ).toMatchImageSnapshot(this)

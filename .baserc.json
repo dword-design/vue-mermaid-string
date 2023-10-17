@@ -3,9 +3,5 @@
   "testInContainer": true,
   "seeAlso": [
     { "repository": "nuxt-mermaid-string", "description": "Embed a Mermaid diagram in a Nuxt.js app by providing its diagram string." }
-  ],
-  "gitignore": [
-    "/demo/.nuxt",
-    "/demo/node_modules"
   ]
 }
