@@ -26,13 +26,13 @@
   },
   "dependencies": {
     "mermaid": "^8.8.3",
-    "nanoid": "^4.0.0"
+    "nanoid": "^5.0.4"
   },
   "devDependencies": {
     "@dword-design/base": "^11.0.2",
     "@dword-design/base-config-component": "^4.0.0",
     "@dword-design/functions": "^5.0.27",
-    "@dword-design/puppeteer": "^6.0.0",
+    "@dword-design/puppeteer": "^7.0.0",
     "@dword-design/tester": "^2.0.0",
     "@dword-design/tester-plugin-component": "^5.0.0",
     "@dword-design/tester-plugin-puppeteer": "^3.0.0"
