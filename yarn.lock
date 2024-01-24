@@ -1533,10 +1533,10 @@
     tree-kill-promise "^3.0.1"
     with-local-tmp-dir "^5.0.0"
 
-"@dword-design/tester-plugin-puppeteer@^2.0.0":
-  version "2.1.68"
-  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-puppeteer/-/tester-plugin-puppeteer-2.1.68.tgz#8b4a3354512fbf807e6a9dff7139789b2658f4b6"
-  integrity sha512-15OyXl6wPBhnIww25tbQV4Sq0aAzkK7nx6IuIHgPXv48Yg5m3QfxTKb0dRdyEJDVd3Uu20Q2jCjPzNSGdKyMgw==
+"@dword-design/tester-plugin-puppeteer@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@dword-design/tester-plugin-puppeteer/-/tester-plugin-puppeteer-3.0.0.tgz#c3308d4fac9771a417fa9fc9a6f4576a4d629734"
+  integrity sha512-JbuuKUCeC6i3mfM1nMHWD7cSXMfSjDZU/FlYOGDS7hb0IzBsmgvofDPRGwFpUNb9Um0ge7KZVTk7lSyzTWdykQ==
   dependencies:
     is-docker "^3.0.0"
     xvfb "^0.4.0"
