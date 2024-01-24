@@ -24,6 +24,7 @@ export default {
     },
   },
   data: () => ({ id: undefined }),
+  emits: ['node-click', 'parse-error', 'rendered'],
   mounted() {
     if (typeof window === 'undefined') {
       return
