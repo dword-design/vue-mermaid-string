@@ -18,6 +18,7 @@ export default {
     },
     id: () => nanoid(),
   },
+  emits: ['parse-error', 'node-click'],
   methods: {
     update() {
       if (typeof window !== 'undefined') {

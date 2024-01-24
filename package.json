@@ -7,10 +7,10 @@
   "license": "MIT",
   "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
   "type": "module",
-  "main": "dist/index.ssr.js",
+  "exports": "./dist/index.esm.js",
+  "main": "dist/index.esm.js",
   "unpkg": "dist/index.min.js",
-  "module": "dist/index.esm.js",
-  "browser": "dist/index.esm.js",
+  "browser": "dist/index.min.js",
   "files": [
     "dist"
   ],
@@ -29,16 +29,16 @@
     "nanoid": "^4.0.0"
   },
   "devDependencies": {
-    "@dword-design/base": "^9.1.10",
-    "@dword-design/base-config-component": "^2.0.0",
-    "@dword-design/functions": "^4.0.0",
+    "@dword-design/base": "^11.0.2",
+    "@dword-design/base-config-component": "^4.0.0",
+    "@dword-design/functions": "^5.0.27",
     "@dword-design/puppeteer": "^6.0.0",
     "@dword-design/tester": "^2.0.0",
-    "@dword-design/tester-plugin-component": "^3.0.0",
-    "@dword-design/tester-plugin-puppeteer": "^2.0.0"
+    "@dword-design/tester-plugin-component": "^5.0.0",
+    "@dword-design/tester-plugin-puppeteer": "^3.0.0"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=18"
   },
   "publishConfig": {
     "access": "public"
