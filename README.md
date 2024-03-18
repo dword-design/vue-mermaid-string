@@ -149,7 +149,9 @@ It is possible to customize the diagram by passing options to the component. The
 
 ## Click events
 
-You can register click events by declaring them in the diagram string. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details. When registering a callback, you do not need to specify the callback name, the component will magically inject it into the diagram by itself. Implement the `node-click` event handler to react to click events:
+You can register click events by declaring them in the diagram string. To react to a click event, you need to declare it in the diagram via a `click <nodeId>` declaration. See [the Mermaid docs](https://mermaid-js.github.io/mermaid/#/flowchart?id=interaction) for details.
+
+When registering a callback, you do not need to specify the callback name, the component will magically inject it into the diagram by itself. Implement the `node-click` event handler to react to click events:
 
 ```html
 <template>
