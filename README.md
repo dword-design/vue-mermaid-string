@@ -108,8 +108,8 @@ app.use(VueMermaidString)
 
 | vue-mermaid-string | Vue.js |
 |--------------------|--------|
-| v4                 | v3      |
-| v3                 | v2      |
+| >= v4              | v3     |
+| <= v3              | v2     |
 
 ## Usage
 
