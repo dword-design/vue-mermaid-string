@@ -10,7 +10,7 @@ import addClickEvent from './add-click-event.js'
 
 export default {
   beforeUnmount() {
-    if (typeof windows === 'undefined') {
+    if (typeof window === 'undefined') {
       return
     }
     delete window[`mermaidClick_${this.id}`]
