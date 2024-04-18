@@ -31,11 +31,12 @@
   "devDependencies": {
     "@dword-design/base": "^11.0.2",
     "@dword-design/base-config-component": "^4.0.0",
-    "@dword-design/functions": "^5.0.27",
-    "@dword-design/puppeteer": "^7.0.0",
+    "@dword-design/functions": "^6.0.0",
     "@dword-design/tester": "^2.0.0",
     "@dword-design/tester-plugin-component": "^5.0.0",
-    "@dword-design/tester-plugin-puppeteer": "^3.0.0"
+    "@playwright/test": "^1.43.1",
+    "playwright": "^1.43.1",
+    "playwright-chromium": "^1.43.1"
   },
   "engines": {
     "node": ">=18"

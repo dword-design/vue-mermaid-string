@@ -1,10 +1,11 @@
 import { endent, filter } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginComponent from '@dword-design/tester-plugin-component'
-import testerPluginPuppeteer from '@dword-design/tester-plugin-puppeteer'
+import { expect } from '@playwright/test'
 import { createRequire } from 'module'
+import { chromium } from 'playwright'
 
-const _require = createRequire(import.meta.url)
+const resolver = createRequire(import.meta.url)
 
 export default tester(
   {
@@ -37,15 +38,12 @@ export default tester(
           },
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo svg')
         await this.page.click('button')
-        expect(
-          await this.page.screenshot({ fullPage: true }),
-        ).toMatchImageSnapshot(this)
+        expect(await this.page.screenshot()).toMatchImageSnapshot(this)
       },
     },
     click: {
@@ -98,17 +96,10 @@ export default tester(
       async test() {
         const callbackPrefix = 'mermaidClick_'
         await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector(
-          '.diagram:first-child .node[id^=flowchart-A-] a[href="https://google.com"]',
-        )
-
-        const node1 = await this.page.waitForSelector(
-          '.diagram:first-child .node:last-child',
-        )
-
-        const node2 = await this.page.waitForSelector(
-          '.diagram:last-child .node:last-child',
-        )
+        await new Promise(resolve => setTimeout(resolve, 40000))
+        await expect(
+          this.page.locator('.diagram:first-child .node[id^=flowchart-A-] a'),
+        ).toHaveAttribute('href', 'https://google.com')
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
@@ -116,14 +107,12 @@ export default tester(
             |> filter(key => key.startsWith(callbackPrefix))
           ).length,
         ).toEqual(2)
-        await node1.click()
+        await this.page.click('.diagram:first-child .node:last-child')
         await this.page.waitForSelector('.diagram:first-child.clicked')
         await this.page.waitForSelector('.diagram:last-child.not-clicked')
-        await node2.click()
+        await this.page.click('.diagram:last-child .node:last-child')
         await this.page.waitForSelector('.diagram:last-child.clicked')
-
-        const hideButton = await this.page.waitForSelector('.hide-button')
-        await hideButton.click()
+        await this.page.click('.hide-button')
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
@@ -147,14 +136,15 @@ export default tester(
           }),
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector('.foo')
-        expect(
-          await this.page.screenshot({ fullPage: true }),
-        ).toMatchImageSnapshot(this)
+        await expect(this.page.locator('.foo')).toHaveText(endent`
+          Error: Parse error on line 1:
+          foo
+          ^
+          Expecting 'open_directive', 'NEWLINE', 'SPACE', 'GRAPH', got 'ALPHA'
+        `)
       },
     },
     options: {
@@ -175,13 +165,11 @@ export default tester(
           },
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector('.foo svg')
         expect(
-          await this.page.screenshot({ fullPage: true }),
+          await this.page.locator('.foo svg').screenshot(),
         ).toMatchImageSnapshot(this)
       },
     },
@@ -203,19 +191,25 @@ export default tester(
           },
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector('.foo svg')
         expect(
-          await this.page.screenshot({ fullPage: true }),
+          await this.page.locator('.foo svg').screenshot(),
         ).toMatchImageSnapshot(this)
       },
     },
   },
   [
-    testerPluginComponent({ componentPath: _require.resolve('./index.vue') }),
-    testerPluginPuppeteer(),
+    testerPluginComponent({ componentPath: resolver.resolve('./index.vue') }),
+    {
+      async after() {
+        await this.browser.close()
+      },
+      async before() {
+        this.browser = await chromium.launch()
+        this.page = await this.browser.newPage()
+      },
+    },
   ],
 )
