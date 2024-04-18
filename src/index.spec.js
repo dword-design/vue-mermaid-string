@@ -44,7 +44,9 @@ export default tester(
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo svg')
         await this.page.click('button')
-        expect(await this.page.screenshot('.foo svg')).toMatchImageSnapshot(this)
+        expect(await this.page.screenshot('.foo svg')).toMatchImageSnapshot(
+          this,
+        )
       },
     },
     click: {
