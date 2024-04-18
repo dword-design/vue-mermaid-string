@@ -1,8 +1,9 @@
 import { endent, filter } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginComponent from '@dword-design/tester-plugin-component'
-import testerPluginPuppeteer from '@dword-design/tester-plugin-puppeteer'
+import { expect } from '@playwright/test'
 import { createRequire } from 'module'
+import { chromium } from 'playwright'
 
 const _require = createRequire(import.meta.url)
 
@@ -37,7 +38,6 @@ export default tester(
           },
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
@@ -147,14 +147,15 @@ export default tester(
           }),
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector('.foo')
-        expect(
-          await this.page.screenshot({ fullPage: true }),
-        ).toMatchImageSnapshot(this)
+        await expect(this.page.locator('.foo')).toHaveText(endent`
+          Error: Parse error on line 1:
+          foo
+          ^
+          Expecting 'open_directive', 'NEWLINE', 'SPACE', 'GRAPH', got 'ALPHA'
+        `)
       },
     },
     options: {
@@ -175,7 +176,6 @@ export default tester(
           },
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
@@ -203,7 +203,6 @@ export default tester(
           },
         }
         </script>
-
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
@@ -216,6 +215,14 @@ export default tester(
   },
   [
     testerPluginComponent({ componentPath: _require.resolve('./index.vue') }),
-    testerPluginPuppeteer(),
+    {
+      async afterEach() {
+        await this.browser.close()
+      },
+      async beforeEach() {
+        this.browser = await chromium.launch()
+        this.page = await this.browser.newPage()
+      },
+    },
   ],
 )
