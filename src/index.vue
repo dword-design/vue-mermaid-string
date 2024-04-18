@@ -10,36 +10,32 @@ import addClickEvent from './add-click-event.js'
 
 export default {
   beforeUnmount() {
+    if (typeof window === 'undefined') {
+      return
+    }
     delete window[`mermaidClick_${this.id}`]
   },
   computed: {
+    allData() {
+      return [this.finalValue, this.id]
+    },
     finalValue() {
       return addClickEvent(this.value, { id: this.id })
     },
-    id: () => nanoid(),
   },
-  emits: ['parse-error', 'node-click'],
-  methods: {
-    update() {
-      if (typeof window !== 'undefined') {
-        this.$el.removeAttribute('data-processed')
-        mermaid.parseError = error => this.$emit('parse-error', error)
-        mermaid.init(this.finalValue, this.$el)
-      }
-    },
-  },
+  data: () => ({ id: undefined }),
+  emits: ['node-click', 'parse-error', 'rendered'],
   mounted() {
-    if (typeof window !== 'undefined') {
-      window[`mermaidClick_${this.id}`] = id => this.$emit('node-click', id)
-      mermaid.initialize({
-        securityLevel: 'loose',
-        startOnLoad: false,
-        theme: 'default',
-        ...this.options,
-      })
+    if (typeof window === 'undefined') {
+      return
     }
-
-    return this.update()
+    mermaid.initialize({
+      securityLevel: 'loose',
+      startOnLoad: false,
+      theme: 'default',
+      ...this.options,
+    })
+    this.id = nanoid()
   },
   name: 'VueMermaidString',
   props: {
@@ -47,11 +43,42 @@ export default {
     value: { required: true, type: String },
   },
   watch: {
-    finalValue: {
+    allData: {
       flush: 'post',
       async handler() {
-        await this.update()
+        if (typeof window === 'undefined') {
+          return
+        }
+        if (!this.finalValue) {
+          return
+        }
+        if (!this.id) {
+          return
+        }
+        this.$el.removeAttribute('data-processed')
+        mermaid.parseError = error => this.$emit('parse-error', error)
+        await mermaid.run({
+          nodes: [this.$el],
+          postRenderCallback: () => this.$emit('rendered'),
+        })
       },
+      immediate: true,
+    },
+    id: {
+      handler(id, previousId) {
+        if (typeof window === 'undefined') {
+          return
+        }
+        if (previousId) {
+          delete window[`mermaidClick_${previousId}`]
+        }
+        if (!this.id) {
+          return
+        }
+        window[`mermaidClick_${this.id}`] = nodeId =>
+          this.$emit('node-click', nodeId)
+      },
+      immediate: true,
     },
   },
 }

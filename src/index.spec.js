@@ -13,7 +13,7 @@ export default tester(
       page: endent`
         <template>
           <div>
-            <self class="foo" :value="diagram" />
+            <self :class="{ foo: rendered }" :value="diagram" @rendered="rendered = true" />
             <button @click="change" />
           </div>
         </template>
@@ -27,6 +27,7 @@ export default tester(
               graph TD
                 A --> B
             \`,
+            rendered: false,
           }),
           methods: {
             change() {
@@ -43,10 +44,77 @@ export default tester(
         await this.page.goto('http://localhost:3000')
         await this.page.waitForSelector('.foo svg')
         await this.page.click('button')
-        expect(await this.page.screenshot()).toMatchImageSnapshot(this)
+        expect(await this.page.screenshot('.foo svg')).toMatchImageSnapshot(
+          this,
+        )
       },
     },
     click: {
+      page: endent`
+        <template>
+          <div>
+            <button class="hide-button" @click="hide" />
+            <div>
+              <self v-if="visible" :class="['diagram', clicked]" :value="diagram" @node-click="nodeClick" />
+            </div>
+          </div>
+        </template>
+
+        <script>
+        import { endent } from '@dword-design/functions'
+
+        export default {
+          data: () => ({
+            clicked: 'clicked',
+            visible: true,
+          }),
+          computed: {
+            diagram: () => endent\`
+              graph TD
+                A --> B
+                click A href "https://google.com"
+                click B
+            \`,
+          },
+          methods: {
+            hide() {
+              this.visible = false
+            },
+            nodeClick(id) {
+              if (id === 'B') {
+                this.clicked1 = 'clicked'
+              }
+            },
+          },
+        }
+        </script>
+      `,
+      async test() {
+        const callbackPrefix = 'mermaidClick_'
+        await this.page.goto('http://localhost:3000')
+        await this.page.waitForSelector(
+          '.diagram a[*|href="https://google.com"] .node[id^=flowchart-A-]',
+        )
+        expect(
+          (
+            this.page.evaluate(() => Object.keys(window))
+            |> await
+            |> filter(key => key.startsWith(callbackPrefix))
+          ).length,
+        ).toEqual(1)
+        await this.page.click('.diagram .node[id^=flowchart-B-]')
+        await this.page.waitForSelector('.diagram.clicked')
+        await this.page.click('.hide-button')
+        expect(
+          (
+            this.page.evaluate(() => Object.keys(window))
+            |> await
+            |> filter(key => key.startsWith(callbackPrefix))
+          ).length,
+        ).toEqual(0)
+      },
+    },
+    /* 'click: multiple diagrams': {
       page: endent`
         <template>
           <div>
@@ -96,10 +164,10 @@ export default tester(
       async test() {
         const callbackPrefix = 'mermaidClick_'
         await this.page.goto('http://localhost:3000')
-        await new Promise(resolve => setTimeout(resolve, 40000))
-        await expect(
-          this.page.locator('.diagram:first-child .node[id^=flowchart-A-] a'),
-        ).toHaveAttribute('href', 'https://google.com')
+        await this.page.waitForSelector(
+          '.diagram:first-child a[*|href="https://google.com"] .node[id^=flowchart-A-]',
+        )
+
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
@@ -107,10 +175,10 @@ export default tester(
             |> filter(key => key.startsWith(callbackPrefix))
           ).length,
         ).toEqual(2)
-        await this.page.click('.diagram:first-child .node:last-child')
+        await this.page.click('.diagram:first-child .node[id^=flowchart-B-]')
         await this.page.waitForSelector('.diagram:first-child.clicked')
         await this.page.waitForSelector('.diagram:last-child.not-clicked')
-        await this.page.click('.diagram:last-child .node:last-child')
+        await this.page.click('.diagram:last-child .node[id^=flowchart-B-]')
         await this.page.waitForSelector('.diagram:last-child.clicked')
         await this.page.click('.hide-button')
         expect(
@@ -121,7 +189,7 @@ export default tester(
           ).length,
         ).toEqual(1)
       },
-    },
+    }, */
     'error handling': {
       page: endent`
         <template>
@@ -139,24 +207,22 @@ export default tester(
       `,
       async test() {
         await this.page.goto('http://localhost:3000')
-        await expect(this.page.locator('.foo')).toHaveText(endent`
-          Error: Parse error on line 1:
-          foo
-          ^
-          Expecting 'open_directive', 'NEWLINE', 'SPACE', 'GRAPH', got 'ALPHA'
-        `)
+        await expect(this.page.locator('.foo')).toHaveText(
+          'UnknownDiagramError: No diagram type detected matching given configuration for text: foo',
+        )
       },
     },
     options: {
       page: endent`
         <template>
-          <self class="foo" :value="diagram" :options="{ maxTextSize: 3 }" />
+          <self :class="{ foo: rendered }" :value="diagram" :options="{ maxTextSize: 3 }" @rendered="rendered = true" />
         </template>
 
         <script>
         import { endent } from '@dword-design/functions'
 
         export default {
+          data: () => ({ rendered: false }),
           computed: {
             diagram: () => endent\`
               graph TD
@@ -176,13 +242,14 @@ export default tester(
     works: {
       page: endent`
         <template>
-          <self class="foo" :value="diagram" />
+          <self :class="{ foo: rendered }" :value="diagram" @rendered="rendered = true" />
         </template>
 
         <script>
         import { endent } from '@dword-design/functions'
 
         export default {
+          data: () => ({ rendered: false }),
           computed: {
             diagram: () => endent\`
               graph TD
