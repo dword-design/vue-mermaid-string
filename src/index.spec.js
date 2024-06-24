@@ -1,11 +1,11 @@
-import { endent, filter } from '@dword-design/functions'
-import tester from '@dword-design/tester'
-import testerPluginComponent from '@dword-design/tester-plugin-component'
-import { expect } from '@playwright/test'
-import { createRequire } from 'module'
-import { chromium } from 'playwright'
+import { endent, filter } from '@dword-design/functions';
+import tester from '@dword-design/tester';
+import testerPluginComponent from '@dword-design/tester-plugin-component';
+import { expect } from '@playwright/test';
+import { createRequire } from 'module';
+import { chromium } from 'playwright';
 
-const resolver = createRequire(import.meta.url)
+const resolver = createRequire(import.meta.url);
 
 export default tester(
   {
@@ -41,12 +41,13 @@ export default tester(
         </script>
       `,
       async test() {
-        await this.page.goto('http://localhost:3000')
-        await this.page.waitForSelector('.foo svg')
-        await this.page.click('button')
+        await this.page.goto('http://localhost:3000');
+        await this.page.waitForSelector('.foo svg');
+        await this.page.click('button');
+
         expect(await this.page.screenshot('.foo svg')).toMatchImageSnapshot(
           this,
-        )
+        );
       },
     },
     click: {
@@ -90,28 +91,32 @@ export default tester(
         </script>
       `,
       async test() {
-        const callbackPrefix = 'mermaidClick_'
-        await this.page.goto('http://localhost:3000')
+        const callbackPrefix = 'mermaidClick_';
+        await this.page.goto('http://localhost:3000');
+
         await this.page.waitForSelector(
           '.diagram a[*|href="https://google.com"] .node[id^=flowchart-A-]',
-        )
+        );
+
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
             |> await
             |> filter(key => key.startsWith(callbackPrefix))
           ).length,
-        ).toEqual(1)
-        await this.page.click('.diagram .node[id^=flowchart-B-]')
-        await this.page.waitForSelector('.diagram.clicked')
-        await this.page.click('.hide-button')
+        ).toEqual(1);
+
+        await this.page.click('.diagram .node[id^=flowchart-B-]');
+        await this.page.waitForSelector('.diagram.clicked');
+        await this.page.click('.hide-button');
+
         expect(
           (
             this.page.evaluate(() => Object.keys(window))
             |> await
             |> filter(key => key.startsWith(callbackPrefix))
           ).length,
-        ).toEqual(0)
+        ).toEqual(0);
       },
     },
     /* 'click: multiple diagrams': {
@@ -206,10 +211,11 @@ export default tester(
         </script>
       `,
       async test() {
-        await this.page.goto('http://localhost:3000')
+        await this.page.goto('http://localhost:3000');
+
         await expect(this.page.locator('.foo')).toHaveText(
           'UnknownDiagramError: No diagram type detected matching given configuration for text: foo',
-        )
+        );
       },
     },
     options: {
@@ -233,10 +239,11 @@ export default tester(
         </script>
       `,
       async test() {
-        await this.page.goto('http://localhost:3000')
+        await this.page.goto('http://localhost:3000');
+
         expect(
           await this.page.locator('.foo svg').screenshot(),
-        ).toMatchImageSnapshot(this)
+        ).toMatchImageSnapshot(this);
       },
     },
     works: {
@@ -260,10 +267,11 @@ export default tester(
         </script>
       `,
       async test() {
-        await this.page.goto('http://localhost:3000')
+        await this.page.goto('http://localhost:3000');
+
         expect(
           await this.page.locator('.foo svg').screenshot(),
-        ).toMatchImageSnapshot(this)
+        ).toMatchImageSnapshot(this);
       },
     },
   },
@@ -271,12 +279,12 @@ export default tester(
     testerPluginComponent({ componentPath: resolver.resolve('./index.vue') }),
     {
       async after() {
-        await this.browser.close()
+        await this.browser.close();
       },
       async before() {
-        this.browser = await chromium.launch()
-        this.page = await this.browser.newPage()
+        this.browser = await chromium.launch();
+        this.page = await this.browser.newPage();
       },
     },
   ],
-)
+);
