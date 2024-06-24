@@ -1,7 +1,7 @@
-import { endent } from '@dword-design/functions'
-import tester from '@dword-design/tester'
+import { endent } from '@dword-design/functions';
+import tester from '@dword-design/tester';
 
-import self from './add-click-event.js'
+import self from './add-click-event.js';
 
 export default tester(
   {
@@ -32,4 +32,4 @@ export default tester(
         expect(self(test.subject, { id: '<id>' })).toEqual(test.result),
     },
   ],
-)
+);
