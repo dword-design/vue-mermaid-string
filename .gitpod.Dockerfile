@@ -1,8 +1,8 @@
 # Need to add :latest, otherwise old versions (e.g. of node) are installed
 FROM gitpod/workspace-full-vnc:latest
 
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-RUN sudo apt-get install git-lfs
+# RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+# RUN sudo apt-get install git-lfs
 # RUN git lfs install
 
 # https://www.gitpod.io/docs/languages/javascript
