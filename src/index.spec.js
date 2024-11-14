@@ -40,8 +40,8 @@ export default tester(
         }
         </script>
       `,
-      async test() {
-        await this.page.goto('http://localhost:3000');
+      async test({ port }) {
+        await this.page.goto(`http://localhost:${port}`);
         await this.page.waitForSelector('.foo svg');
         await this.page.click('button');
 
@@ -90,9 +90,9 @@ export default tester(
         }
         </script>
       `,
-      async test() {
+      async test({ port }) {
         const callbackPrefix = 'mermaidClick_';
-        await this.page.goto('http://localhost:3000');
+        await this.page.goto(`http://localhost:${port}`);
 
         await this.page.waitForSelector(
           '.diagram a[*|href="https://google.com"] .node[id^=flowchart-A-]',
@@ -166,9 +166,9 @@ export default tester(
         }
         </script>
       `,
-      async test() {
+      async test({ port }) {
         const callbackPrefix = 'mermaidClick_'
-        await this.page.goto('http://localhost:3000')
+        await this.page.goto(`http://localhost:${port}`)
         await this.page.waitForSelector(
           '.diagram:first-child a[*|href="https://google.com"] .node[id^=flowchart-A-]',
         )
@@ -210,8 +210,8 @@ export default tester(
         }
         </script>
       `,
-      async test() {
-        await this.page.goto('http://localhost:3000');
+      async test({ port }) {
+        await this.page.goto(`http://localhost:${port}`);
 
         await expect(this.page.locator('.foo')).toHaveText(
           'UnknownDiagramError: No diagram type detected matching given configuration for text: foo',
@@ -238,8 +238,8 @@ export default tester(
         }
         </script>
       `,
-      async test() {
-        await this.page.goto('http://localhost:3000');
+      async test({ port }) {
+        await this.page.goto(`http://localhost:${port}`);
 
         expect(
           await this.page.locator('.foo svg').screenshot(),
@@ -266,8 +266,8 @@ export default tester(
         }
         </script>
       `,
-      async test() {
-        await this.page.goto('http://localhost:3000');
+      async test({ port }) {
+        await this.page.goto(`http://localhost:${port}`);
 
         expect(
           await this.page.locator('.foo svg').screenshot(),

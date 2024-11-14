@@ -62,7 +62,6 @@ export default {
         }
 
         this.$el.removeAttribute('data-processed');
-
         mermaid.parseError = error => this.$emit('parse-error', error);
 
         try {
