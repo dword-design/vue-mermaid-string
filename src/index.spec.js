@@ -276,7 +276,10 @@ export default tester(
     },
   },
   [
-    testerPluginComponent({ componentPath: resolver.resolve('./index.vue'), hasFindPort: true }),
+    testerPluginComponent({
+      componentPath: resolver.resolve('./index.vue'),
+      hasFindPort: true,
+    }),
     {
       async after() {
         await this.browser.close();
