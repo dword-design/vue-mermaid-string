@@ -38,6 +38,7 @@
     "playwright": "^1.43.1",
     "playwright-chromium": "^1.43.1"
   },
+  "packageManager": "pnpm@9.13.1+sha256.dd98691b127b5d2c4d0605b594e98ec0bcbe5fba86358184de706c3312a4e2ee",
   "engines": {
     "node": ">=18"
   },
