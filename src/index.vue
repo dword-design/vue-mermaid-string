@@ -64,10 +64,14 @@ export default {
         this.$el.removeAttribute('data-processed');
         mermaid.parseError = error => this.$emit('parse-error', error);
 
-        await mermaid.run({
-          nodes: [this.$el],
-          postRenderCallback: () => this.$emit('rendered'),
-        });
+        try {
+          await mermaid.run({
+            nodes: [this.$el],
+            postRenderCallback: () => this.$emit('rendered'),
+          });
+        } catch {
+          // Mermaid will throw the error although the parseError function is set
+        }
       },
       immediate: true,
     },
