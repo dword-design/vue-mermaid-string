@@ -18,7 +18,6 @@ tasks:
     init: |-
       git config --global user.name "Sebastian Landwehr"
       git config diff.lfs.textconv cat
-      git lfs pull
       pnpm install --frozen-lockfile
 vscode:
   extensions:
