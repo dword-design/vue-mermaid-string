@@ -1,3 +1,15 @@
+# [7.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v6.0.1...v7.0.0) (2024-11-15)
+
+
+### Bug Fixes
+
+* update dependency mermaid to v11 ([#214](https://github.com/dword-design/vue-mermaid-string/issues/214)) ([62c8417](https://github.com/dword-design/vue-mermaid-string/commit/62c841760f7cbc2966daf7c427498e60e5e0dab9))
+
+
+### BREAKING CHANGES
+
+* update dependency mermaid to v11
+
 ## [6.0.1](https://github.com/dword-design/vue-mermaid-string/compare/v6.0.0...v6.0.1) (2024-11-14)
 
 
