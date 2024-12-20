@@ -38,7 +38,7 @@
     "playwright": "^1.48.2",
     "playwright-chromium": "^1.48.2"
   },
-  "packageManager": "pnpm@9.13.1+sha256.dd98691b127b5d2c4d0605b594e98ec0bcbe5fba86358184de706c3312a4e2ee",
+  "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf",
   "engines": {
     "node": ">=18"
   },
