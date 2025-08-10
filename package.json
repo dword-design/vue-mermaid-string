@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@dword-design/base": "^11.2.6",
-    "@dword-design/base-config-component": "^4.0.1",
+    "@dword-design/base-config-component": "^6.0.0",
     "@dword-design/functions": "^6.0.1",
     "@dword-design/tester": "^2.0.19",
     "@dword-design/tester-plugin-component": "^5.1.0",
