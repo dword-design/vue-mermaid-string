@@ -1,9 +1,11 @@
 {
+  "allowedMatches": ["playwright"],
   "depcheckConfig": {
     "ignoreMatches": [
-      "playwright-chromium"
+      "@playwright/browser-chromium"
     ]
   },
+  "gitignore": ["/playwright/.cache"],
   "name": "@dword-design/component",
   "seeAlso": [
     { "description": "Embed a Mermaid diagram in a Nuxt.js app by providing its diagram string.", "repository": "nuxt-mermaid-string" }

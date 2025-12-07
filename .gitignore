@@ -9,4 +9,5 @@
 /coverage
 /dist
 /node_modules
+/playwright/.cache
 /test-results

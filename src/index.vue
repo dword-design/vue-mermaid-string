@@ -3,28 +3,49 @@
 </template>
 
 <script setup lang="ts">
-import mermaid from 'mermaid';
+import mermaid, { type MermaidConfig, type ParseErrorFunction } from 'mermaid';
 import { nanoid } from 'nanoid';
-import { onBeforeUnmount, ref, watch } from 'vue';
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  useTemplateRef,
+  watch,
+} from 'vue';
 
 import addClickEvent from './add-click-event';
 
-const props = defineProps<{
-  options: Record<string, unknown>;
-  value: string;
+type MermaidError = Parameters<ParseErrorFunction>[0];
+declare global {
+  interface Window {
+    [key: `mermaidClick_${string}`]: (nodeId: string) => void;
+  }
+}
+
+const props = withDefaults(
+  defineProps<{ options?: MermaidConfig; value: string }>(),
+  { options: () => ({}) },
+);
+
+const emit = defineEmits<{
+  'node-click': [nodeId: string];
+  'parse-error': [error: MermaidError];
+  rendered: [];
 }>();
 
-const root = useTemplateRef('root');
-const id = ref();
-const finalValue = computed(() => addClickEvent(props.value, { id: id.value }));
-const allData = computed(() => [finalValue.value, id.value]);
+const maybeRoot = useTemplateRef('root');
+const id = nanoid();
+const root = computed(() => maybeRoot.value!);
+const finalValue = computed(() => addClickEvent(props.value, { id }));
+const allData = computed(() => [finalValue.value, id]);
 
 onBeforeUnmount(() => {
   if (globalThis.window === undefined) {
     return;
   }
 
-  delete window[`mermaidClick_${this.id}`];
+  delete window[`mermaidClick_${id}`];
 });
 
 onMounted(() => {
@@ -36,10 +57,10 @@ onMounted(() => {
     securityLevel: 'loose',
     startOnLoad: false,
     theme: 'default',
-    ...this.options,
+    ...props.options,
   });
 
-  id.value = nanoid();
+  window[`mermaidClick_${id}`] = nodeId => emit('node-click', nodeId);
 });
 
 watch(
@@ -53,45 +74,20 @@ watch(
       return;
     }
 
-    if (!id.value) {
-      return;
-    }
+    await nextTick(async () => {
+      delete root.value.dataset.processed;
+      mermaid.parseError = error => emit('parse-error', error);
 
-    delete this.$el.dataset.processed;
-    mermaid.parseError = error => this.$emit('parse-error', error);
-
-    try {
-      await mermaid.run({
-        nodes: [root.value],
-        postRenderCallback: () => this.$emit('rendered'),
-      });
-    } catch {
-      // Mermaid will throw the error although the parseError function is set
-    }
+      try {
+        await mermaid.run({
+          nodes: [root.value],
+          postRenderCallback: () => emit('rendered'),
+        });
+      } catch {
+        // Mermaid will throw the error although the parseError function is set
+      }
+    });
   },
   { flush: 'post', immediate: true },
 );
-
-watch(
-  id,
-  (id, previousId) => {
-    if (globalThis.window === undefined) {
-      return;
-    }
-
-    if (previousId) {
-      delete window[`mermaidClick_${previousId}`];
-    }
-
-    if (!this.id) {
-      return;
-    }
-
-    window[`mermaidClick_${id.value}`] = nodeId =>
-      this.$emit('node-click', nodeId);
-  },
-  { immediate: true },
-);
-
-defineEmits(['node-click', 'parse-error', 'rendered']);
 </script>

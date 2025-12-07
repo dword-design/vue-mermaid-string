@@ -1,293 +1,188 @@
-import { endent, filter } from '@dword-design/functions';
-import tester from '@dword-design/tester';
-import testerPluginComponent from '@dword-design/tester-plugin-component';
-import { expect } from '@playwright/test';
-import { createRequire } from 'module';
-import { chromium } from 'playwright';
+import { expect, test } from '@playwright/test';
+import endent from 'endent';
+import type { DetailedError } from 'mermaid';
+import pTimeout from 'p-timeout';
 
-const resolver = createRequire(import.meta.url);
+import Self from './index.vue';
 
-export default tester(
-  {
-    'change value': {
-      page: endent`
-        <template>
-          <div>
-            <self :class="{ foo: rendered }" :value="diagram" @rendered="rendered = true" />
-            <button @click="change" />
-          </div>
-        </template>
+const CALLBACK_PREFIX = 'mermaidClick_';
 
-        <script>
-        import { endent } from '@dword-design/functions'
-
-        export default {
-          data: () => ({
-            diagram: endent\`
-              graph TD
-                A --> B
-            \`,
-            rendered: false,
-          }),
-          methods: {
-            change() {
-              this.diagram = endent\`
-                graph TD
-                  B --> C
-              \`
-            },
-          },
-        }
-        </script>
+test('change value', async ({ mount }) => {
+  const self = await mount(Self, {
+    props: {
+      value: endent`
+        graph TD
+          A --> B
       `,
-      async test({ port }) {
-        await this.page.goto(`http://localhost:${port}`);
-        await this.page.waitForSelector('.foo svg');
-        await this.page.click('button');
-
-        expect(await this.page.screenshot('.foo svg')).toMatchImageSnapshot(
-          this,
-        );
-      },
     },
-    click: {
-      page: endent`
-        <template>
-          <div>
-            <button class="hide-button" @click="hide" />
-            <div>
-              <self v-if="visible" :class="['diagram', clicked]" :value="diagram" @node-click="nodeClick" />
-            </div>
-          </div>
-        </template>
+  });
 
-        <script>
-        import { endent } from '@dword-design/functions'
-
-        export default {
-          data: () => ({
-            clicked: 'clicked',
-            visible: true,
-          }),
-          computed: {
-            diagram: () => endent\`
-              graph TD
-                A --> B
-                click A href "https://google.com"
-                click B
-            \`,
-          },
-          methods: {
-            hide() {
-              this.visible = false
-            },
-            nodeClick(id) {
-              if (id === 'B') {
-                this.clicked1 = 'clicked'
-              }
-            },
-          },
-        }
-        </script>
+  await self.update({
+    props: {
+      value: endent`
+        graph TD
+          B --> C
       `,
-      async test({ port }) {
-        const callbackPrefix = 'mermaidClick_';
-        await this.page.goto(`http://localhost:${port}`);
-
-        await this.page.waitForSelector(
-          '.diagram a[*|href="https://google.com"] .node[id^=flowchart-A-]',
-        );
-
-        expect(
-          (
-            this.page.evaluate(() => Object.keys(window))
-            |> await
-            |> filter(key => key.startsWith(callbackPrefix))
-          ).length,
-        ).toEqual(1);
-
-        await this.page.click('.diagram .node[id^=flowchart-B-]');
-        await this.page.waitForSelector('.diagram.clicked');
-        await this.page.click('.hide-button');
-
-        expect(
-          (
-            this.page.evaluate(() => Object.keys(window))
-            |> await
-            |> filter(key => key.startsWith(callbackPrefix))
-          ).length,
-        ).toEqual(0);
-      },
     },
-    /* 'click: multiple diagrams': {
-      page: endent`
-        <template>
-          <div>
-            <button class="hide-button" @click="hide" />
-            <div>
-              <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
-              <self v-if="visible" :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
-            </div>
-          </div>
-        </template>
+  });
 
-        <script>
-        import { endent } from '@dword-design/functions'
+  await expect(self).toHaveScreenshot();
+});
 
-        export default {
-          data: () => ({
-            clicked1: 'not-clicked',
-            clicked2: 'not-clicked',
-            visible: true,
-          }),
-          computed: {
-            diagram: () => endent\`
-              graph TD
-                A --> B
-                click A href "https://google.com"
-                click B
-            \`,
-          },
-          methods: {
-            hide() {
-              this.visible = false
-            },
-            nodeClick1(id) {
-              if (id === 'B') {
-                this.clicked1 = 'clicked'
-              }
-            },
-            nodeClick2(id) {
-              if (id === 'B') {
-                this.clicked2 = 'clicked'
-              }
-            },
-          },
+test('click', async ({ page, mount }) => {
+  let wasNodeClicked = false;
+
+  const self = await mount(Self, {
+    props: {
+      onNodeClick: (nodeId: string) => {
+        if (nodeId === 'B') {
+          wasNodeClicked = true;
         }
-        </script>
-      `,
-      async test({ port }) {
-        const callbackPrefix = 'mermaidClick_'
-        await this.page.goto(`http://localhost:${port}`)
-        await this.page.waitForSelector(
-          '.diagram:first-child a[*|href="https://google.com"] .node[id^=flowchart-A-]',
-        )
-
-        expect(
-          (
-            this.page.evaluate(() => Object.keys(window))
-            |> await
-            |> filter(key => key.startsWith(callbackPrefix))
-          ).length,
-        ).toEqual(2)
-        await this.page.click('.diagram:first-child .node[id^=flowchart-B-]')
-        await this.page.waitForSelector('.diagram:first-child.clicked')
-        await this.page.waitForSelector('.diagram:last-child.not-clicked')
-        await this.page.click('.diagram:last-child .node[id^=flowchart-B-]')
-        await this.page.waitForSelector('.diagram:last-child.clicked')
-        await this.page.click('.hide-button')
-        expect(
-          (
-            this.page.evaluate(() => Object.keys(window))
-            |> await
-            |> filter(key => key.startsWith(callbackPrefix))
-          ).length,
-        ).toEqual(1)
       },
-    }, */
-    'error handling': {
-      page: endent`
-        <template>
-          <div v-if="error" class="foo">{{ error }}</div>
-          <self v-else class="foo" value="foo" @parse-error="error = $event" />
-        </template>
-
-        <script>
-        export default {
-          data: () => ({
-            error: undefined,
-          }),
-        }
-        </script>
+      value: endent`
+        graph TD
+          A --> B
+          click A href "https://google.com"
+          click B
       `,
-      async test({ port }) {
-        await this.page.goto(`http://localhost:${port}`);
-
-        await expect(this.page.locator('.foo')).toHaveText(
-          'UnknownDiagramError: No diagram type detected matching given configuration for text: foo',
-        );
-      },
     },
-    options: {
-      page: endent`
-        <template>
-          <self :class="{ foo: rendered }" :value="diagram" :options="{ maxTextSize: 3 }" @rendered="rendered = true" />
-        </template>
+  });
 
-        <script>
-        import { endent } from '@dword-design/functions'
+  await expect(
+    self.locator('a[*|href="https://google.com"] .node[id^=flowchart-A-]'),
+  ).toBeAttached();
 
-        export default {
-          data: () => ({ rendered: false }),
-          computed: {
-            diagram: () => endent\`
-              graph TD
-                A --> B
-            \`,
-          },
-        }
-        </script>
-      `,
-      async test({ port }) {
-        await this.page.goto(`http://localhost:${port}`);
+  let windowKeys = await page.evaluate(() => Object.keys(globalThis));
 
-        expect(
-          await this.page.locator('.foo svg').screenshot(),
-        ).toMatchImageSnapshot(this);
+  expect(
+    windowKeys.filter(key => key.startsWith(CALLBACK_PREFIX)).length,
+  ).toEqual(1);
+
+  await self.locator('.node[id^=flowchart-B-]').click();
+  expect(wasNodeClicked).toEqual(true);
+  await self.unmount();
+  windowKeys = await page.evaluate(() => Object.keys(globalThis));
+
+  expect(
+    windowKeys.filter(key => key.startsWith(CALLBACK_PREFIX)).length,
+  ).toEqual(0);
+});
+
+/* 'click: multiple diagrams': {
+  page: endent`
+    <template>
+      <div>
+        <button class="hide-button" @click="hide" />
+        <div>
+          <self :class="['diagram', clicked1]" :value="diagram" @node-click="nodeClick1" />
+          <self v-if="visible" :class="['diagram', clicked2]" :value="diagram" @node-click="nodeClick2" />
+        </div>
+      </div>
+    </template>
+
+    <script>
+    import { endent } from '@dword-design/functions'
+
+    export default {
+      data: () => ({
+        clicked1: 'not-clicked',
+        clicked2: 'not-clicked',
+        visible: true,
+      }),
+      computed: {
+        diagram: () => endent\`
+          graph TD
+            A --> B
+            click A href "https://google.com"
+            click B
+        \`,
       },
-    },
-    works: {
-      page: endent`
-        <template>
-          <self :class="{ foo: rendered }" :value="diagram" @rendered="rendered = true" />
-        </template>
-
-        <script>
-        import { endent } from '@dword-design/functions'
-
-        export default {
-          data: () => ({ rendered: false }),
-          computed: {
-            diagram: () => endent\`
-              graph TD
-                A --> B
-            \`,
-          },
-        }
-        </script>
-      `,
-      async test({ port }) {
-        await this.page.goto(`http://localhost:${port}`);
-
-        expect(
-          await this.page.locator('.foo svg').screenshot(),
-        ).toMatchImageSnapshot(this);
+      methods: {
+        hide() {
+          this.visible = false
+        },
+        nodeClick1(id) {
+          if (id === 'B') {
+            this.clicked1 = 'clicked'
+          }
+        },
+        nodeClick2(id) {
+          if (id === 'B') {
+            this.clicked2 = 'clicked'
+          }
+        },
       },
-    },
+    }
+    </script>
+  `,
+  async test({ port }) {
+    const callbackPrefix = 'mermaidClick_'
+    await this.page.goto(`http://localhost:${port}`)
+    await this.page.waitForSelector(
+      '.diagram:first-child a[*|href="https://google.com"] .node[id^=flowchart-A-]',
+    )
+
+    expect(
+      (
+        this.page.evaluate(() => Object.keys(window))
+        |> await
+        |> filter(key => key.startsWith(callbackPrefix))
+      ).length,
+    ).toEqual(2)
+    await this.page.click('.diagram:first-child .node[id^=flowchart-B-]')
+    await this.page.waitForSelector('.diagram:first-child.clicked')
+    await this.page.waitForSelector('.diagram:last-child.not-clicked')
+    await this.page.click('.diagram:last-child .node[id^=flowchart-B-]')
+    await this.page.waitForSelector('.diagram:last-child.clicked')
+    await this.page.click('.hide-button')
+    expect(
+      (
+        this.page.evaluate(() => Object.keys(window))
+        |> await
+        |> filter(key => key.startsWith(callbackPrefix))
+      ).length,
+    ).toEqual(1)
   },
-  [
-    testerPluginComponent({
-      componentPath: resolver.resolve('./index.vue'),
-      hasFindPort: true,
-    }),
-    {
-      async after() {
-        await this.browser.close();
-      },
-      async before() {
-        this.browser = await chromium.launch();
-        this.page = await this.browser.newPage();
-      },
+}, */
+test('error handling', async ({ mount }) => {
+  const error = await pTimeout<DetailedError>(
+    new Promise(resolve =>
+      mount(Self, {
+        props: {
+          onParseError: (_error: DetailedError) => resolve(_error),
+          value: 'foo',
+        },
+      }),
+    ),
+    { milliseconds: 5000 },
+  );
+
+  expect(error.message).toMatchSnapshot();
+});
+
+test('options', async ({ mount }) => {
+  const self = await mount(Self, {
+    props: {
+      options: { maxTextSize: 3 },
+      value: endent`
+        graph TD
+          A --> B
+      `,
     },
-  ],
-);
+  });
+
+  await expect(self).toHaveScreenshot();
+});
+
+test('works', async ({ mount }) => {
+  const self = await mount(Self, {
+    props: {
+      value: endent`
+        graph TD
+          A --> B
+      `,
+    },
+  });
+
+  await expect(self).toHaveScreenshot();
+});
