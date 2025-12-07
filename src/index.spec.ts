@@ -1,10 +1,11 @@
 import { expect, test } from '@playwright/test';
 import endent from 'endent';
-import type { DetailedError } from 'mermaid';
+import type { ParseErrorFunction } from 'mermaid';
 import pTimeout from 'p-timeout';
 
 import Self from './index.vue';
 
+type MermaidError = Parameters<ParseErrorFunction>[0];
 const CALLBACK_PREFIX = 'mermaidClick_';
 
 test('change value', async ({ mount }) => {
@@ -34,7 +35,7 @@ test('click', async ({ page, mount }) => {
 
   const self = await mount(Self, {
     props: {
-      onNodeClick: (nodeId: string) => {
+      'onNode-click': (nodeId: string) => {
         if (nodeId === 'B') {
           wasNodeClicked = true;
         }
@@ -145,11 +146,11 @@ test('click', async ({ page, mount }) => {
   },
 }, */
 test('error handling', async ({ mount }) => {
-  const error = await pTimeout<DetailedError>(
+  const error = await pTimeout<MermaidError>(
     new Promise(resolve =>
       mount(Self, {
         props: {
-          onParseError: (_error: DetailedError) => resolve(_error),
+          'onParse-error': (_error: MermaidError) => resolve(_error),
           value: 'foo',
         },
       }),
@@ -157,7 +158,7 @@ test('error handling', async ({ mount }) => {
     { milliseconds: 5000 },
   );
 
-  expect(error.message).toMatchSnapshot();
+  expect(error instanceof Error ? error.message : error).toMatchSnapshot();
 });
 
 test('options', async ({ mount }) => {
