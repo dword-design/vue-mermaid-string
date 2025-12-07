@@ -1,99 +1,97 @@
 <template>
-  <div>{{ finalValue }}</div>
+  <div ref="root">{{ finalValue }}</div>
 </template>
 
-<script>
+<script setup lang="ts">
 import mermaid from 'mermaid';
 import { nanoid } from 'nanoid';
+import { onBeforeUnmount, ref, watch } from 'vue';
 
-import addClickEvent from './add-click-event.js';
+import addClickEvent from './add-click-event';
 
-export default {
-  beforeUnmount() {
-    if (typeof window === 'undefined') {
+const props = defineProps<{
+  options: Record<string, unknown>;
+  value: string;
+}>();
+
+const root = useTemplateRef('root');
+const id = ref();
+const finalValue = computed(() => addClickEvent(props.value, { id: id.value }));
+const allData = computed(() => [finalValue.value, id.value]);
+
+onBeforeUnmount(() => {
+  if (globalThis.window === undefined) {
+    return;
+  }
+
+  delete window[`mermaidClick_${this.id}`];
+});
+
+onMounted(() => {
+  if (globalThis.window === undefined) {
+    return;
+  }
+
+  mermaid.initialize({
+    securityLevel: 'loose',
+    startOnLoad: false,
+    theme: 'default',
+    ...this.options,
+  });
+
+  id.value = nanoid();
+});
+
+watch(
+  allData,
+  async () => {
+    if (globalThis.window === undefined) {
       return;
     }
 
-    delete window[`mermaidClick_${this.id}`];
-  },
-  computed: {
-    allData() {
-      return [this.finalValue, this.id];
-    },
-    finalValue() {
-      return addClickEvent(this.value, { id: this.id });
-    },
-  },
-  data: () => ({ id: undefined }),
-  emits: ['node-click', 'parse-error', 'rendered'],
-  mounted() {
-    if (typeof window === 'undefined') {
+    if (!finalValue.value) {
       return;
     }
 
-    mermaid.initialize({
-      securityLevel: 'loose',
-      startOnLoad: false,
-      theme: 'default',
-      ...this.options,
-    });
+    if (!id.value) {
+      return;
+    }
 
-    this.id = nanoid();
+    delete this.$el.dataset.processed;
+    mermaid.parseError = error => this.$emit('parse-error', error);
+
+    try {
+      await mermaid.run({
+        nodes: [root.value],
+        postRenderCallback: () => this.$emit('rendered'),
+      });
+    } catch {
+      // Mermaid will throw the error although the parseError function is set
+    }
   },
-  name: 'VueMermaidString',
-  props: {
-    options: { default: () => ({}), type: Object },
-    value: { required: true, type: String },
+  { flush: 'post', immediate: true },
+);
+
+watch(
+  id,
+  (id, previousId) => {
+    if (globalThis.window === undefined) {
+      return;
+    }
+
+    if (previousId) {
+      delete window[`mermaidClick_${previousId}`];
+    }
+
+    if (!this.id) {
+      return;
+    }
+
+    window[`mermaidClick_${id.value}`] = nodeId =>
+      this.$emit('node-click', nodeId);
   },
-  watch: {
-    allData: {
-      flush: 'post',
-      async handler() {
-        if (typeof window === 'undefined') {
-          return;
-        }
+  { immediate: true },
+);
 
-        if (!this.finalValue) {
-          return;
-        }
-
-        if (!this.id) {
-          return;
-        }
-
-        this.$el.removeAttribute('data-processed');
-        mermaid.parseError = error => this.$emit('parse-error', error);
-
-        try {
-          await mermaid.run({
-            nodes: [this.$el],
-            postRenderCallback: () => this.$emit('rendered'),
-          });
-        } catch {
-          // Mermaid will throw the error although the parseError function is set
-        }
-      },
-      immediate: true,
-    },
-    id: {
-      handler(id, previousId) {
-        if (typeof window === 'undefined') {
-          return;
-        }
-
-        if (previousId) {
-          delete window[`mermaidClick_${previousId}`];
-        }
-
-        if (!this.id) {
-          return;
-        }
-
-        window[`mermaidClick_${this.id}`] = nodeId =>
-          this.$emit('node-click', nodeId);
-      },
-      immediate: true,
-    },
-  },
-};
+defineEmits(['node-click', 'parse-error', 'rendered']);
 </script>

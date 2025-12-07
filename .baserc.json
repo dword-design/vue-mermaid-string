@@ -1,12 +1,12 @@
 {
-  "name": "@dword-design/component",
-  "testInContainer": true,
-  "seeAlso": [
-    { "repository": "nuxt-mermaid-string", "description": "Embed a Mermaid diagram in a Nuxt.js app by providing its diagram string." }
-  ],
   "depcheckConfig": {
     "ignoreMatches": [
       "playwright-chromium"
     ]
-  }
+  },
+  "name": "@dword-design/component",
+  "seeAlso": [
+    { "description": "Embed a Mermaid diagram in a Nuxt.js app by providing its diagram string.", "repository": "nuxt-mermaid-string" }
+  ],
+  "testInContainer": true
 }

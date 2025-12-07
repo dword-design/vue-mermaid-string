@@ -7,7 +7,14 @@
   "license": "MIT",
   "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
   "type": "module",
-  "exports": "./dist/index.esm.js",
+  "exports": {
+    ".": {
+      "import": {
+        "default": "./dist/index.esm.js",
+        "types": "./dist/entry.d.ts"
+      }
+    }
+  },
   "main": "dist/index.esm.js",
   "unpkg": "dist/index.min.js",
   "browser": "dist/index.min.js",
@@ -15,6 +22,7 @@
     "dist"
   ],
   "scripts": {
+    "build": "base build",
     "checkUnknownFiles": "base checkUnknownFiles",
     "commit": "base commit",
     "depcheck": "base depcheck",
@@ -22,25 +30,23 @@
     "prepare": "base prepare",
     "prepublishOnly": "base prepublishOnly",
     "test": "base test",
-    "test:raw": "base test:raw"
+    "test:raw": "base test:raw",
+    "typecheck": "base typecheck",
+    "verify": "base verify"
   },
   "dependencies": {
+    "endent": "npm:@dword-design/endent@^1.4.7",
     "mermaid": "^11.4.0",
     "nanoid": "^5.0.8"
   },
   "devDependencies": {
-    "@dword-design/base": "^11.2.6",
-    "@dword-design/base-config-component": "^4.0.1",
-    "@dword-design/functions": "^6.0.1",
-    "@dword-design/tester": "^2.0.19",
-    "@dword-design/tester-plugin-component": "^5.1.0",
-    "@playwright/test": "^1.48.2",
-    "playwright": "^1.48.2",
-    "playwright-chromium": "^1.48.2"
+    "@dword-design/base": "^16",
+    "@dword-design/base-config-component": "^7.0.1",
+    "@playwright/test": "^1.48.2"
   },
   "packageManager": "pnpm@9.13.1+sha256.dd98691b127b5d2c4d0605b594e98ec0bcbe5fba86358184de706c3312a4e2ee",
   "engines": {
-    "node": ">=18"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
