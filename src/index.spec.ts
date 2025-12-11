@@ -27,7 +27,11 @@ test('change value', async ({ mount }) => {
     },
   });
 
-  await new Promise(resolve => setTimeout(resolve, 10_000));
+  // Wait for SVG to be fully rendered
+  await self.locator('svg').waitFor({ state: 'visible' });
+  await self.locator('svg [id*="flowchart-C-"]').waitFor({ state: 'visible' });
+  // Additional small delay to ensure all rendering is complete
+  await new Promise(resolve => setTimeout(resolve, 500));
   await expect(self.locator('svg')).toHaveScreenshot();
 });
 
@@ -173,7 +177,10 @@ test('options', async ({ mount }) => {
     },
   });
 
-  await new Promise(resolve => setTimeout(resolve, 10_000));
+  // Wait for SVG to be fully rendered
+  await self.locator('svg').waitFor({ state: 'visible' });
+  // Additional small delay to ensure all rendering is complete
+  await new Promise(resolve => setTimeout(resolve, 500));
   await expect(self.locator('svg')).toHaveScreenshot();
 });
 
@@ -187,6 +194,11 @@ test('works', async ({ mount }) => {
     },
   });
 
-  await new Promise(resolve => setTimeout(resolve, 10_000));
+  // Wait for SVG to be fully rendered
+  await self.locator('svg').waitFor({ state: 'visible' });
+  await self.locator('svg [id*="flowchart-A-"]').waitFor({ state: 'visible' });
+  await self.locator('svg [id*="flowchart-B-"]').waitFor({ state: 'visible' });
+  // Additional small delay to ensure all rendering is complete
+  await new Promise(resolve => setTimeout(resolve, 500));
   await expect(self.locator('svg')).toHaveScreenshot();
 });
