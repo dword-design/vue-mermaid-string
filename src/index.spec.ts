@@ -27,7 +27,7 @@ test('change value', async ({ mount }) => {
     },
   });
 
-  await expect(self).toHaveScreenshot();
+  await expect(self.locator('svg')).toHaveScreenshot();
 });
 
 test('click', async ({ page, mount }) => {
@@ -172,7 +172,7 @@ test('options', async ({ mount }) => {
     },
   });
 
-  await expect(self).toHaveScreenshot();
+  await expect(self.locator('svg')).toHaveScreenshot();
 });
 
 test('works', async ({ mount }) => {
@@ -185,5 +185,5 @@ test('works', async ({ mount }) => {
     },
   });
 
-  await expect(self).toHaveScreenshot();
+  await expect(self.locator('svg')).toHaveScreenshot();
 });
