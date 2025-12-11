@@ -166,7 +166,9 @@ test('error handling', async ({ mount }) => {
   expect(error instanceof Error ? error.message : error).toMatchSnapshot();
 });
 
-test('options', async ({ mount }) => {
+test('options', async ({ browser, mount }) => {
+  console.log('Browser version:', browser.version());
+
   const self = await mount(Self, {
     props: {
       options: { maxTextSize: 3 },
