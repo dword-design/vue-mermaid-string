@@ -179,6 +179,7 @@ test('options', async ({ mount }) => {
 
   // Wait for SVG to be fully rendered
   await self.locator('svg').waitFor({ state: 'visible' });
+  console.log(await self.evaluate(el => el.outerHTML));
   // Additional small delay to ensure all rendering is complete
   await new Promise(resolve => setTimeout(resolve, 500));
   await expect(self.locator('svg')).toHaveScreenshot();
