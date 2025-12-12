@@ -1,99 +1,93 @@
 <template>
-  <div>{{ finalValue }}</div>
+  <div ref="root">{{ finalValue }}</div>
 </template>
 
-<script>
-import mermaid from 'mermaid';
+<script setup lang="ts">
+import mermaid, { type MermaidConfig, type ParseErrorFunction } from 'mermaid';
 import { nanoid } from 'nanoid';
+import {
+  computed,
+  nextTick,
+  onBeforeUnmount,
+  onMounted,
+  useTemplateRef,
+  watch,
+} from 'vue';
 
-import addClickEvent from './add-click-event.js';
+import addClickEvent from './add-click-event';
 
-export default {
-  beforeUnmount() {
-    if (typeof window === 'undefined') {
+type MermaidError = Parameters<ParseErrorFunction>[0];
+declare global {
+  interface Window {
+    [key: `mermaidClick_${string}`]: (nodeId: string) => void;
+  }
+}
+
+const props = withDefaults(
+  defineProps<{ options?: MermaidConfig; value: string }>(),
+  { options: () => ({}) },
+);
+
+const emit = defineEmits<{
+  'node-click': [nodeId: string];
+  'parse-error': [error: MermaidError];
+  rendered: [];
+}>();
+
+const maybeRoot = useTemplateRef('root');
+const id = nanoid();
+const root = computed(() => maybeRoot.value!);
+const finalValue = computed(() => addClickEvent(props.value, { id }));
+const allData = computed(() => [finalValue.value, id]);
+
+onBeforeUnmount(() => {
+  if (globalThis.window === undefined) {
+    return;
+  }
+
+  delete window[`mermaidClick_${id}`];
+});
+
+onMounted(() => {
+  if (globalThis.window === undefined) {
+    return;
+  }
+
+  mermaid.initialize({
+    securityLevel: 'loose',
+    startOnLoad: false,
+    theme: 'default',
+    ...props.options,
+  });
+
+  window[`mermaidClick_${id}`] = nodeId => emit('node-click', nodeId);
+});
+
+watch(
+  allData,
+  async () => {
+    if (globalThis.window === undefined) {
       return;
     }
 
-    delete window[`mermaidClick_${this.id}`];
-  },
-  computed: {
-    allData() {
-      return [this.finalValue, this.id];
-    },
-    finalValue() {
-      return addClickEvent(this.value, { id: this.id });
-    },
-  },
-  data: () => ({ id: undefined }),
-  emits: ['node-click', 'parse-error', 'rendered'],
-  mounted() {
-    if (typeof window === 'undefined') {
+    if (!finalValue.value) {
       return;
     }
 
-    mermaid.initialize({
-      securityLevel: 'loose',
-      startOnLoad: false,
-      theme: 'default',
-      ...this.options,
+    await nextTick(async () => {
+      delete root.value.dataset.processed;
+      mermaid.parseError = error => emit('parse-error', error);
+
+      try {
+        await mermaid.run({
+          nodes: [root.value],
+          postRenderCallback: () => emit('rendered'),
+        });
+      } catch {
+        // Mermaid will throw the error although the parseError function is set
+      }
     });
-
-    this.id = nanoid();
   },
-  name: 'VueMermaidString',
-  props: {
-    options: { default: () => ({}), type: Object },
-    value: { required: true, type: String },
-  },
-  watch: {
-    allData: {
-      flush: 'post',
-      async handler() {
-        if (typeof window === 'undefined') {
-          return;
-        }
-
-        if (!this.finalValue) {
-          return;
-        }
-
-        if (!this.id) {
-          return;
-        }
-
-        this.$el.removeAttribute('data-processed');
-        mermaid.parseError = error => this.$emit('parse-error', error);
-
-        try {
-          await mermaid.run({
-            nodes: [this.$el],
-            postRenderCallback: () => this.$emit('rendered'),
-          });
-        } catch {
-          // Mermaid will throw the error although the parseError function is set
-        }
-      },
-      immediate: true,
-    },
-    id: {
-      handler(id, previousId) {
-        if (typeof window === 'undefined') {
-          return;
-        }
-
-        if (previousId) {
-          delete window[`mermaidClick_${previousId}`];
-        }
-
-        if (!this.id) {
-          return;
-        }
-
-        window[`mermaidClick_${this.id}`] = nodeId =>
-          this.$emit('node-click', nodeId);
-      },
-      immediate: true,
-    },
-  },
-};
+  { flush: 'post', immediate: true },
+);
 </script>
