@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v7.0.0...v8.0.0) (2025-12-12)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#223](https://github.com/dword-design/vue-mermaid-string/issues/223)) ([ae0052c](https://github.com/dword-design/vue-mermaid-string/commit/ae0052c2419a503523c5ee588802f97a0d721d1f))
+
+
+### BREAKING CHANGES
+
+* node.js >= 22
+
 # [7.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v6.0.1...v7.0.0) (2024-11-15)
 
 
