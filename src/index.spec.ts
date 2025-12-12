@@ -159,7 +159,9 @@ test('error handling', async ({ mount }) => {
     { milliseconds: 5000 },
   );
 
-  expect(error instanceof Error ? error.message : error).toMatchSnapshot();
+  expect(error instanceof Error ? error.message : error).toMatch(
+    'No diagram type detected matching given configuration for text: foo',
+  );
 });
 
 test('options', async ({ mount }) => {
