@@ -1,3 +1,10 @@
+## [8.0.1](https://github.com/dword-design/vue-mermaid-string/compare/v8.0.0...v8.0.1) (2025-12-15)
+
+
+### Bug Fixes
+
+* remove delays ([a62b913](https://github.com/dword-design/vue-mermaid-string/commit/a62b913d614232c4f023c805a3120a90f9ccd0d9))
+
 # [8.0.0](https://github.com/dword-design/vue-mermaid-string/compare/v7.0.0...v8.0.0) (2025-12-12)
 
 
