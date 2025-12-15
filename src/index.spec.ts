@@ -27,7 +27,6 @@ test('change value', async ({ mount }) => {
     },
   });
 
-  await new Promise(resolve => setTimeout(resolve, 10_000));
   await expect(self.locator('svg')).toHaveScreenshot();
 });
 
@@ -175,7 +174,6 @@ test('options', async ({ mount }) => {
     },
   });
 
-  await new Promise(resolve => setTimeout(resolve, 10_000));
   await expect(self.locator('svg')).toHaveScreenshot();
 });
 
@@ -189,6 +187,5 @@ test('works', async ({ mount }) => {
     },
   });
 
-  await new Promise(resolve => setTimeout(resolve, 10_000));
   await expect(self.locator('svg')).toHaveScreenshot();
 });
