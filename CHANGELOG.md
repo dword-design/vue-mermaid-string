@@ -1,3 +1,10 @@
+## [8.0.2](https://github.com/dword-design/vue-mermaid-string/compare/v8.0.1...v8.0.2) (2025-12-28)
+
+
+### Bug Fixes
+
+* update pnpm to v10.26.2 ([#225](https://github.com/dword-design/vue-mermaid-string/issues/225)) ([a48439c](https://github.com/dword-design/vue-mermaid-string/commit/a48439cf3feaebfdee214cb3c9021fcf1d2c6718))
+
 ## [8.0.1](https://github.com/dword-design/vue-mermaid-string/compare/v8.0.0...v8.0.1) (2025-12-15)
 
 
