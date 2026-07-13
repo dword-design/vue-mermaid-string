@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test';
 import endent from 'endent';
-import type { ParseErrorFunction } from 'mermaid';
+import type { MermaidConfig, ParseErrorFunction } from 'mermaid';
 import pTimeout from 'p-timeout';
+import { defineComponent } from 'vue';
 
 import Self from './index.vue';
 
@@ -28,6 +29,60 @@ test('change value', async ({ mount }) => {
   });
 
   await expect(self.locator('svg')).toHaveScreenshot();
+});
+
+test('per-component initialize overrides config', async ({ mount }) => {
+  const Wrapper = defineComponent({
+    components: { Self },
+    props: ['optionsA', 'valueA', 'valueB'],
+    emits: ['parse-error'],
+    setup(_props: { optionsA: MermaidConfig; valueA: string; valueB: string }, { emit }) {
+      const onParseError = (error: MermaidError) => emit('parse-error', error);
+
+      return { onParseError };
+    },
+    template: `
+      <div>
+        <Self class="first" :value="valueA" :options="optionsA" @parse-error="onParseError" />
+        <Self class="second" :value="valueB" />
+      </div>
+    `,
+  });
+
+  const longLabel = 'x'.repeat(40);
+  let resolveError!: (error: MermaidError) => void;
+  const errorPromise = pTimeout<MermaidError>(
+    new Promise(resolve => {
+      resolveError = resolve;
+    }),
+    { milliseconds: 3000 },
+  );
+
+  const self = await mount(Wrapper, {
+    props: {
+      optionsA: { maxTextSize: 10 },
+      valueA: endent`
+        graph TD
+          A[short] --> B
+      `,
+      valueB: endent`
+        graph TD
+          C --> D
+      `,
+      'onParse-error': (error: MermaidError) => resolveError(error),
+    },
+  });
+
+  await self.update({
+    props: {
+      valueA: endent`
+        graph TD
+          A[${longLabel}] --> B
+      `,
+    },
+  });
+
+  await errorPromise;
 });
 
 test('click', async ({ page, mount }) => {
