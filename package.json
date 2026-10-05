@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "mermaid": "^11.4.0",
-    "nanoid": "^5.0.8"
+    "nanoid": "^6.0.0"
   },
   "devDependencies": {
     "@dword-design/base": "^16",
