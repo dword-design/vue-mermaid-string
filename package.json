@@ -44,7 +44,7 @@
     "@playwright/browser-chromium": "^1.57.0",
     "@playwright/test": "npm:@playwright/experimental-ct-vue@^1.57.0",
     "endent": "npm:@dword-design/endent@^1.4.7",
-    "p-timeout": "^7.0.1"
+    "p-timeout": "^8.0.0"
   },
   "peerDependencies": {
     "vue": "*"
