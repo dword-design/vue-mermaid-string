@@ -30,6 +30,41 @@ test('change value', async ({ mount }) => {
   await expect(self.locator('svg')).toHaveScreenshot();
 });
 
+test('change value: keeps previous diagram until new one is rendered', async ({
+  mount,
+}) => {
+  const self = await mount(Self, {
+    props: {
+      value: endent`
+        graph TD
+          A --> B
+      `,
+    },
+  });
+
+  await expect(self.locator('.node[id*=flowchart-B-]')).toBeAttached();
+
+  await self.evaluate(root =>
+    new MutationObserver(() => {
+      if (!root.querySelector('svg')) {
+        root.dataset.svgMissing = 'true';
+      }
+    }).observe(root, { characterData: true, childList: true, subtree: true }),
+  );
+
+  await self.update({
+    props: {
+      value: endent`
+        graph TD
+          B --> C
+      `,
+    },
+  });
+
+  await expect(self.locator('.node[id*=flowchart-C-]')).toBeAttached();
+  await expect(self).not.toHaveAttribute('data-svg-missing');
+});
+
 test('click', async ({ page, mount }) => {
   let wasNodeClicked = false;
 

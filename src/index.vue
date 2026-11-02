@@ -1,5 +1,5 @@
 <template>
-  <div ref="root">{{ finalValue }}</div>
+  <div ref="root"></div>
 </template>
 
 <script setup lang="ts">
@@ -63,6 +63,9 @@ onMounted(() => {
   window[`mermaidClick_${id}`] = nodeId => emit('node-click', nodeId);
 });
 
+let renderCount = 0;
+
+// Render off-DOM first and swap the SVG in once ready, so the previous chart stays visible meanwhile.
 watch(
   allData,
   async () => {
@@ -74,19 +77,28 @@ watch(
       return;
     }
 
-    await nextTick(async () => {
-      delete root.value.dataset.processed;
-      mermaid.parseError = error => emit('parse-error', error);
+    await nextTick();
+    const currentRender = ++renderCount;
+    mermaid.parseError = error => emit('parse-error', error);
 
-      try {
-        await mermaid.run({
-          nodes: [root.value],
-          postRenderCallback: () => emit('rendered'),
-        });
-      } catch {
-        // Mermaid will throw the error although the parseError function is set
+    try {
+      const { svg, bindFunctions } = await mermaid.render(
+        // Prefixed because mermaid uses the id as a CSS selector and nanoid ids may start with a digit
+        `mermaid-${id}-${currentRender}`,
+        finalValue.value,
+      );
+
+      // Skip stale renders if a newer value has been requested meanwhile
+      if (currentRender !== renderCount) {
+        return;
       }
-    });
+
+      root.value.innerHTML = svg;
+      bindFunctions?.(root.value);
+      emit('rendered');
+    } catch {
+      // Mermaid will throw the error although the parseError function is set
+    }
   },
   { flush: 'post', immediate: true },
 );
