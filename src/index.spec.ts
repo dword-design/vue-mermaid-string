@@ -163,6 +163,57 @@ test('error handling', async ({ mount }) => {
   );
 });
 
+test('themeCSS updates when options change', async ({ mount }) => {
+  const diagram = endent`
+    graph TD
+      A --> B
+  `;
+
+  const nodeShape = '.node rect, .node polygon, .node path';
+
+  const self = await mount(Self, {
+    props: {
+      options: { themeCSS: `${nodeShape} { fill: red !important; }` },
+      value: diagram,
+    },
+  });
+
+  await expect(self.locator(nodeShape).first()).toHaveCSS(
+    'fill',
+    'rgb(255, 0, 0)',
+  );
+
+  await self.update({
+    props: {
+      options: { themeCSS: `${nodeShape} { fill: red !important; }` },
+      value: endent`
+        graph TD
+          B --> C
+      `,
+    },
+  });
+
+  await expect(self.locator(nodeShape).first()).toHaveCSS(
+    'fill',
+    'rgb(255, 0, 0)',
+  );
+
+  await self.update({
+    props: {
+      options: { themeCSS: `${nodeShape} { fill: blue !important; }` },
+      value: endent`
+        graph TD
+          B --> C
+      `,
+    },
+  });
+
+  await expect(self.locator(nodeShape).first()).toHaveCSS(
+    'fill',
+    'rgb(0, 0, 255)',
+  );
+});
+
 test('options', async ({ mount }) => {
   const self = await mount(Self, {
     props: {
